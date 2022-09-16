@@ -29,21 +29,11 @@ public class mainJFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         mainPanel = new javax.swing.JPanel();
-        splashScreen1 = new com.mycompany.pointandclickswingproject.SplashScreen();
         menuScreen1 = new com.mycompany.pointandclickswingproject.MenuScreen();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowActivated(java.awt.event.WindowEvent evt) {
-                formWindowActivated(evt);
-            }
-            public void windowOpened(java.awt.event.WindowEvent evt) {
-                formWindowOpened(evt);
-            }
-        });
 
         mainPanel.setLayout(new java.awt.CardLayout());
-        mainPanel.add(splashScreen1, "card3");
         mainPanel.add(menuScreen1, "card5");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -60,32 +50,6 @@ public class mainJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        // TODO add your handling code here:
-        ActionListener hideScreen = new ActionListener(){
-        public void actionPerformed(ActionEvent evt) {
-                //...Perform a task...
-                splashScreen1.setVisible(false);
-            }
-        };
-                
-        Timer timer = new Timer(3000, hideScreen);
-        timer.start();
-    }//GEN-LAST:event_formWindowOpened
-
-    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        // TODO add your handling code here:
-        ActionListener hideScreen = new ActionListener(){
-            public void actionPerformed(ActionEvent evt) {
-                //...Perform a task...
-                splashScreen1.setVisible(false);
-            }
-        };
-                
-        Timer timer = new Timer(3000, hideScreen);
-        timer.start();
-    }//GEN-LAST:event_formWindowActivated
-
     /**
      * @param args the command line arguments
      */
@@ -93,6 +57,5 @@ public class mainJFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel mainPanel;
     private com.mycompany.pointandclickswingproject.MenuScreen menuScreen1;
-    private com.mycompany.pointandclickswingproject.SplashScreen splashScreen1;
     // End of variables declaration//GEN-END:variables
 }
