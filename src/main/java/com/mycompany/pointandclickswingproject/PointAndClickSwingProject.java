@@ -11,7 +11,7 @@ import javax.swing.SwingUtilities;
  *
  * @author sirmu
  */
-public class HangmanGameDemo {
+public class PointAndClickSwingProject {
 
         public static void main(String args[]) {
         /* Set the Nimbus look and feel */
