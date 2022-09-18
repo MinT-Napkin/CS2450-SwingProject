@@ -27,10 +27,13 @@ public class GameScreen extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        myScore = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(600, 400));
 
         jLabel1.setText("Game");
+
+        myScore.setText("0");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -40,18 +43,25 @@ public class GameScreen extends javax.swing.JPanel {
                 .addGap(153, 153, 153)
                 .addComponent(jLabel1)
                 .addContainerGap(416, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(358, Short.MAX_VALUE)
+                .addComponent(myScore)
+                .addGap(235, 235, 235))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(155, 155, 155)
                 .addComponent(jLabel1)
-                .addContainerGap(229, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 152, Short.MAX_VALUE)
+                .addComponent(myScore)
+                .addGap(59, 59, 59))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    public javax.swing.JLabel myScore;
     // End of variables declaration//GEN-END:variables
 }

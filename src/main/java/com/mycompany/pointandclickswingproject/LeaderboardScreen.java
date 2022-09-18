@@ -4,6 +4,8 @@
  */
 package com.mycompany.pointandclickswingproject;
 
+import static com.mycompany.pointandclickswingproject.PointAndClickSwingProject.w;
+
 /**
  *
  * @author Nikhil
@@ -16,7 +18,7 @@ public class LeaderboardScreen extends javax.swing.JPanel {
     public LeaderboardScreen() {
         initComponents();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -26,30 +28,104 @@ public class LeaderboardScreen extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        highScoreLabel = new javax.swing.JLabel();
+        highScore2 = new javax.swing.JLabel();
+        highScore5 = new javax.swing.JLabel();
+        highScore4 = new javax.swing.JLabel();
+        highScore1 = new javax.swing.JLabel();
+        highScore3 = new javax.swing.JLabel();
+        backToMenu = new javax.swing.JButton();
 
-        jLabel1.setText("jLabel1");
+        setBackground(new java.awt.Color(1, 66, 106));
+
+        highScoreLabel.setFont(new java.awt.Font("Heiti TC", 1, 36)); // NOI18N
+        highScoreLabel.setForeground(new java.awt.Color(225, 181, 0));
+        highScoreLabel.setText("Leaderboard");
+
+        highScore2.setFont(new java.awt.Font("Helvetica", 0, 24)); // NOI18N
+        highScore2.setForeground(new java.awt.Color(206, 184, 136));
+        highScore2.setText("ABC.....00000");
+
+        highScore5.setFont(new java.awt.Font("Helvetica", 0, 24)); // NOI18N
+        highScore5.setForeground(new java.awt.Color(206, 184, 136));
+        highScore5.setText("ABC.....00000");
+
+        highScore4.setFont(new java.awt.Font("Helvetica", 0, 24)); // NOI18N
+        highScore4.setForeground(new java.awt.Color(206, 184, 136));
+        highScore4.setText("ABC.....00000");
+
+        highScore1.setFont(new java.awt.Font("Helvetica", 0, 24)); // NOI18N
+        highScore1.setForeground(new java.awt.Color(206, 184, 136));
+        highScore1.setText("ABC.....00000");
+
+        highScore3.setFont(new java.awt.Font("Helvetica", 0, 24)); // NOI18N
+        highScore3.setForeground(new java.awt.Color(206, 184, 136));
+        highScore3.setText("ABC.....00000");
+
+        backToMenu.setFont(new java.awt.Font("Helvetica", 0, 13)); // NOI18N
+        backToMenu.setText("Back");
+        backToMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backToMenuActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(123, 123, 123)
-                .addComponent(jLabel1)
-                .addContainerGap(440, Short.MAX_VALUE))
+                .addGap(17, 17, 17)
+                .addComponent(backToMenu)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(189, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(highScore1)
+                            .addComponent(highScore2)
+                            .addComponent(highScore3)
+                            .addComponent(highScore4)
+                            .addComponent(highScore5))
+                        .addGap(227, 227, 227))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(highScoreLabel)
+                        .addGap(182, 182, 182))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(139, 139, 139)
-                .addComponent(jLabel1)
-                .addContainerGap(245, Short.MAX_VALUE))
+                .addGap(46, 46, 46)
+                .addComponent(highScoreLabel)
+                .addGap(35, 35, 35)
+                .addComponent(highScore1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(highScore2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(highScore3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(highScore4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(highScore5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
+                .addComponent(backToMenu)
+                .addGap(16, 16, 16))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void backToMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backToMenuActionPerformed
+        w.switchPanes("menu"); 
+    }//GEN-LAST:event_backToMenuActionPerformed
 
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton backToMenu;
+    private javax.swing.JLabel highScore1;
+    private javax.swing.JLabel highScore2;
+    private javax.swing.JLabel highScore3;
+    private javax.swing.JLabel highScore4;
+    private javax.swing.JLabel highScore5;
+    private javax.swing.JLabel highScoreLabel;
     // End of variables declaration//GEN-END:variables
 }
