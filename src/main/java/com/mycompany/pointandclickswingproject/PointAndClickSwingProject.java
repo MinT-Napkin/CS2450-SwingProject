@@ -17,7 +17,7 @@ import javax.swing.SwingUtilities;
  */
 public class PointAndClickSwingProject {
     
-    public static mainJFrame w;
+    public static MainJFrame w;
 
         public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -33,13 +33,13 @@ public class PointAndClickSwingProject {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(mainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(mainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(mainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(mainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -53,7 +53,12 @@ public class PointAndClickSwingProject {
                     JPanel leaderboardScreen = new com.mycompany.pointandclickswingproject.LeaderboardScreen();
                     JPanel gameScreen = new com.mycompany.pointandclickswingproject.GameScreen();
                     JPanel creditsScreen = new com.mycompany.pointandclickswingproject.CreditsScreen();
-                    w = new mainJFrame(splashScreen, menuScreen, leaderboardScreen, gameScreen, creditsScreen);
+//                    JPanel gameOverScreen = new com.mycompany.pointandclickswingproject.GameOverScreen();
+                    w = new MainJFrame(splashScreen, 
+                            menuScreen, 
+                            leaderboardScreen,
+                            gameScreen,
+                            creditsScreen);
                     w.setLocationRelativeTo(null);
                 } catch (InterruptedException ex) {
                     Logger.getLogger(PointAndClickSwingProject.class.getName()).log(Level.SEVERE, null, ex);
