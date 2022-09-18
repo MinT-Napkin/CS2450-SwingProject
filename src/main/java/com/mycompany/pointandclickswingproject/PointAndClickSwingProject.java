@@ -5,6 +5,8 @@
 
 package com.mycompany.pointandclickswingproject;
 import java.awt.event.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 import javax.swing.SwingUtilities;
@@ -45,12 +47,16 @@ public class PointAndClickSwingProject {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                JPanel splashScreen = new com.mycompany.pointandclickswingproject.SplashScreen();
-                JPanel menuScreen = new com.mycompany.pointandclickswingproject.MenuScreen();
-                JPanel leaderboardScreen = new com.mycompany.pointandclickswingproject.LeaderboardScreen();
-                JPanel gameScreen = new com.mycompany.pointandclickswingproject.GameScreen();
-                JPanel creditsScreen = new com.mycompany.pointandclickswingproject.CreditsScreen();
-                w = new mainJFrame(splashScreen, menuScreen, leaderboardScreen, gameScreen, creditsScreen);
+                try {
+                    JPanel splashScreen = new com.mycompany.pointandclickswingproject.SplashScreen();
+                    JPanel menuScreen = new com.mycompany.pointandclickswingproject.MenuScreen();
+                    JPanel leaderboardScreen = new com.mycompany.pointandclickswingproject.LeaderboardScreen();
+                    JPanel gameScreen = new com.mycompany.pointandclickswingproject.GameScreen();
+                    JPanel creditsScreen = new com.mycompany.pointandclickswingproject.CreditsScreen();
+                    w = new mainJFrame(splashScreen, menuScreen, leaderboardScreen, gameScreen, creditsScreen);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(PointAndClickSwingProject.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

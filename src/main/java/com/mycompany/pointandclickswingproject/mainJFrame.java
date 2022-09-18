@@ -3,12 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.pointandclickswingproject;
-import java.awt.event.*;
-import javax.swing.Timer;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 import java.awt.Dimension;
 import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.Timer;
 
 /**
  *
@@ -32,7 +33,7 @@ public class mainJFrame extends javax.swing.JFrame {
      * @param gameScreen1
      * @param creditsScreen1
      */
-    public mainJFrame(JPanel splashScreen1, JPanel menuScreen1, JPanel leaderboardScreen1, JPanel gameScreen1, JPanel creditsScreen1) {
+    public mainJFrame(JPanel splashScreen1, JPanel menuScreen1, JPanel leaderboardScreen1, JPanel gameScreen1, JPanel creditsScreen1) throws InterruptedException {
         setTitle("SwingBeans - Swing Project v1.0");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
@@ -48,18 +49,25 @@ public class mainJFrame extends javax.swing.JFrame {
         mainPane.add(GAME, gameScreen1);
         mainPane.add(CREDITS, creditsScreen1);
         
-        cLayout.show(mainPane, MENU);
+        cLayout.show(mainPane, SPLASH);
 
         setLayout(new BorderLayout());
         add(mainPane,BorderLayout.CENTER);
         pack();
         setVisible(true);
+        
+        Timer timer = new Timer(3000, new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                cLayout.show(mainPane, MENU);
+            }
+        });
+        timer.setRepeats(false);
+        timer.start();
     }
  
     void switchPanes(String swap) {
         cLayout.show(mainPane, swap);
     }
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
