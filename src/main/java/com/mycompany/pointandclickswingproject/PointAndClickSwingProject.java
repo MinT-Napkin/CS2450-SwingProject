@@ -4,7 +4,9 @@
  */
 
 package com.mycompany.pointandclickswingproject;
-
+import java.awt.event.*;
+import javax.swing.JPanel;
+import javax.swing.Timer;
 import javax.swing.SwingUtilities;
 
 /**
@@ -12,6 +14,8 @@ import javax.swing.SwingUtilities;
  * @author sirmu
  */
 public class PointAndClickSwingProject {
+    
+    public static mainJFrame w;
 
         public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -27,13 +31,13 @@ public class PointAndClickSwingProject {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(mainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(mainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(mainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(mainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -41,9 +45,12 @@ public class PointAndClickSwingProject {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                mainJFrame w = new mainJFrame();
-                w.setLocationRelativeTo(null);
-                w.setVisible(true);
+                JPanel splashScreen = new com.mycompany.pointandclickswingproject.SplashScreen();
+                JPanel menuScreen = new com.mycompany.pointandclickswingproject.MenuScreen();
+                JPanel leaderboardScreen = new com.mycompany.pointandclickswingproject.LeaderboardScreen();
+                JPanel gameScreen = new com.mycompany.pointandclickswingproject.GameScreen();
+                JPanel creditsScreen = new com.mycompany.pointandclickswingproject.CreditsScreen();
+                w = new mainJFrame(splashScreen, menuScreen, leaderboardScreen, gameScreen, creditsScreen);
             }
         });
     }

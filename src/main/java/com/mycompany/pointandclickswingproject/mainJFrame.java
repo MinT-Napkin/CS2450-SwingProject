@@ -5,6 +5,10 @@
 package com.mycompany.pointandclickswingproject;
 import java.awt.event.*;
 import javax.swing.Timer;
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+import java.awt.Dimension;
+import java.awt.BorderLayout;
 
 /**
  *
@@ -12,13 +16,50 @@ import javax.swing.Timer;
  */
 public class mainJFrame extends javax.swing.JFrame {
 
+    public final String SPLASH = "splash";
+    public final String MENU = "menu";
+    public final String LEADERBOARD = "leaderboard";
+    public final String GAME = "game";
+    public final String CREDITS = "credits";
+    private final CardLayout cLayout;
+    private final JPanel mainPane;
+    
     /**
      * Creates new form Window
+     * @param splashScreen1
+     * @param menuScreen1
+     * @param leaderboardScreen1
+     * @param gameScreen1
+     * @param creditsScreen1
      */
-    public mainJFrame() {
-        initComponents();
-    }
+    public mainJFrame(JPanel splashScreen1, JPanel menuScreen1, JPanel leaderboardScreen1, JPanel gameScreen1, JPanel creditsScreen1) {
+        setTitle("SwingBeans - Swing Project v1.0");
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
 
+        mainPane = new JPanel();
+        mainPane.setPreferredSize(new Dimension(600,400));
+        cLayout = new CardLayout();
+        mainPane.setLayout(cLayout);
+
+        mainPane.add(SPLASH, splashScreen1);
+        mainPane.add(MENU, menuScreen1);
+        mainPane.add(LEADERBOARD, leaderboardScreen1);
+        mainPane.add(GAME, gameScreen1);
+        mainPane.add(CREDITS, creditsScreen1);
+        
+        cLayout.show(mainPane, MENU);
+
+        setLayout(new BorderLayout());
+        add(mainPane,BorderLayout.CENTER);
+        pack();
+        setVisible(true);
+    }
+ 
+    void switchPanes(String swap) {
+        cLayout.show(mainPane, swap);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,23 +69,17 @@ public class mainJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        mainPanel = new javax.swing.JPanel();
-        menuScreen1 = new com.mycompany.pointandclickswingproject.MenuScreen();
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        mainPanel.setLayout(new java.awt.CardLayout());
-        mainPanel.add(menuScreen1, "card5");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGap(0, 600, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGap(0, 400, Short.MAX_VALUE)
         );
 
         pack();
@@ -53,9 +88,7 @@ public class mainJFrame extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-
+        
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel mainPanel;
-    private com.mycompany.pointandclickswingproject.MenuScreen menuScreen1;
     // End of variables declaration//GEN-END:variables
 }
