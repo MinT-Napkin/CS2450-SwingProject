@@ -76,7 +76,7 @@ public class CreditsScreen extends javax.swing.JPanel {
 
         BenCredit.setFont(new java.awt.Font("Helvetica", 0, 24)); // NOI18N
         BenCredit.setForeground(new java.awt.Color(206, 184, 136));
-        BenCredit.setText("Benjamin Chen, (Bronco ID)");
+        BenCredit.setText("Benjamin Chen, 015393066");
 
         NikhilCredit.setFont(new java.awt.Font("Helvetica", 0, 24)); // NOI18N
         NikhilCredit.setForeground(new java.awt.Color(206, 184, 136));
