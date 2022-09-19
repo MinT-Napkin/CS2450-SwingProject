@@ -8,7 +8,7 @@ import static com.mycompany.pointandclickswingproject.PointAndClickSwingProject.
 
 /**
  *
- * @author Nikhil
+ *
  */
 public class LeaderboardScreen extends javax.swing.JPanel {
 

@@ -6,7 +6,7 @@ package com.mycompany.pointandclickswingproject;
 
 /**
  *
- * @author Nikhil
+ * 
  */
 public class SplashScreen extends javax.swing.JPanel {
 

@@ -13,7 +13,7 @@ import javax.swing.Timer;
 
 /**
  *
- * @author Nikhil
+ *
  */
 public class CreditsScreen extends javax.swing.JPanel {
 

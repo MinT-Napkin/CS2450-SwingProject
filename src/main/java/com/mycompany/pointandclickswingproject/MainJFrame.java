@@ -1,3 +1,15 @@
+/***************************************************************  
+*  file: mainJFrame.java  
+*  author: N. Kowdle  
+*  class: CS 2450 – User Interface Design and Programing 
+*  
+*  assignment: program 1  
+*  date last modified: 9/19/2022  
+*  
+*  purpose: This program displays each of the different screens of the game in a set JFrame.
+*  
+****************************************************************/  
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -13,7 +25,7 @@ import javax.swing.Timer;
 
 /**
  *
- * @author PC
+ * 
  */
 public class MainJFrame extends javax.swing.JFrame {
 

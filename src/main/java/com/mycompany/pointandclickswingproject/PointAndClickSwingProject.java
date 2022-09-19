@@ -13,7 +13,7 @@ import javax.swing.SwingUtilities;
 
 /**
  *
- * @author sirmu
+ * 
  */
 public class PointAndClickSwingProject {
     

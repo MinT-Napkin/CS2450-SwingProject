@@ -7,7 +7,7 @@ import static com.mycompany.pointandclickswingproject.PointAndClickSwingProject.
 
 /**
  *
- * @author sirmu
+ *
  */
 public class GameOverScreen extends javax.swing.JPanel {
 

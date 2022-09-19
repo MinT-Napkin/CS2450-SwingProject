@@ -13,7 +13,7 @@ import javax.swing.Timer;
 
 /**
  *
- * @author Nikhil
+ *
  */
 public class GameScreen extends javax.swing.JPanel {
 
