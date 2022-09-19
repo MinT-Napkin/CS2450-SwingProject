@@ -4,6 +4,7 @@
  */
 package com.mycompany.pointandclickswingproject;
 import static com.mycompany.pointandclickswingproject.PointAndClickSwingProject.w;
+import javax.swing.JLabel;
 
 /**
  *
@@ -15,6 +16,9 @@ public class GameScreen extends javax.swing.JPanel {
     private int mistakes;
     private int correctGuesses;
     private String hiddenWord;
+    
+    private JLabel[] underscores;
+    private JLabel[] hiddenLetters;
     
     private final String[] words = {"Abstract", "Cemetary", "Nurse", "Pharmacy", "Climbing"};
 
@@ -35,25 +39,42 @@ public class GameScreen extends javax.swing.JPanel {
         int index = (int) Math.floor(Math.random()*words.length);
         hiddenWord = words[index].toUpperCase();
         System.out.println("Hidden Word Is: " + hiddenWord);
+        
+        int xcoord = 20;
+        underscores = new JLabel[hiddenWord.length()];
+        for(int i=0; i < hiddenWord.length(); i++)
+        {
+            underscores[i] = new JLabel();
+            underscores[i].setFont(new java.awt.Font("Copperplate Gothic Light", 1, 48));
+            underscores[i].setText("_");
+            wordArea.add(underscores[i], new org.netbeans.lib.awtextra.AbsoluteConstraints(xcoord, 60, 40, 60));
+            xcoord+=40;
+        }
+        
+        xcoord = 20;
+        hiddenLetters = new JLabel[hiddenWord.length()];
+        for(int i=0; i < hiddenWord.length(); i++)
+        {
+            hiddenLetters[i] = new JLabel();
+            hiddenLetters[i].setFont(new java.awt.Font("Copperplate Gothic Light", 1, 36));
+            hiddenLetters[i].setText(hiddenWord.substring(i, i+1));
+            wordArea.add(hiddenLetters[i], new org.netbeans.lib.awtextra.AbsoluteConstraints(xcoord, 60, 40, 60));
+            hiddenLetters[i].setVisible(false);
+            xcoord += 40;
+        }
     }
     
     public void displayHiddenLetter(String letter)
     {
-//        jLabel3.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 48)); // NOI18N
-//        jLabel3.setText("_");
-//        wordArea.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 40, 60));
-//
-//        jLabel2.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 36)); // NOI18N
-//        jLabel2.setText("C");
-//        wordArea.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 40, 60));
-//
-//        jLabel5.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 48)); // NOI18N
-//        jLabel5.setText("_");
-//        wordArea.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 40, 60));
-//
-//        jLabel6.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 36)); // NOI18N
-//        jLabel6.setText("C");
-//        wordArea.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 40, 60));
+        for(int i=0; i < hiddenLetters.length; i++)
+        {
+            String hLetter = hiddenLetters[i].getText();
+            if(letter.equals(hLetter))
+            {
+                hiddenLetters[i].setVisible(true);
+                correctGuesses++;
+            }
+        }
     }
     
     public void checkLetter(String letter)
@@ -86,7 +107,7 @@ public class GameScreen extends javax.swing.JPanel {
         }
         else
         {
-            if(correctGuesses >= hiddenWord.length())
+            if(correctGuesses >= hiddenLetters.length)
             {
                 w.switchPanes("leaderboard");
             }
