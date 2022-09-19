@@ -4,7 +4,12 @@
  */
 package com.mycompany.pointandclickswingproject;
 import static com.mycompany.pointandclickswingproject.PointAndClickSwingProject.w;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JLabel;
+import javax.swing.Timer;
 
 /**
  *
@@ -43,7 +48,18 @@ public class GameScreen extends javax.swing.JPanel {
         this.mistakes = mistakes;
         this.correctGuesses = correctGuesses;
         
+        Timer myTimer = new Timer (100, updateClock);
+        myTimer.start();
+        
     }
+    
+    ActionListener updateClock = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            SimpleDateFormat sdf = new SimpleDateFormat( "MMMMMMMMM dd, yyyy hh:mm:ss");
+            time.setText(sdf.format(new Date())); 
+        }
+    };
     
     public final void resetHangman(int score, int mistakes, int correctGuesses)
     {
@@ -306,6 +322,7 @@ public class GameScreen extends javax.swing.JPanel {
         leftLeg = new javax.swing.JLabel();
         rightLeg = new javax.swing.JLabel();
         wordArea = new javax.swing.JPanel();
+        time = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(600, 400));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -583,6 +600,9 @@ public class GameScreen extends javax.swing.JPanel {
 
         wordArea.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         add(wordArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 360, 180));
+
+        time.setText("timer");
+        add(time, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 10, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void button_BActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_BActionPerformed
@@ -785,6 +805,7 @@ public class GameScreen extends javax.swing.JPanel {
     private javax.swing.JLabel platform;
     private javax.swing.JLabel rightArm;
     private javax.swing.JLabel rightLeg;
+    private javax.swing.JLabel time;
     private javax.swing.JPanel wordArea;
     // End of variables declaration//GEN-END:variables
 }

@@ -22,19 +22,7 @@ public class CreditsScreen extends javax.swing.JPanel {
      */
     public CreditsScreen() {
         initComponents();
-        Timer myTimer = new Timer (100, updateClock);
-        myTimer.start();
     }
-        ActionListener updateClock = new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            SimpleDateFormat sdf = new SimpleDateFormat( "MMMMMMMMM dd, yyyy hh:mm:ss");
-            testDate.setText(sdf.format(new Date())); 
-        }
-    };
-
-
-
   
     /**
      * This method is called from within the constructor to initialize the form.
