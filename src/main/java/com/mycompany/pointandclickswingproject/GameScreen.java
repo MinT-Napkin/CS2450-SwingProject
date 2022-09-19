@@ -17,51 +17,131 @@ public class GameScreen extends javax.swing.JPanel {
     private int correctGuesses;
     private String hiddenWord;
     
-    private JLabel[] underscores;
-    private JLabel[] hiddenLetters;
+    private final int MAX_LETTERS = 8;
+    private JLabel[] underscores = new JLabel[MAX_LETTERS];
+    private JLabel[] hiddenLetters = new JLabel[MAX_LETTERS];
     
+    // Default Words
     private final String[] words = {"Abstract", "Cemetary", "Nurse", "Pharmacy", "Climbing"};
 
     /**
      * Creates new form GameScreen
      */
-    public GameScreen() {
-        initComponents();
-        
-        this.score = 100;
-        myScore.setText("Score: " + this.score);
-        this.mistakes = 0;
-        randomizeHiddenWord();
+    public GameScreen() {    
+        this(100, 0, 0);
     }
     
-    public void randomizeHiddenWord()
+    public GameScreen(int score, int mistakes, int correctGuesses)
     {
-        int index = (int) Math.floor(Math.random()*words.length);
-        hiddenWord = words[index].toUpperCase();
-        System.out.println("Hidden Word Is: " + hiddenWord);
+        initComponents();
         
+        prepareHiddenWordDisplay();
+        resetHangman(score, mistakes, correctGuesses);
+        
+        this.score = score;
+        myScore.setText("Score: " + this.score);
+        this.mistakes = mistakes;
+        this.correctGuesses = correctGuesses;
+        
+    }
+    
+    public final void resetHangman(int score, int mistakes, int correctGuesses)
+    {
+        this.score = 100;
+        this.mistakes = 0;
+        this.correctGuesses = 0;
+        this.myScore.setText("Score: " + score);
+        
+        head.setVisible(false);
+        body.setVisible(false);
+        leftArm.setVisible(false);
+        rightArm.setVisible(false);
+        leftLeg.setVisible(false);
+        rightLeg.setVisible(false);
+        
+        button_A.setEnabled(true);
+        button_B.setEnabled(true);
+        button_C.setEnabled(true);
+        button_D.setEnabled(true);
+        button_E.setEnabled(true);
+        button_F.setEnabled(true);
+        button_G.setEnabled(true);
+        button_H.setEnabled(true);
+        button_I.setEnabled(true);
+        button_J.setEnabled(true);
+        button_K.setEnabled(true);
+        button_L.setEnabled(true);
+        button_M.setEnabled(true);
+        button_N.setEnabled(true);
+        button_O.setEnabled(true);
+        button_P.setEnabled(true);
+        button_Q.setEnabled(true);
+        button_R.setEnabled(true);
+        button_S.setEnabled(true);
+        button_T.setEnabled(true);
+        button_U.setEnabled(true);
+        button_V.setEnabled(true);
+        button_W.setEnabled(true);
+        button_X.setEnabled(true);
+        button_Y.setEnabled(true);
+        button_Z.setEnabled(true);
+        
+        for(int i=0; i < MAX_LETTERS; i++)
+        {
+            underscores[i].setVisible(false);
+        }
+        
+        for(int i=0; i < MAX_LETTERS; i++)
+        {
+            hiddenLetters[i].setText("");
+            hiddenLetters[i].setVisible(false);
+        }
+        
+        randomizeHiddenWord();
+        
+    }
+    
+    private void prepareHiddenWordDisplay()
+    {
         int xcoord = 20;
-        underscores = new JLabel[hiddenWord.length()];
-        for(int i=0; i < hiddenWord.length(); i++)
+        for(int i=0; i < MAX_LETTERS; i++)
         {
             underscores[i] = new JLabel();
             underscores[i].setFont(new java.awt.Font("Copperplate Gothic Light", 1, 48));
             underscores[i].setText("_");
             wordArea.add(underscores[i], new org.netbeans.lib.awtextra.AbsoluteConstraints(xcoord, 60, 40, 60));
+            underscores[i].setVisible(false);
             xcoord+=40;
         }
         
         xcoord = 20;
-        hiddenLetters = new JLabel[hiddenWord.length()];
-        for(int i=0; i < hiddenWord.length(); i++)
+        for(int i=0; i < MAX_LETTERS; i++)
         {
             hiddenLetters[i] = new JLabel();
             hiddenLetters[i].setFont(new java.awt.Font("Copperplate Gothic Light", 1, 36));
-            hiddenLetters[i].setText(hiddenWord.substring(i, i+1));
             wordArea.add(hiddenLetters[i], new org.netbeans.lib.awtextra.AbsoluteConstraints(xcoord, 60, 40, 60));
             hiddenLetters[i].setVisible(false);
             xcoord += 40;
         }
+    }
+    
+    public String randomizeHiddenWord()
+    {
+        int index = (int) Math.floor(Math.random()*words.length);
+        hiddenWord = words[index].toUpperCase();
+        System.out.println("Hidden Word Is: " + hiddenWord);
+        
+        for(int i=0; i < hiddenWord.length(); i++)
+        {
+            underscores[i].setVisible(true);
+        }
+        
+        for(int i=0; i < hiddenWord.length(); i++)
+        {
+            hiddenLetters[i].setText(hiddenWord.substring(i, i+1));
+        }
+        
+        return hiddenWord;
     }
     
     public void displayHiddenLetter(String letter)
@@ -98,18 +178,53 @@ public class GameScreen extends javax.swing.JPanel {
             mistakes++;
             score -= 10;
             myScore.setText("Score: " + this.score);
-            System.out.println("Mistakes "+mistakes);
+            System.out.println("Mistakes " + mistakes);
+            
+            switch(mistakes)
+            {
+                case 1 -> {
+                    head.setVisible(true);
+                    break;
+                }
+                
+                case 2 -> {
+                    body.setVisible(true);
+                    break;
+                }
+                case 3 ->
+                {
+                    leftArm.setVisible(true);
+                    break;
+                }
+                case 4 ->
+                {
+                    rightArm.setVisible(true);
+                    break;
+                }
+                case 5 ->
+                {
+                    leftLeg.setVisible(true);
+                    break;
+                }
+                case 6 ->
+                {
+                    rightLeg.setVisible(true);
+                    break;
+                }
+                    
+            }
+            
             if(mistakes >= 6)
             {
                 //end the game
-                w.switchPanes("leaderboard");
+                w.switchPanes("gameover");
             }
         }
         else
-        {
+        {       
             if(correctGuesses >= hiddenLetters.length)
             {
-                w.switchPanes("leaderboard");
+                w.switchPanes("gameover");
             }
         }
     }
@@ -629,6 +744,7 @@ public class GameScreen extends javax.swing.JPanel {
     private void button_SkipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_SkipActionPerformed
         // TODO add your handling code here:
         score = 0;
+        w.switchPanes("gameover");
     }//GEN-LAST:event_button_SkipActionPerformed
 
 

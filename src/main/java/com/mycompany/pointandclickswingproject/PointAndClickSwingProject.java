@@ -47,18 +47,21 @@ public class PointAndClickSwingProject {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                try {
+                try { 
                     JPanel splashScreen = new com.mycompany.pointandclickswingproject.SplashScreen();
                     JPanel menuScreen = new com.mycompany.pointandclickswingproject.MenuScreen();
                     JPanel leaderboardScreen = new com.mycompany.pointandclickswingproject.LeaderboardScreen();
-                    JPanel gameScreen = new com.mycompany.pointandclickswingproject.GameScreen();
+                    
+                    GameScreen gameScreen = new com.mycompany.pointandclickswingproject.GameScreen();
+                    
                     JPanel creditsScreen = new com.mycompany.pointandclickswingproject.CreditsScreen();
-//                    JPanel gameOverScreen = new com.mycompany.pointandclickswingproject.GameOverScreen();
+                    JPanel gameOverScreen = new com.mycompany.pointandclickswingproject.GameOverScreen2(gameScreen);
                     w = new MainJFrame(splashScreen, 
                             menuScreen, 
                             leaderboardScreen,
                             gameScreen,
-                            creditsScreen);
+                            creditsScreen,
+                            gameOverScreen);
                     w.setLocationRelativeTo(null);
                 } catch (InterruptedException ex) {
                     Logger.getLogger(PointAndClickSwingProject.class.getName()).log(Level.SEVERE, null, ex);

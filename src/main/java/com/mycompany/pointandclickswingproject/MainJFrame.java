@@ -22,6 +22,7 @@ public class MainJFrame extends javax.swing.JFrame {
     public final String LEADERBOARD = "leaderboard";
     public final String GAME = "game";
     public final String CREDITS = "credits";
+    public final String GAMEOVER = "gameover";
     private final CardLayout cLayout;
     private final JPanel mainPane;
     
@@ -32,12 +33,14 @@ public class MainJFrame extends javax.swing.JFrame {
      * @param leaderboardScreen1
      * @param gameScreen1
      * @param creditsScreen1
+     * @param gameOverScreen1
      */
     public MainJFrame(JPanel splashScreen1, 
             JPanel menuScreen1, 
             JPanel leaderboardScreen1, 
             JPanel gameScreen1, 
-            JPanel creditsScreen1) throws InterruptedException {
+            JPanel creditsScreen1,
+            JPanel gameOverScreen1) throws InterruptedException {
         
         setTitle("SwingBeans - Swing Project v1.0");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -53,6 +56,7 @@ public class MainJFrame extends javax.swing.JFrame {
         mainPane.add(LEADERBOARD, leaderboardScreen1);
         mainPane.add(GAME, gameScreen1);
         mainPane.add(CREDITS, creditsScreen1);
+        mainPane.add(GAMEOVER, gameOverScreen1);
         
         cLayout.show(mainPane, SPLASH);
 
