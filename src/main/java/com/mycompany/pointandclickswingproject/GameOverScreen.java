@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package com.mycompany.pointandclickswingproject;
+import static com.mycompany.pointandclickswingproject.PointAndClickSwingProject.w;
 
 /**
  *
@@ -16,7 +17,28 @@ public class GameOverScreen extends javax.swing.JPanel {
     public GameOverScreen() {
         initComponents();
     }
-
+    
+    private GameScreen gameMethods;
+    
+    /**
+     * Creates new form GameOverScreen2
+     * @param gameScreen1
+     */    
+    public GameOverScreen(GameScreen gameScreen1) {
+        initComponents();
+        gameMethods = gameScreen1;
+    }
+    
+    private String getGameOverText() {
+        if (gameMethods.getScore() == 0) {
+            return "Game over!\nYour score is 0.";
+        }
+        else {
+            return "Congratulations!\n You scored" + gameMethods.getScore() + "points.";
+        }
+           
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -26,19 +48,62 @@ public class GameOverScreen extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonBackToMenu = new javax.swing.JButton();
+        labelScore = new javax.swing.JLabel();
+        bgGameOverScreen = new javax.swing.JLabel();
+
+        buttonBackToMenu.setFont(new java.awt.Font("Haettenschweiler", 0, 24)); // NOI18N
+        buttonBackToMenu.setText("Back to Menu");
+        buttonBackToMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonBackToMenuActionPerformed(evt);
+            }
+        });
+
+        labelScore.setFont(new java.awt.Font("Haettenschweiler", 0, 24)); // NOI18N
+        labelScore.setText(getGameOverText());
+
+        bgGameOverScreen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bgGameOver.png"))); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(labelScore)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
+                .addComponent(bgGameOverScreen)
+                .addGap(18, 18, 18)
+                .addComponent(buttonBackToMenu)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(labelScore)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(bgGameOverScreen)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(buttonBackToMenu)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void buttonBackToMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackToMenuActionPerformed
+        // TODO add your handling code here:
+        w.switchPanes("menu");
+        gameMethods.resetHangman(100, 0, 0);
+    }//GEN-LAST:event_buttonBackToMenuActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel bgGameOverScreen;
+    private javax.swing.JButton buttonBackToMenu;
+    javax.swing.JLabel labelScore;
     // End of variables declaration//GEN-END:variables
 }
