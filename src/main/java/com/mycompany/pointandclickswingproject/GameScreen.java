@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JLabel;
+import javax.swing.SwingConstants;
 import javax.swing.Timer;
 
 /**
@@ -56,7 +57,7 @@ public class GameScreen extends javax.swing.JPanel {
     ActionListener updateClock = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            SimpleDateFormat sdf = new SimpleDateFormat( "MMMMMMMMM dd, yyyy hh:mm:ss");
+            SimpleDateFormat sdf = new SimpleDateFormat( " MMMMMMMMM dd, yyyy hh:mm:ss ");
             time.setText(sdf.format(new Date())); 
         }
     };
@@ -122,9 +123,8 @@ public class GameScreen extends javax.swing.JPanel {
         int xcoord = 20;
         for(int i=0; i < MAX_LETTERS; i++)
         {
-            underscores[i] = new JLabel();
+            underscores[i] = new JLabel("_", SwingConstants.CENTER);
             underscores[i].setFont(new java.awt.Font("Copperplate Gothic Light", 1, 48));
-            underscores[i].setText("_");
             wordArea.add(underscores[i], new org.netbeans.lib.awtextra.AbsoluteConstraints(xcoord, 60, 40, 60));
             underscores[i].setVisible(false);
             xcoord+=40;
@@ -133,7 +133,7 @@ public class GameScreen extends javax.swing.JPanel {
         xcoord = 20;
         for(int i=0; i < MAX_LETTERS; i++)
         {
-            hiddenLetters[i] = new JLabel();
+            hiddenLetters[i] = new JLabel("", SwingConstants.CENTER);
             hiddenLetters[i].setFont(new java.awt.Font("Copperplate Gothic Light", 1, 36));
             wordArea.add(hiddenLetters[i], new org.netbeans.lib.awtextra.AbsoluteConstraints(xcoord, 60, 40, 60));
             hiddenLetters[i].setVisible(false);
@@ -238,7 +238,7 @@ public class GameScreen extends javax.swing.JPanel {
         }
         else
         {       
-            if(correctGuesses >= hiddenLetters.length)
+            if(correctGuesses >= hiddenWord.length())
             {
                 w.switchPanes("gameover");
             }
@@ -601,8 +601,10 @@ public class GameScreen extends javax.swing.JPanel {
         wordArea.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         add(wordArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 360, 180));
 
+        time.setBackground(new java.awt.Color(255, 255, 255));
         time.setText("timer");
-        add(time, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 10, -1, -1));
+        time.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        add(time, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void button_BActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_BActionPerformed

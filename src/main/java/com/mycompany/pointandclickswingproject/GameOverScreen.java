@@ -25,8 +25,8 @@ public class GameOverScreen extends javax.swing.JPanel {
      * @param gameScreen1
      */    
     public GameOverScreen(GameScreen gameScreen1) {
-        initComponents();
         gameMethods = gameScreen1;
+        initComponents();
     }
     
     private String getGameOverText() {
@@ -52,46 +52,23 @@ public class GameOverScreen extends javax.swing.JPanel {
         labelScore = new javax.swing.JLabel();
         bgGameOverScreen = new javax.swing.JLabel();
 
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         buttonBackToMenu.setFont(new java.awt.Font("Haettenschweiler", 0, 24)); // NOI18N
-        buttonBackToMenu.setText("Back to Menu");
+        buttonBackToMenu.setText("END");
         buttonBackToMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonBackToMenuActionPerformed(evt);
             }
         });
+        add(buttonBackToMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 350, -1, -1));
 
         labelScore.setFont(new java.awt.Font("Haettenschweiler", 0, 24)); // NOI18N
         labelScore.setText(getGameOverText());
+        add(labelScore, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         bgGameOverScreen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bgGameOver.png"))); // NOI18N
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(labelScore)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
-                .addComponent(bgGameOverScreen)
-                .addGap(18, 18, 18)
-                .addComponent(buttonBackToMenu)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(labelScore)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(bgGameOverScreen)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(buttonBackToMenu)
-                .addContainerGap())
-        );
+        add(bgGameOverScreen, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 270, 330));
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonBackToMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackToMenuActionPerformed
