@@ -27,6 +27,8 @@ public class GameScreen extends javax.swing.JPanel {
     private JLabel[] underscores = new JLabel[MAX_LETTERS];
     private JLabel[] hiddenLetters = new JLabel[MAX_LETTERS];
     
+    private Timer alertTimer;
+    
     // Default Words
     private final String[] words = {"Abstract", "Cemetary", "Nurse", "Pharmacy", "Climbing"};
 
@@ -35,6 +37,7 @@ public class GameScreen extends javax.swing.JPanel {
      */
     public GameScreen() {    
         this(100, 0, 0);
+        this.alertTimer = new Timer (2000, updateAlert);
     }
     
     public GameScreen(int score, int mistakes, int correctGuesses)
@@ -48,9 +51,10 @@ public class GameScreen extends javax.swing.JPanel {
         myScore.setText("Score: " + this.score);
         this.mistakes = mistakes;
         this.correctGuesses = correctGuesses;
+        this.alertTimer = new Timer (2000, updateAlert);
         
-        Timer myTimer = new Timer (100, updateClock);
-        myTimer.start();
+        Timer clock = new Timer (100, updateClock);
+        clock.start();
         
     }
     
@@ -59,6 +63,14 @@ public class GameScreen extends javax.swing.JPanel {
         public void actionPerformed(ActionEvent e) {
             SimpleDateFormat sdf = new SimpleDateFormat( " MMMMMMMMM dd, yyyy hh:mm:ss ");
             time.setText(sdf.format(new Date())); 
+        }
+    };
+    
+    ActionListener updateAlert = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            System.out.println("ALERT");
+            alert.setVisible(false);
         }
     };
     
@@ -75,6 +87,8 @@ public class GameScreen extends javax.swing.JPanel {
         rightArm.setVisible(false);
         leftLeg.setVisible(false);
         rightLeg.setVisible(false);
+        
+        alert.setVisible(false);
         
         button_A.setEnabled(true);
         button_B.setEnabled(true);
@@ -174,8 +188,8 @@ public class GameScreen extends javax.swing.JPanel {
     }
     
     public void checkLetter(String letter)
-    {
-        String wLetter = "";
+    {   
+        String wLetter;
         boolean correctLetter = false;
         for(int i=0; i < hiddenWord.length(); i++)
         {
@@ -194,7 +208,20 @@ public class GameScreen extends javax.swing.JPanel {
             mistakes++;
             score -= 10;
             myScore.setText("Score: " + this.score);
-            System.out.println("Mistakes " + mistakes);
+//            System.out.println("Mistakes " + mistakes);
+            
+            alertTimer.setRepeats(false);
+
+            if(!alert.isVisible())
+            {
+                alert.setVisible(true);
+                alertTimer.start();
+            }
+            else
+            {
+                alert.setVisible(true);
+                alertTimer.restart();
+            }
             
             switch(mistakes)
             {
@@ -322,6 +349,7 @@ public class GameScreen extends javax.swing.JPanel {
         leftLeg = new javax.swing.JLabel();
         rightLeg = new javax.swing.JLabel();
         wordArea = new javax.swing.JPanel();
+        alert = new javax.swing.JLabel();
         time = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(600, 400));
@@ -599,6 +627,12 @@ public class GameScreen extends javax.swing.JPanel {
         add(rightLeg, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 200, 200));
 
         wordArea.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        alert.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 18)); // NOI18N
+        alert.setForeground(new java.awt.Color(255, 0, 51));
+        alert.setText("INCORRECT LETTER");
+        wordArea.add(alert, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, -1, -1));
+
         add(wordArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 360, 180));
 
         time.setBackground(new java.awt.Color(255, 255, 255));
@@ -771,6 +805,7 @@ public class GameScreen extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel alert;
     private javax.swing.JLabel body;
     private javax.swing.JButton button_A;
     private javax.swing.JButton button_B;

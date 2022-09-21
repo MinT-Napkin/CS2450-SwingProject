@@ -41,7 +41,6 @@ public class CreditsScreen extends javax.swing.JPanel {
         NikhilCredit = new javax.swing.JLabel();
         MartinCredit = new javax.swing.JLabel();
         GarethCredit = new javax.swing.JLabel();
-        testDate = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(1, 66, 106));
 
@@ -78,9 +77,6 @@ public class CreditsScreen extends javax.swing.JPanel {
         GarethCredit.setForeground(new java.awt.Color(206, 184, 136));
         GarethCredit.setText("Gareth G. Waughan, 013289471");
 
-        testDate.setForeground(new java.awt.Color(255, 255, 255));
-        testDate.setText("jLabel2");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -109,15 +105,11 @@ public class CreditsScreen extends javax.swing.JPanel {
                         .addGap(237, 237, 237)
                         .addComponent(jLabel1)))
                 .addContainerGap(137, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(testDate, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(testDate)
-                .addGap(26, 26, 26)
+                .addGap(42, 42, 42)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42)
                 .addComponent(BenCredit)
@@ -148,6 +140,5 @@ public class CreditsScreen extends javax.swing.JPanel {
     private javax.swing.JLabel NikhilCredit;
     private javax.swing.JButton backButton;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel testDate;
     // End of variables declaration//GEN-END:variables
 }
