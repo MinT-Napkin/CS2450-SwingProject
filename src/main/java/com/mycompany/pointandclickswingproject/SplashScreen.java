@@ -37,26 +37,26 @@ public class SplashScreen extends javax.swing.JPanel {
         initComponents();
         
         try {
-    //create the font to use. Specify the size!
-    Font customFont = Font.createFont(Font.TRUETYPE_FONT, new File("src/main/resources/fonts/marsneveneksk/MARSNEVENEKSK-Regular.otf")).deriveFont(60f);
-    Font customFont2 = Font.createFont(Font.TRUETYPE_FONT, new File("src/main/resources/fonts/marsneveneksk/MARSNEVENEKSK-Regular.otf")).deriveFont(36f);
+        //create the font to use. Specify the size!
+        Font customFont = Font.createFont(Font.TRUETYPE_FONT, new File("src/main/resources/fonts/marsneveneksk/MARSNEVENEKSK-Regular.otf")).deriveFont(60f);
+        Font customFont2 = Font.createFont(Font.TRUETYPE_FONT, new File("src/main/resources/fonts/marsneveneksk/MARSNEVENEKSK-Regular.otf")).deriveFont(36f);
 
-    GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-    ge.registerFont(customFont);
-    ge.registerFont(customFont2);
-    //use the font
-    titleName.setFont(customFont);
-    teamName.setFont(customFont2);
-        
-    }
-    catch (IOException e) {
-    e.printStackTrace();
-} catch(FontFormatException e) {
-    e.printStackTrace();
-}
-        
-        
-    }
+        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        ge.registerFont(customFont);
+        ge.registerFont(customFont2);
+        //use the font
+        titleName.setFont(customFont);
+        teamName.setFont(customFont2);
+
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        } catch(FontFormatException e) {
+            e.printStackTrace();
+        }
+
+
+        }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
