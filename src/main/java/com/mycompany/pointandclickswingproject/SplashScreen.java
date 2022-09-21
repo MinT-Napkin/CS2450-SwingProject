@@ -4,6 +4,12 @@
  */
 package com.mycompany.pointandclickswingproject;
 
+import java.awt.Font;
+import java.awt.FontFormatException;
+import java.awt.GraphicsEnvironment;
+import java.io.File;
+import java.io.IOException;
+
 /**
  *
  * 
@@ -15,8 +21,28 @@ public class SplashScreen extends javax.swing.JPanel {
      */
     public SplashScreen() {
         initComponents();
-    }
+        
+        try {
+    //create the font to use. Specify the size!
+    Font customFont = Font.createFont(Font.TRUETYPE_FONT, new File("src/main/resources/fonts/marsneveneksk/MARSNEVENEKSK-Regular.otf")).deriveFont(60f);
+    Font customFont2 = Font.createFont(Font.TRUETYPE_FONT, new File("src/main/resources/fonts/marsneveneksk/MARSNEVENEKSK-Regular.otf")).deriveFont(36f);
 
+    GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+    ge.registerFont(customFont);
+    ge.registerFont(customFont2);
+    //use the font
+    titleName.setFont(customFont);
+    teamName.setFont(customFont2);
+        
+    }
+    catch (IOException e) {
+    e.printStackTrace();
+} catch(FontFormatException e) {
+    e.printStackTrace();
+}
+        
+        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -26,25 +52,25 @@ public class SplashScreen extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        titleName = new javax.swing.JLabel();
+        teamName = new javax.swing.JLabel();
+        sussyBaka = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 0, 0));
         setPreferredSize(new java.awt.Dimension(600, 400));
 
-        jLabel1.setFont(new java.awt.Font("MARSNEVENEKSK", 0, 60)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(225, 181, 0));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("HANGMAN");
+        titleName.setFont(new java.awt.Font("MARSNEVENEKSK", 0, 60)); // NOI18N
+        titleName.setForeground(new java.awt.Color(225, 181, 0));
+        titleName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        titleName.setText("HANGMAN");
 
-        jLabel2.setFont(new java.awt.Font("MARSNEVENEKSK", 0, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(108, 194, 74));
-        jLabel2.setText("The SwingBeans");
+        teamName.setFont(new java.awt.Font("MARSNEVENEKSK", 0, 36)); // NOI18N
+        teamName.setForeground(new java.awt.Color(108, 194, 74));
+        teamName.setText("The SwingBeans");
 
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_icon.png"))); // NOI18N
-        jLabel3.setText("jLabel3");
+        sussyBaka.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        sussyBaka.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_icon.png"))); // NOI18N
+        sussyBaka.setText("jLabel3");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -53,29 +79,29 @@ public class SplashScreen extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(184, 184, 184)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
+                    .addComponent(teamName)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(titleName, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(sussyBaka, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 193, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(titleName, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
-                .addComponent(jLabel3)
+                .addComponent(sussyBaka)
                 .addGap(33, 33, 33)
-                .addComponent(jLabel2)
+                .addComponent(teamName)
                 .addContainerGap(33, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel sussyBaka;
+    private javax.swing.JLabel teamName;
+    private javax.swing.JLabel titleName;
     // End of variables declaration//GEN-END:variables
 }

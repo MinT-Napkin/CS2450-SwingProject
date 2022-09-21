@@ -27,10 +27,10 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="184" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                  <Component id="teamName" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="jLabel1" alignment="1" min="-2" pref="208" max="-2" attributes="0"/>
-                      <Component id="jLabel3" alignment="1" min="-2" pref="195" max="-2" attributes="0"/>
+                      <Component id="titleName" alignment="1" min="-2" pref="208" max="-2" attributes="0"/>
+                      <Component id="sussyBaka" alignment="1" min="-2" pref="195" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="0" pref="193" max="32767" attributes="0"/>
@@ -41,18 +41,18 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" pref="61" max="-2" attributes="0"/>
+              <Component id="titleName" min="-2" pref="61" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+              <Component id="sussyBaka" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+              <Component id="teamName" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="33" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="titleName">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="MARSNEVENEKSK" size="60" style="0"/>
@@ -64,7 +64,7 @@
         <Property name="text" type="java.lang.String" value="HANGMAN"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel2">
+    <Component class="javax.swing.JLabel" name="teamName">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="MARSNEVENEKSK" size="36" style="0"/>
@@ -75,7 +75,7 @@
         <Property name="text" type="java.lang.String" value="The SwingBeans"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel3">
+    <Component class="javax.swing.JLabel" name="sussyBaka">
       <Properties>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
