@@ -52,10 +52,10 @@ public class PointAndClickSwingProject {
                     JPanel menuScreen = new com.mycompany.pointandclickswingproject.MenuScreen();
                     JPanel leaderboardScreen = new com.mycompany.pointandclickswingproject.LeaderboardScreen();
                     
-                    GameScreen gameScreen = new com.mycompany.pointandclickswingproject.GameScreen();
+                    GameOverScreen gameOverScreen = new com.mycompany.pointandclickswingproject.GameOverScreen();
+                    GameScreen gameScreen = new com.mycompany.pointandclickswingproject.GameScreen(gameOverScreen.getLabelScore());
                     
                     JPanel creditsScreen = new com.mycompany.pointandclickswingproject.CreditsScreen();
-                    JPanel gameOverScreen = new com.mycompany.pointandclickswingproject.GameOverScreen(gameScreen);
                     w = new MainJFrame(splashScreen, 
                             menuScreen, 
                             leaderboardScreen,

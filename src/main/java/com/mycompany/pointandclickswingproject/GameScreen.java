@@ -12,10 +12,19 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.Timer;
 
-/**
- *
- *
- */
+/***************************************************************  
+*  file: GameScreen.java  
+*  author: M. Tran
+*  class: CS 2450 – User Interface Design and Programing 
+*  
+*  assignment: Swing Project v1.0 
+*  date last modified: 9/21/2022  
+*  
+*  purpose: This program contains all the functionality of the Hangman game in
+*  one Screen
+*  
+****************************************************************/  
+
 public class GameScreen extends javax.swing.JPanel {
 
     private int score;
@@ -23,41 +32,46 @@ public class GameScreen extends javax.swing.JPanel {
     private int correctGuesses;
     private String hiddenWord;
     
+    private final int INITIAL_SCORE = 100;
+    private final int INITIAL_MISTAKES = 0;
+    private final int INITIAL_CORRECT_GUESSES = 0;
+    
     private final int MAX_LETTERS = 8;
-    private JLabel[] underscores = new JLabel[MAX_LETTERS];
-    private JLabel[] hiddenLetters = new JLabel[MAX_LETTERS];
+    private final JLabel[] UNDERSCORES = new JLabel[MAX_LETTERS];
+    private final JLabel[] HIDDEN_LETTER_PLACEHOLDER = new JLabel[MAX_LETTERS];
+    private final String[] DEFAULT_WORDS = {"Abstract", "Cemetary", "Nurse", "Pharmacy", "Climbing"};
     
-    private Timer alertTimer;
+    private final Timer alertTimer;
     
-    // Default Words
-    private final String[] words = {"Abstract", "Cemetary", "Nurse", "Pharmacy", "Climbing"};
+    private JLabel gameOverLabelScore;
+    
 
     /**
      * Creates new form GameScreen
+     * @param gameOverLabelScore
      */
-    public GameScreen() {    
-        this(100, 0, 0);
-        this.alertTimer = new Timer (2000, updateAlert);
-    }
-    
-    public GameScreen(int score, int mistakes, int correctGuesses)
-    {
+    public GameScreen(JLabel gameOverLabelScore) {    
         initComponents();
         
         prepareHiddenWordDisplay();
-        resetHangman(score, mistakes, correctGuesses);
+        resetHangman();
         
-        this.score = score;
+        this.score = INITIAL_SCORE;
         myScore.setText("Score: " + this.score);
-        this.mistakes = mistakes;
-        this.correctGuesses = correctGuesses;
+        this.mistakes = INITIAL_MISTAKES;
+        this.correctGuesses = INITIAL_CORRECT_GUESSES;
+        this.gameOverLabelScore = gameOverLabelScore;
+        
         this.alertTimer = new Timer (2000, updateAlert);
         
         Timer clock = new Timer (100, updateClock);
         clock.start();
-        
     }
     
+    // action listener: updateClock
+    /* purpose: this action listener is meant for a recurring timer that updates
+    * every second to display the current time
+    */
     ActionListener updateClock = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -66,128 +80,123 @@ public class GameScreen extends javax.swing.JPanel {
         }
     };
     
+    // action listener: updateAlert
+    /* purpose: this action listener is meant for a timer of the alert
+    * after the incorrect letter was picked, which makes the alert disappear
+    * after a certain amount of time
+    */
     ActionListener updateAlert = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            System.out.println("ALERT");
             alert.setVisible(false);
         }
     };
     
-    public final void resetHangman(int score, int mistakes, int correctGuesses)
+    // method: getScore()
+    // purpose: getter method for score variable
+    public int getScore()
     {
-        this.score = 100;
-        this.mistakes = 0;
-        this.correctGuesses = 0;
-        this.myScore.setText("Score: " + score);
-        
-        head.setVisible(false);
-        body.setVisible(false);
-        leftArm.setVisible(false);
-        rightArm.setVisible(false);
-        leftLeg.setVisible(false);
-        rightLeg.setVisible(false);
-        
-        alert.setVisible(false);
-        
-        button_A.setEnabled(true);
-        button_B.setEnabled(true);
-        button_C.setEnabled(true);
-        button_D.setEnabled(true);
-        button_E.setEnabled(true);
-        button_F.setEnabled(true);
-        button_G.setEnabled(true);
-        button_H.setEnabled(true);
-        button_I.setEnabled(true);
-        button_J.setEnabled(true);
-        button_K.setEnabled(true);
-        button_L.setEnabled(true);
-        button_M.setEnabled(true);
-        button_N.setEnabled(true);
-        button_O.setEnabled(true);
-        button_P.setEnabled(true);
-        button_Q.setEnabled(true);
-        button_R.setEnabled(true);
-        button_S.setEnabled(true);
-        button_T.setEnabled(true);
-        button_U.setEnabled(true);
-        button_V.setEnabled(true);
-        button_W.setEnabled(true);
-        button_X.setEnabled(true);
-        button_Y.setEnabled(true);
-        button_Z.setEnabled(true);
-        
-        for(int i=0; i < MAX_LETTERS; i++)
-        {
-            underscores[i].setVisible(false);
-        }
-        
-        for(int i=0; i < MAX_LETTERS; i++)
-        {
-            hiddenLetters[i].setText("");
-            hiddenLetters[i].setVisible(false);
-        }
-        
-        randomizeHiddenWord();
-        
+        return this.score;
     }
     
+    // method: setScore()
+    // purpose: setter method for score variable
+    public void setScore(int score)
+    {
+        this.score = score;
+    }
+    
+    // method: getMistakes()
+    // purpose: getter method for misakes variable
+    public int getMistakes()
+    {
+        return this.mistakes;
+    }
+    
+    // method: setMistakes()
+    // purpose: setter method for mistakes variable
+    public void setMistakes(int mistakes)
+    {
+        this.mistakes = mistakes;
+    }
+    
+    // method: getCorrectGuesses()
+    // purpose: getter method for correctGuesses variable
+    public int getCorrectGuesses()
+    {
+        return this.correctGuesses;
+    }
+    
+    // method: setCorrectGuesses()
+    // purpose: setter method for score variable
+    public void setCorrectGuesses(int correctGuesses)
+    {
+        this.correctGuesses = correctGuesses;
+    }
+    
+    // method: setGameOverLabelScore()
+    /* purpose: this method sets the text of the JLabel in the GameOverScreen
+    respectively to the score earned
+    */
+    private void setGameOverLabelScore()
+    {
+        // Code here
+    }
+    
+    // method: prepareHiddenWordDisplay()
+    /* purpose: this method prepares all the necessary components for the
+    * word to be displayed on the screen, such as the underscores and letters
+    */
     private void prepareHiddenWordDisplay()
     {
         int xcoord = 20;
         for(int i=0; i < MAX_LETTERS; i++)
         {
-            underscores[i] = new JLabel("_", SwingConstants.CENTER);
-            underscores[i].setFont(new java.awt.Font("Copperplate Gothic Light", 1, 48));
-            wordArea.add(underscores[i], new org.netbeans.lib.awtextra.AbsoluteConstraints(xcoord, 60, 40, 60));
-            underscores[i].setVisible(false);
+            UNDERSCORES[i] = new JLabel("_", SwingConstants.CENTER);
+            UNDERSCORES[i].setFont(new java.awt.Font("Copperplate Gothic Light", 1, 48));
+            wordArea.add(UNDERSCORES[i], new org.netbeans.lib.awtextra.AbsoluteConstraints(xcoord, 60, 40, 60));
+            UNDERSCORES[i].setVisible(false);
             xcoord+=40;
         }
         
         xcoord = 20;
         for(int i=0; i < MAX_LETTERS; i++)
         {
-            hiddenLetters[i] = new JLabel("", SwingConstants.CENTER);
-            hiddenLetters[i].setFont(new java.awt.Font("Copperplate Gothic Light", 1, 36));
-            wordArea.add(hiddenLetters[i], new org.netbeans.lib.awtextra.AbsoluteConstraints(xcoord, 60, 40, 60));
-            hiddenLetters[i].setVisible(false);
+            HIDDEN_LETTER_PLACEHOLDER[i] = new JLabel("", SwingConstants.CENTER);
+            HIDDEN_LETTER_PLACEHOLDER[i].setFont(new java.awt.Font("Copperplate Gothic Light", 1, 36));
+            wordArea.add(HIDDEN_LETTER_PLACEHOLDER[i], new org.netbeans.lib.awtextra.AbsoluteConstraints(xcoord, 60, 40, 60));
+            HIDDEN_LETTER_PLACEHOLDER[i].setVisible(false);
             xcoord += 40;
         }
     }
     
-    public String randomizeHiddenWord()
+    // method: randomizeHiddenWord()
+    // purpose: this method randmizes the hidden word used in Hangman
+    private String randomizeHiddenWord()
     {
-        int index = (int) Math.floor(Math.random()*words.length);
-        hiddenWord = words[index].toUpperCase();
+        int index = (int) Math.floor(Math.random()*DEFAULT_WORDS.length);
+        hiddenWord = DEFAULT_WORDS[index].toUpperCase();
         System.out.println("Hidden Word Is: " + hiddenWord);
         
         for(int i=0; i < hiddenWord.length(); i++)
         {
-            underscores[i].setVisible(true);
+            UNDERSCORES[i].setVisible(true);
         }
         
         for(int i=0; i < hiddenWord.length(); i++)
         {
-            hiddenLetters[i].setText(hiddenWord.substring(i, i+1));
+            HIDDEN_LETTER_PLACEHOLDER[i].setText(hiddenWord.substring(i, i+1));
         }
         
         return hiddenWord;
     }
     
-    public void displayHiddenLetter(String letter)
-    {
-        for(int i=0; i < hiddenLetters.length; i++)
-        {
-            String hLetter = hiddenLetters[i].getText();
-            if(letter.equals(hLetter))
-            {
-                hiddenLetters[i].setVisible(true);
-                correctGuesses++;
-            }
-        }
-    }
-    
-    public void checkLetter(String letter)
+    /* method: checkLetter(String letter)
+    * purpose: this method checks after the user clicks the corresponding letter
+    * if it is right or wrong to the respective hidden word, and either displays
+    * the letter(s) or hangman part respectively
+    */
+    private void checkLetter(String letter)
     {   
         String wLetter;
         boolean correctLetter = false;
@@ -257,50 +266,104 @@ public class GameScreen extends javax.swing.JPanel {
                     
             }
             
+            // user loses the game
             if(mistakes >= 6)
             {
                 //end the game
+                this.setGameOverLabelScore();
                 w.switchPanes("gameover");
+                this.resetHangman();
             }
         }
         else
         {       
+            // user wins the game
             if(correctGuesses >= hiddenWord.length())
             {
+                this.setGameOverLabelScore();
                 w.switchPanes("gameover");
+                this.resetHangman();
             }
         }
     }
     
-    public int getScore()
+    /* method: displayHiddenLetter(String letter)
+    *purpose: this method is used in checkLetter(String letter) method,
+    * which makes the previously placed JLabels made in the 
+    *prepareHiddenWordDisplay() method visible depending on the letter
+    */
+    private void displayHiddenLetter(String letter)
     {
-        return this.score;
+        for(int i=0; i < HIDDEN_LETTER_PLACEHOLDER.length; i++)
+        {
+            String hLetter = HIDDEN_LETTER_PLACEHOLDER[i].getText();
+            if(letter.equals(hLetter))
+            {
+                HIDDEN_LETTER_PLACEHOLDER[i].setVisible(true);
+                correctGuesses++;
+            }
+        }
     }
     
-    // Getters and Setters
-    public void setScore(int score)
+    // method: resetHangman()
+    // purpose: this method allows the resetting of variables and components
+    // after the game is finished for replayability
+    private void resetHangman()
     {
-        this.score = score;
-    }
-    
-    public int getMistakes()
-    {
-        return this.mistakes;
-    }
-    
-    public void setMistakes(int mistakes)
-    {
-        this.mistakes = mistakes;
-    }
-    
-    public int getCorrectGuesses()
-    {
-        return this.correctGuesses;
-    }
-    
-    public void setCorrectGuesses(int correctGuesses)
-    {
-        this.correctGuesses = correctGuesses;
+        this.score = INITIAL_SCORE;
+        this.mistakes = INITIAL_MISTAKES;
+        this.correctGuesses = INITIAL_CORRECT_GUESSES;
+        this.myScore.setText("Score: " + this.score);
+        
+        head.setVisible(false);
+        body.setVisible(false);
+        leftArm.setVisible(false);
+        rightArm.setVisible(false);
+        leftLeg.setVisible(false);
+        rightLeg.setVisible(false);
+        
+        alert.setVisible(false);
+        
+        button_A.setEnabled(true);
+        button_B.setEnabled(true);
+        button_C.setEnabled(true);
+        button_D.setEnabled(true);
+        button_E.setEnabled(true);
+        button_F.setEnabled(true);
+        button_G.setEnabled(true);
+        button_H.setEnabled(true);
+        button_I.setEnabled(true);
+        button_J.setEnabled(true);
+        button_K.setEnabled(true);
+        button_L.setEnabled(true);
+        button_M.setEnabled(true);
+        button_N.setEnabled(true);
+        button_O.setEnabled(true);
+        button_P.setEnabled(true);
+        button_Q.setEnabled(true);
+        button_R.setEnabled(true);
+        button_S.setEnabled(true);
+        button_T.setEnabled(true);
+        button_U.setEnabled(true);
+        button_V.setEnabled(true);
+        button_W.setEnabled(true);
+        button_X.setEnabled(true);
+        button_Y.setEnabled(true);
+        button_Z.setEnabled(true);
+        
+        for(int i=0; i < MAX_LETTERS; i++)
+        {
+            UNDERSCORES[i].setVisible(false);
+        }
+        
+        for(int i=0; i < MAX_LETTERS; i++)
+        {
+            HIDDEN_LETTER_PLACEHOLDER[i].setText("");
+            HIDDEN_LETTER_PLACEHOLDER[i].setVisible(false);
+        }
+        
+        randomizeHiddenWord();
+        
     }
 
     /**
@@ -643,164 +706,166 @@ public class GameScreen extends javax.swing.JPanel {
 
     private void button_BActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_BActionPerformed
         // TODO add your handling code here:
-        checkLetter("B");
         button_B.setEnabled(false);
+        checkLetter("B");
     }//GEN-LAST:event_button_BActionPerformed
 
     private void button_AActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_AActionPerformed
         // TODO add your handling code here:
-        checkLetter("A");
         button_A.setEnabled(false);
+        checkLetter("A");
     }//GEN-LAST:event_button_AActionPerformed
 
     private void button_DActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_DActionPerformed
         // TODO add your handling code here:
-        checkLetter("D");
         button_D.setEnabled(false);
+        checkLetter("D");
     }//GEN-LAST:event_button_DActionPerformed
 
     private void button_CActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_CActionPerformed
         // TODO add your handling code here:
-        checkLetter("C");
         button_C.setEnabled(false);
+        checkLetter("C");
     }//GEN-LAST:event_button_CActionPerformed
 
     private void button_GActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_GActionPerformed
         // TODO add your handling code here:
-        checkLetter("G");
         button_G.setEnabled(false);
+        checkLetter("G");
     }//GEN-LAST:event_button_GActionPerformed
 
     private void button_EActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_EActionPerformed
         // TODO add your handling code here:
-        checkLetter("E");
         button_E.setEnabled(false);
+        checkLetter("E");
     }//GEN-LAST:event_button_EActionPerformed
 
     private void button_FActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_FActionPerformed
         // TODO add your handling code here:
-        checkLetter("F");
         button_F.setEnabled(false);
+        checkLetter("F");
     }//GEN-LAST:event_button_FActionPerformed
 
     private void button_IActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_IActionPerformed
         // TODO add your handling code here:
-        checkLetter("I");
         button_I.setEnabled(false);
+        checkLetter("I");
     }//GEN-LAST:event_button_IActionPerformed
 
     private void button_HActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_HActionPerformed
         // TODO add your handling code here:
-        checkLetter("H");
         button_H.setEnabled(false);
+        checkLetter("H");
     }//GEN-LAST:event_button_HActionPerformed
 
     private void button_KActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_KActionPerformed
         // TODO add your handling code here:
-        checkLetter("K");
         button_K.setEnabled(false);
+        checkLetter("K");
     }//GEN-LAST:event_button_KActionPerformed
 
     private void button_JActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_JActionPerformed
         // TODO add your handling code here:
-        checkLetter("J");
         button_J.setEnabled(false);
+        checkLetter("J");
     }//GEN-LAST:event_button_JActionPerformed
 
     private void button_LActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_LActionPerformed
         // TODO add your handling code here:
-        checkLetter("L");
         button_L.setEnabled(false);
+        checkLetter("L");
     }//GEN-LAST:event_button_LActionPerformed
 
     private void button_MActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_MActionPerformed
         // TODO add your handling code here:
-        checkLetter("M");
         button_M.setEnabled(false);
+        checkLetter("M");
     }//GEN-LAST:event_button_MActionPerformed
 
     private void button_VActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_VActionPerformed
         // TODO add your handling code here:
-        checkLetter("V");
         button_V.setEnabled(false);
+        checkLetter("V");
     }//GEN-LAST:event_button_VActionPerformed
 
     private void button_UActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_UActionPerformed
         // TODO add your handling code here:
-        checkLetter("U");
         button_U.setEnabled(false);
+        checkLetter("U");
     }//GEN-LAST:event_button_UActionPerformed
 
     private void button_XActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_XActionPerformed
         // TODO add your handling code here:
-        checkLetter("X");
         button_X.setEnabled(false);
+        checkLetter("X");
     }//GEN-LAST:event_button_XActionPerformed
 
     private void button_WActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_WActionPerformed
         // TODO add your handling code here:
-        checkLetter("W");
         button_W.setEnabled(false);
+        checkLetter("W");
     }//GEN-LAST:event_button_WActionPerformed
 
     private void button_OActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_OActionPerformed
         // TODO add your handling code here:
-        checkLetter("O");
         button_O.setEnabled(false);
+        checkLetter("O");
     }//GEN-LAST:event_button_OActionPerformed
 
     private void button_YActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_YActionPerformed
         // TODO add your handling code here:
-        checkLetter("Y");
         button_Y.setEnabled(false);
+        checkLetter("Y");
     }//GEN-LAST:event_button_YActionPerformed
 
     private void button_NActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_NActionPerformed
         // TODO add your handling code here:
-        checkLetter("N");
         button_N.setEnabled(false);
+        checkLetter("N");
     }//GEN-LAST:event_button_NActionPerformed
 
     private void button_ZActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_ZActionPerformed
         // TODO add your handling code here:
-        checkLetter("Z");
         button_Z.setEnabled(false);
+        checkLetter("Z");
     }//GEN-LAST:event_button_ZActionPerformed
 
     private void button_QActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_QActionPerformed
         // TODO add your handling code here:
-        checkLetter("Q");
         button_Q.setEnabled(false);
+        checkLetter("Q");
     }//GEN-LAST:event_button_QActionPerformed
 
     private void button_PActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_PActionPerformed
         // TODO add your handling code here:
-        checkLetter("P");
         button_P.setEnabled(false);
+        checkLetter("P");
     }//GEN-LAST:event_button_PActionPerformed
 
     private void button_TActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_TActionPerformed
         // TODO add your handling code here:
-        checkLetter("T");
         button_T.setEnabled(false);
+        checkLetter("T");
     }//GEN-LAST:event_button_TActionPerformed
 
     private void button_RActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_RActionPerformed
         // TODO add your handling code here:
-        checkLetter("R");
         button_R.setEnabled(false);
+        checkLetter("R");
     }//GEN-LAST:event_button_RActionPerformed
 
     private void button_SActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_SActionPerformed
         // TODO add your handling code here:
-        checkLetter("S");
         button_S.setEnabled(false);
+        checkLetter("S");
     }//GEN-LAST:event_button_SActionPerformed
 
     private void button_SkipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_SkipActionPerformed
         // TODO add your handling code here:
         score = 0;
+        this.setGameOverLabelScore();
         w.switchPanes("gameover");
+        this.resetHangman();
     }//GEN-LAST:event_button_SkipActionPerformed
 
 

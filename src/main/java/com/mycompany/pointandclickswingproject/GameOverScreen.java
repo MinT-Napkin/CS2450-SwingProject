@@ -4,11 +4,21 @@
  */
 package com.mycompany.pointandclickswingproject;
 import static com.mycompany.pointandclickswingproject.PointAndClickSwingProject.w;
+import javax.swing.JLabel;
 
-/**
- *
- *
- */
+/***************************************************************  
+*  file: mainJFrame.java  
+*  author: B. Chen  
+*  class: CS 2450 – User Interface Design and Programing 
+*  
+*  assignment: Swing Project v1.0 
+*  date last modified: 9/21/2022  
+*  
+*  purpose: This file contains all the necessary components for the
+*  Game Over screen.
+*  
+****************************************************************/  
+
 public class GameOverScreen extends javax.swing.JPanel {
 
     /**
@@ -18,26 +28,29 @@ public class GameOverScreen extends javax.swing.JPanel {
         initComponents();
     }
     
-    private GameScreen gameMethods;
-    
-    /**
-     * Creates new form GameOverScreen2
-     * @param gameScreen1
-     */    
-    public GameOverScreen(GameScreen gameScreen1) {
-        gameMethods = gameScreen1;
-        initComponents();
+    // method: getLabelScore()
+    // purpose: this method returns the JLabel that is meant to display the final score
+    public JLabel getLabelScore()
+    {
+        return labelScore;
     }
     
-    private String getGameOverText() {
-        if (gameMethods.getScore() == 0) {
-            return "Game over!\nYour score is 0.";
-        }
-        else {
-            return "Congratulations!\n You scored" + gameMethods.getScore() + "points.";
-        }
-           
+    // method: setLabelScore()
+    // purpose: this method sets the JLabel (not the text) to another JLabel
+    public void setLabelScore(JLabel labelScore)
+    {
+        this.labelScore = labelScore;
     }
+    
+//    private String getGameOverText() {
+//        if (gameMethods.getScore() == 0) {
+//            return "Game over!\nYour score is 0.";
+//        }
+//        else {
+//            return "Congratulations!\n You scored" + gameMethods.getScore() + "points.";
+//        }
+//           
+//    }
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -64,7 +77,7 @@ public class GameOverScreen extends javax.swing.JPanel {
         add(buttonBackToMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 350, -1, -1));
 
         labelScore.setFont(new java.awt.Font("Haettenschweiler", 0, 24)); // NOI18N
-        labelScore.setText(getGameOverText());
+        labelScore.setText("labelScore");
         add(labelScore, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         bgGameOverScreen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bgGameOver.png"))); // NOI18N
@@ -74,7 +87,6 @@ public class GameOverScreen extends javax.swing.JPanel {
     private void buttonBackToMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackToMenuActionPerformed
         // TODO add your handling code here:
         w.switchPanes("menu");
-        gameMethods.resetHangman(100, 0, 0);
     }//GEN-LAST:event_buttonBackToMenuActionPerformed
 
 
