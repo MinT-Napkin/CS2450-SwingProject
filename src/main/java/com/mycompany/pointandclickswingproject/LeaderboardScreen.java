@@ -1,3 +1,16 @@
+/***************************************************************  
+*  file: LeaderboardScreen.java  
+*  author: G. Waughan
+*  class: CS 2450 – User Interface Design and Programing 
+*  
+*  assignment: Swing Project v1.0 
+*  date last modified: 9/21/2022  
+*  
+*  purpose: This program contains all the necessary components to display
+*  in the Leaderboard screen
+*  
+****************************************************************/ 
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
@@ -6,10 +19,6 @@ package com.mycompany.pointandclickswingproject;
 
 import static com.mycompany.pointandclickswingproject.PointAndClickSwingProject.w;
 
-/**
- *
- *
- */
 public class LeaderboardScreen extends javax.swing.JPanel {
 
     /**

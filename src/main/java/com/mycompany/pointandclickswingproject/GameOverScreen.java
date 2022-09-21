@@ -1,11 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
-package com.mycompany.pointandclickswingproject;
-import static com.mycompany.pointandclickswingproject.PointAndClickSwingProject.w;
-import javax.swing.JLabel;
-
 /***************************************************************  
 *  file: mainJFrame.java  
 *  author: B. Chen  
@@ -18,6 +10,15 @@ import javax.swing.JLabel;
 *  Game Over screen.
 *  
 ****************************************************************/  
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
+ */
+package com.mycompany.pointandclickswingproject;
+import static com.mycompany.pointandclickswingproject.PointAndClickSwingProject.w;
+import javax.swing.JLabel;
+
 
 public class GameOverScreen extends javax.swing.JPanel {
 

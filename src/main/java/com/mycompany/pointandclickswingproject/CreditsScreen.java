@@ -1,3 +1,16 @@
+/***************************************************************  
+*  file: CreditsScreen.java  
+*  author: G. Waughan
+*  class: CS 2450 – User Interface Design and Programing 
+*  
+*  assignment: Swing Project v1.0 
+*  date last modified: 9/21/2022  
+*  
+*  purpose: This program contains all the necessary components to display
+*  in the Credits screen
+*  
+****************************************************************/  
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
@@ -5,16 +18,7 @@
 package com.mycompany.pointandclickswingproject;
 
 import static com.mycompany.pointandclickswingproject.PointAndClickSwingProject.w;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import javax.swing.Timer;
 
-/**
- *
- *
- */
 public class CreditsScreen extends javax.swing.JPanel {
 
     /**

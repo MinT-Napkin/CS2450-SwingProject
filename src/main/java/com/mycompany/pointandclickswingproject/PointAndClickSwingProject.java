@@ -1,3 +1,16 @@
+/***************************************************************  
+*  file: PointAndClickSwingProject.java  
+*  author: N. Kowdle
+*  class: CS 2450 – User Interface Design and Programing 
+*  
+*  assignment: Swing Project v1.0 
+*  date last modified: 9/21/2022  
+*  
+*  purpose: This program is the demo file which runs and instantiates all
+*  the screens.
+*  
+****************************************************************/  
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Project/Maven2/JavaApp/src/main/java/${packagePath}/${mainClassName}.java to edit this template

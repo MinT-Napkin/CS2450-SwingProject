@@ -1,3 +1,16 @@
+/***************************************************************  
+*  file: GameScreen.java  
+*  author: M. Tran
+*  class: CS 2450 – User Interface Design and Programing 
+*  
+*  assignment: Swing Project v1.0 
+*  date last modified: 9/21/2022  
+*  
+*  purpose: This program contains all the functionality of the Hangman game in
+*  one Screen
+*  
+****************************************************************/  
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
@@ -12,18 +25,6 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.Timer;
 
-/***************************************************************  
-*  file: GameScreen.java  
-*  author: M. Tran
-*  class: CS 2450 – User Interface Design and Programing 
-*  
-*  assignment: Swing Project v1.0 
-*  date last modified: 9/21/2022  
-*  
-*  purpose: This program contains all the functionality of the Hangman game in
-*  one Screen
-*  
-****************************************************************/  
 
 public class GameScreen extends javax.swing.JPanel {
 

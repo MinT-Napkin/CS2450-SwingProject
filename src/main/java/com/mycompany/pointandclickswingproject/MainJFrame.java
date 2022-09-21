@@ -1,5 +1,5 @@
 /***************************************************************  
-*  file: mainJFrame.java  
+*  file: MainJFrame.java  
 *  author: N. Kowdle  
 *  class: CS 2450 – User Interface Design and Programing 
 *  
@@ -86,6 +86,9 @@ public class MainJFrame extends javax.swing.JFrame {
         timer.start();
     }
  
+    // method: switchPanes(String swap)
+    // purpose: this method allows to easily switch screens to the corresponding
+    // name given for the screen
     void switchPanes(String swap) {
         cLayout.show(mainPane, swap);
     }
