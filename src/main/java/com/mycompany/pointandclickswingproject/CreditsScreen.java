@@ -71,7 +71,7 @@ public class CreditsScreen extends javax.swing.JPanel {
 
         MartinCredit.setFont(new java.awt.Font("Helvetica", 0, 24)); // NOI18N
         MartinCredit.setForeground(new java.awt.Color(206, 184, 136));
-        MartinCredit.setText("Martin Flores, (Bronco ID)");
+        MartinCredit.setText("Martin Flores, 014072422");
 
         GarethCredit.setFont(new java.awt.Font("Helvetica", 0, 24)); // NOI18N
         GarethCredit.setForeground(new java.awt.Color(206, 184, 136));
@@ -113,7 +113,7 @@ public class CreditsScreen extends javax.swing.JPanel {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42)
                 .addComponent(BenCredit)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(12, 12, 12)
                 .addComponent(MartinCredit)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(NikhilCredit)
