@@ -1,6 +1,6 @@
 /***************************************************************  
-*  file: mainJFrame.java  
-*  author: B. Chen  
+*  file: GameOverScreen.java  
+*  authors: B. Chen & M. Flores 
 *  class: CS 2450 – User Interface Design and Programing 
 *  
 *  assignment: Swing Project v1.0 
