@@ -43,15 +43,11 @@ public class GameScreen extends javax.swing.JPanel {
     private final String[] DEFAULT_WORDS = {"Abstract", "Cemetary", "Nurse", "Pharmacy", "Climbing"};
     
     private final Timer alertTimer;
-    
-    private JLabel gameOverLabelScore;
-    
 
     /**
      * Creates new form GameScreen
-     * @param gameOverLabelScore
      */
-    public GameScreen(JLabel gameOverLabelScore) {    
+    public GameScreen() {    
         initComponents();
         
         prepareHiddenWordDisplay();
@@ -61,7 +57,6 @@ public class GameScreen extends javax.swing.JPanel {
         myScore.setText("Score: " + this.score);
         this.mistakes = INITIAL_MISTAKES;
         this.correctGuesses = INITIAL_CORRECT_GUESSES;
-        this.gameOverLabelScore = gameOverLabelScore;
         
         this.alertTimer = new Timer (2000, updateAlert);
         
@@ -133,15 +128,6 @@ public class GameScreen extends javax.swing.JPanel {
     public void setCorrectGuesses(int correctGuesses)
     {
         this.correctGuesses = correctGuesses;
-    }
-    
-    // method: setGameOverLabelScore()
-    /* purpose: this method sets the text of the JLabel in the GameOverScreen
-    respectively to the score earned
-    */
-    private void setGameOverLabelScore()
-    {
-        // Code here
     }
     
     // method: prepareHiddenWordDisplay()
