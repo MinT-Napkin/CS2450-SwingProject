@@ -427,7 +427,7 @@ public class GameScreen extends javax.swing.JPanel {
 
         myScore.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         myScore.setText("SCORE: 0");
-        add(myScore, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 45, 70, -1));
+        add(myScore, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 45, 100, -1));
 
         button_A.setText("A");
         button_A.setPreferredSize(new java.awt.Dimension(41, 41));
