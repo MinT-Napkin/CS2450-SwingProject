@@ -41,7 +41,14 @@ public class GameOverScreen extends javax.swing.JPanel {
     // purpose: this method sets the JLabel (not the text) to another JLabel
     public static void setLabelScore(int myScore)
     {
-        labelScore.setText("Score: " + myScore);
+        if(myScore == 0)
+            labelScore.setText("Game over!\nYour score is 0 points.");
+        
+        else
+            labelScore.setText ("Congratulations!\n You scored " + myScore + " points.");
+        
+        
+        //labelScore.setText("Score: " + myScore);
     }
     
 //    private String getGameOverText() {

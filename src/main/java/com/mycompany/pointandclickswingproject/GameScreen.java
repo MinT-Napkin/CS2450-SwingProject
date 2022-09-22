@@ -866,7 +866,8 @@ public class GameScreen extends javax.swing.JPanel {
     private void button_SkipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_SkipActionPerformed
         // TODO add your handling code here:
         score = 0;
-        this.setGameOverLabelScore();
+        //this.setGameOverLabelScore();
+        GameOverScreen.setLabelScore(score);
         w.switchPanes("gameover");
         this.resetHangman();
     }//GEN-LAST:event_button_SkipActionPerformed
