@@ -28,7 +28,7 @@ import javax.swing.Timer;
 
 public class GameScreen extends javax.swing.JPanel {
 
-    private int score;
+    private static int score;
     private int mistakes;
     private int correctGuesses;
     private String hiddenWord;
@@ -95,9 +95,9 @@ public class GameScreen extends javax.swing.JPanel {
     
     // method: getScore()
     // purpose: getter method for score variable
-    public int getScore()
+    public static int getScore()
     {
-        return this.score;
+        return score;
     }
     
     // method: setScore()
@@ -271,7 +271,8 @@ public class GameScreen extends javax.swing.JPanel {
             if(mistakes >= 6)
             {
                 //end the game
-                this.setGameOverLabelScore();
+                GameOverScreen.setLabelScore(score);
+               // this.setGameOverLabelScore();
                 w.switchPanes("gameover");
                 this.resetHangman();
             }
@@ -281,7 +282,8 @@ public class GameScreen extends javax.swing.JPanel {
             // user wins the game
             if(correctGuesses >= hiddenWord.length())
             {
-                this.setGameOverLabelScore();
+               // this.setGameOverLabelScore();
+                GameOverScreen.setLabelScore(score);
                 w.switchPanes("gameover");
                 this.resetHangman();
             }

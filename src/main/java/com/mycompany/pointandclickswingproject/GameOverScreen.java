@@ -27,6 +27,7 @@ public class GameOverScreen extends javax.swing.JPanel {
      */
     public GameOverScreen() {
         initComponents();
+    //    labelScore.setText("Score: " + GameScreen.getScore());
     }
     
     // method: getLabelScore()
@@ -38,9 +39,9 @@ public class GameOverScreen extends javax.swing.JPanel {
     
     // method: setLabelScore()
     // purpose: this method sets the JLabel (not the text) to another JLabel
-    public void setLabelScore(JLabel labelScore)
+    public static void setLabelScore(int myScore)
     {
-        this.labelScore = labelScore;
+        labelScore.setText("Score: " + myScore);
     }
     
 //    private String getGameOverText() {
@@ -94,6 +95,6 @@ public class GameOverScreen extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bgGameOverScreen;
     private javax.swing.JButton buttonBackToMenu;
-    javax.swing.JLabel labelScore;
+    static javax.swing.JLabel labelScore;
     // End of variables declaration//GEN-END:variables
 }
