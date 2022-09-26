@@ -5,6 +5,7 @@
 package com.mycompany.pointandclickswingproject;
 import java.awt.Color;
 import java.awt.Point;
+import java.util.ArrayList;
 
 /**
  *
@@ -25,7 +26,7 @@ public class GameScreen1 extends javax.swing.JPanel {
     // x restriction: 20 ~ 500
     // y restriction: 20 ~ 350
     private final int MAX_LOCATIONS = 20;
-    private final Point[] locations = new Point[MAX_LOCATIONS];
+    private final ArrayList<Point> locations = new ArrayList<>(MAX_LOCATIONS);
 
     /**
      * Creates new form GameScreen1
@@ -38,6 +39,7 @@ public class GameScreen1 extends javax.swing.JPanel {
         jButton4.setBackground(blue);
         jButton5.setBackground(purple);
         initializePossibleLocations();
+        randomizeButtonLocations();
 //        for(Point l : locations)
 //        {
 //            System.out.println(l);
@@ -46,9 +48,11 @@ public class GameScreen1 extends javax.swing.JPanel {
     
     private void initializePossibleLocations()
     {
+        locations.removeAll(locations);
+        
         // leftmost x coord and topmost y coord
-        int x = 20;
-        int y = 20;
+        int x = 50;
+        int y = 50;
         
         for(int i = 0; i < MAX_LOCATIONS; i++)
         {
@@ -58,11 +62,11 @@ public class GameScreen1 extends javax.swing.JPanel {
             }
             else if(x > 500)
             {
-                x = 20;
+                x = 50;
                 y += 100;
                 
                 Point p = new Point(x, y);
-                locations[i] = p;
+                locations.add(p);
                 
                 x += 100;
                 
@@ -70,7 +74,7 @@ public class GameScreen1 extends javax.swing.JPanel {
             else
             {
                 Point p = new Point(x, y);
-                locations[i] = p;
+                locations.add(p);
                 
                 x += 100;
                 
@@ -79,58 +83,46 @@ public class GameScreen1 extends javax.swing.JPanel {
     }
     
     private void randomizeButtonLocations()
-    {
-        Point[] usedLocations = new Point[5];
+    {   
         
         for(int i = 1; i <= 5; i++)
         {
-            int index = (int) Math.floor(Math.random()*MAX_LOCATIONS);
-            boolean uniqueIndex = false;
-            
-            while(uniqueIndex)
-            {
-                uniqueIndex = true;
-                for(int j = 0; j < 5; j++)
-                {
-                    if(locations[index] == usedLocations[i])
-                    {
-                       j = 5;
-                       uniqueIndex = false;
-                    }
-                }
-                
-                if(!uniqueIndex)
-                {
-                    index = (int) Math.floor(Math.random()*MAX_LOCATIONS);
-                }
-            }
+            int index = (int) Math.floor(Math.random()*locations.size());
             
             switch(i)
             {
                 case 1 -> {
-                    jButton1.setLocation(locations[index]);
+                    jButton1.setLocation(locations.remove(index));
                 }
                 
                 case 2 -> {
-                    jButton2.setLocation(locations[index]);
+                    jButton2.setLocation(locations.remove(index));
                 }
                 
                 case 3 -> {
-                    jButton3.setLocation(locations[index]);
+                    jButton3.setLocation(locations.remove(index));
                 }
                 
                 case 4 -> {
-                    jButton4.setLocation(locations[index]);
+                    jButton4.setLocation(locations.remove(index));
                 }
                 
                 case 5 -> {
-                    jButton5.setLocation(locations[index]);
+                    jButton5.setLocation(locations.remove(index));
+                    
+                    System.out.println("------LOCATIONS------");
+                    System.out.println(jButton1.getLocation());
+                    System.out.println(jButton2.getLocation());
+                    System.out.println(jButton3.getLocation());
+                    System.out.println(jButton4.getLocation());
+                    System.out.println(jButton5.getLocation());
+                    System.out.println("---------------------");
                 }
                     
             }
         }
-//        hiddenWord = DEFAULT_WORDS[index].toUpperCase();
-//        System.out.println("Hidden Word Is: " + hiddenWord);
+        
+        initializePossibleLocations();
     }
 
     /**
@@ -149,6 +141,7 @@ public class GameScreen1 extends javax.swing.JPanel {
         jButton5 = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(600, 400));
+        setLayout(null);
 
         jButton1.setText("jButton1");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -162,6 +155,8 @@ public class GameScreen1 extends javax.swing.JPanel {
                 jButton1MousePressed(evt);
             }
         });
+        add(jButton1);
+        jButton1.setBounds(64, 124, 75, 23);
 
         jButton2.setText("jButton2");
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -171,7 +166,12 @@ public class GameScreen1 extends javax.swing.JPanel {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jButton2MouseExited(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton2MousePressed(evt);
+            }
         });
+        add(jButton2);
+        jButton2.setBounds(217, 124, 75, 23);
 
         jButton3.setText("jButton3");
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -181,7 +181,12 @@ public class GameScreen1 extends javax.swing.JPanel {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jButton3MouseExited(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton3MousePressed(evt);
+            }
         });
+        add(jButton3);
+        jButton3.setBounds(359, 124, 75, 23);
 
         jButton4.setText("jButton4");
         jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -191,7 +196,12 @@ public class GameScreen1 extends javax.swing.JPanel {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jButton4MouseExited(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton4MousePressed(evt);
+            }
         });
+        add(jButton4);
+        jButton4.setBounds(146, 225, 75, 23);
 
         jButton5.setText("jButton5");
         jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -201,47 +211,17 @@ public class GameScreen1 extends javax.swing.JPanel {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jButton5MouseExited(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton5MousePressed(evt);
+            }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(64, 64, 64)
-                        .addComponent(jButton1)
-                        .addGap(78, 78, 78)
-                        .addComponent(jButton2)
-                        .addGap(67, 67, 67)
-                        .addComponent(jButton3))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(146, 146, 146)
-                        .addComponent(jButton4)
-                        .addGap(81, 81, 81)
-                        .addComponent(jButton5)))
-                .addContainerGap(166, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(124, 124, 124)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
-                .addGap(78, 78, 78)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4)
-                    .addComponent(jButton5))
-                .addContainerGap(154, Short.MAX_VALUE))
-        );
+        add(jButton5);
+        jButton5.setBounds(302, 225, 75, 23);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseEntered
         jButton1.setBackground(red1);
-        System.out.println(jButton1.getLocation());
+//        System.out.println(jButton1.getLocation());
     }//GEN-LAST:event_jButton1MouseEntered
 
     private void jButton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseExited
@@ -250,7 +230,7 @@ public class GameScreen1 extends javax.swing.JPanel {
 
     private void jButton2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseEntered
         jButton2.setBackground(yellow1);
-        System.out.println(jButton2.getLocation());
+//        System.out.println(jButton2.getLocation());
     }//GEN-LAST:event_jButton2MouseEntered
 
     private void jButton2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseExited
@@ -259,7 +239,7 @@ public class GameScreen1 extends javax.swing.JPanel {
 
     private void jButton3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseEntered
         jButton3.setBackground(green1);
-        System.out.println(jButton3.getLocation());
+//        System.out.println(jButton3.getLocation());
     }//GEN-LAST:event_jButton3MouseEntered
 
     private void jButton3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseExited
@@ -268,7 +248,7 @@ public class GameScreen1 extends javax.swing.JPanel {
 
     private void jButton4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseEntered
         jButton4.setBackground(blue1);
-        System.out.println(jButton4.getLocation());
+//        System.out.println(jButton4.getLocation());
     }//GEN-LAST:event_jButton4MouseEntered
 
     private void jButton4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseExited
@@ -277,7 +257,7 @@ public class GameScreen1 extends javax.swing.JPanel {
 
     private void jButton5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseEntered
         jButton5.setBackground(purple1);
-        System.out.println(jButton5.getLocation());
+//        System.out.println(jButton5.getLocation());
     }//GEN-LAST:event_jButton5MouseEntered
 
     private void jButton5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseExited
@@ -288,6 +268,26 @@ public class GameScreen1 extends javax.swing.JPanel {
         // TODO add your handling code here:
         randomizeButtonLocations();
     }//GEN-LAST:event_jButton1MousePressed
+
+    private void jButton2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MousePressed
+        // TODO add your handling code here:
+        randomizeButtonLocations();
+    }//GEN-LAST:event_jButton2MousePressed
+
+    private void jButton3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MousePressed
+        // TODO add your handling code here:
+        randomizeButtonLocations();
+    }//GEN-LAST:event_jButton3MousePressed
+
+    private void jButton4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MousePressed
+        // TODO add your handling code here:
+        randomizeButtonLocations();
+    }//GEN-LAST:event_jButton4MousePressed
+
+    private void jButton5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MousePressed
+        // TODO add your handling code here:
+        randomizeButtonLocations();
+    }//GEN-LAST:event_jButton5MousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
