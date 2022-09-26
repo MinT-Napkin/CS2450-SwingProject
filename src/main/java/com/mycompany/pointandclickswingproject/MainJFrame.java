@@ -85,7 +85,6 @@ public class MainJFrame extends javax.swing.JFrame {
         Timer timer = new Timer(3000, new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 cLayout.show(mainPane, MENU);
-                cLayout.show(mainPane, GAME1);
             }
         });
         timer.setRepeats(false);
