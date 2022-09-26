@@ -33,6 +33,7 @@ public class MainJFrame extends javax.swing.JFrame {
     public final String MENU = "menu";
     public final String LEADERBOARD = "leaderboard";
     public final String GAME = "game";
+    public final String GAME1 = "game1";
     public final String CREDITS = "credits";
     public final String GAMEOVER = "gameover";
     private final CardLayout cLayout;
@@ -46,13 +47,16 @@ public class MainJFrame extends javax.swing.JFrame {
      * @param gameScreen1
      * @param creditsScreen1
      * @param gameOverScreen1
+     * @param gameScreen2
+     * @throws java.lang.InterruptedException
      */
     public MainJFrame(JPanel splashScreen1, 
             JPanel menuScreen1, 
             JPanel leaderboardScreen1, 
             JPanel gameScreen1, 
             JPanel creditsScreen1,
-            JPanel gameOverScreen1) throws InterruptedException {
+            JPanel gameOverScreen1,
+            JPanel gameScreen2) throws InterruptedException {
         
         setTitle("SwingBeans - Swing Project v1.0");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -69,6 +73,7 @@ public class MainJFrame extends javax.swing.JFrame {
         mainPane.add(GAME, gameScreen1);
         mainPane.add(CREDITS, creditsScreen1);
         mainPane.add(GAMEOVER, gameOverScreen1);
+        mainPane.add(GAME1, gameScreen2);
         
         cLayout.show(mainPane, SPLASH);
 
@@ -80,6 +85,7 @@ public class MainJFrame extends javax.swing.JFrame {
         Timer timer = new Timer(3000, new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 cLayout.show(mainPane, MENU);
+                cLayout.show(mainPane, GAME1);
             }
         });
         timer.setRepeats(false);
