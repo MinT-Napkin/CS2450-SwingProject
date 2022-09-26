@@ -18,15 +18,134 @@
 package com.mycompany.pointandclickswingproject;
 
 import static com.mycompany.pointandclickswingproject.PointAndClickSwingProject.w;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Scanner;
+import javax.swing.JLabel;
+
+class highScore{
+    
+    public String initials;
+    public int score;
+    
+    public highScore(String enteredInitials, int enteredScore)
+    {
+        this.initials = enteredInitials;
+        this.score = enteredScore;
+    }
+    
+    
+    public String getInitials()
+    {
+        return initials;
+    }
+    
+    public void setInitials(String enteredInitials)
+    {
+        this.initials = enteredInitials;
+    }
+    
+    public int getScore()
+    {
+        return score;
+    }
+    
+    public void setScore(int enteredScore)
+    {
+        this.score = enteredScore;
+    }
+    
+    @Override
+    public String toString()
+    {
+        return initials + " " + score;
+    }
+    
+}
 
 public class LeaderboardScreen extends javax.swing.JPanel {
 
+    
+   // JLabel[] myLabels = new JLabel[5];
+   // String[] myInitials = new String[5];
+   // static int[] myScores = new int[5];
+    
+    ArrayList<highScore> highScores = new ArrayList<highScore>();
+    
     /**
      * Creates new form LeaderBoardScreen
      */
     public LeaderboardScreen() {
         initComponents();
+        readThyFile();
+        writeThyFile();
+        readThyFile();
     }
+    
+    public void writeThyFile()
+    {
+       // int myUserScore = GameScreen.getScore();
+        int myUserScore = 600;
+        String test = "FFF";
+       // System.out.println(myUserScore);
+        for(int n = 0; n < highScores.size(); n++)
+        {
+            if(highScores.get(n).getScore() < myUserScore)
+            {
+                //insert setInitials method here.       
+                //meant to push down previous high scores, should list only top 5.
+                for(int x = highScores.size()-1; x > n; x--)
+                {
+                    highScores.set(x, highScores.get(x-1));
+                    System.out.println(highScores.toString());
+                }
+                //should set new highScore. 
+                highScores.set(n, new highScore(test, myUserScore));
+                System.out.println(highScores.toString());
+                break;
+            }
+          
+        }
+    }
+    
+    
+    public void readThyFile()
+    {
+        int counter = 0;
+
+        try {
+            //extracting file contents into JLabel Array.
+            File myObj = new File("src/main/resources/myLeaderboard.txt");
+             Scanner myReader = new Scanner(myObj);
+                while (myReader.hasNextLine()) 
+                  {
+                   String data = myReader.nextLine();
+                   String ghost = " ";
+                   int ghoul = 0;
+                   ghost = data.substring(0,3);
+                   ghoul = Integer.parseInt(data.substring(4));
+                   
+                   highScores.add(new highScore(ghost, ghoul));
+                   System.out.println(highScores.get(counter));
+                   ++counter;
+                  }
+             myReader.close();
+             
+             highScore1.setText(highScores.get(0).toString());
+             highScore2.setText(highScores.get(1).toString());
+             highScore3.setText(highScores.get(2).toString());
+             highScore4.setText(highScores.get(3).toString());
+             highScore5.setText(highScores.get(4).toString());
+            } 
+
+        catch (FileNotFoundException e) {
+      System.out.println("File not found.");
+      e.printStackTrace();
+    }
+    }
+    
+    
     
     /**
      * This method is called from within the constructor to initialize the form.
