@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package com.mycompany.pointandclickswingproject;
+import static com.mycompany.pointandclickswingproject.PointAndClickSwingProject.w;
 import java.awt.Color;
 import java.awt.Point;
 import java.util.ArrayList;
@@ -23,6 +24,8 @@ public class GameScreen1 extends javax.swing.JPanel {
     Color purple = new Color(128, 0, 128);
     Color purple1 = new Color(168, 40, 168);
     
+    private int attempts = 0;
+    
     // x restriction: 20 ~ 500
     // y restriction: 20 ~ 350
     private final int MAX_LOCATIONS = 20;
@@ -33,11 +36,11 @@ public class GameScreen1 extends javax.swing.JPanel {
      */
     public GameScreen1() {
         initComponents();
-        jButton1.setBackground(red);
-        jButton2.setBackground(yellow);
-        jButton3.setBackground(green);
-        jButton4.setBackground(blue);
-        jButton5.setBackground(purple);
+        redButton.setBackground(red);
+        yellowButton.setBackground(yellow);
+        greenButton.setBackground(green);
+        blueButton.setBackground(blue);
+        purpleButton.setBackground(purple);
         initializePossibleLocations();
         randomizeButtonLocations();
 //        for(Point l : locations)
@@ -92,30 +95,30 @@ public class GameScreen1 extends javax.swing.JPanel {
             switch(i)
             {
                 case 1 -> {
-                    jButton1.setLocation(locations.remove(index));
+                    redButton.setLocation(locations.remove(index));
                 }
                 
                 case 2 -> {
-                    jButton2.setLocation(locations.remove(index));
+                    yellowButton.setLocation(locations.remove(index));
                 }
                 
                 case 3 -> {
-                    jButton3.setLocation(locations.remove(index));
+                    greenButton.setLocation(locations.remove(index));
                 }
                 
                 case 4 -> {
-                    jButton4.setLocation(locations.remove(index));
+                    blueButton.setLocation(locations.remove(index));
                 }
                 
                 case 5 -> {
-                    jButton5.setLocation(locations.remove(index));
+                    purpleButton.setLocation(locations.remove(index));
                     
                     System.out.println("------LOCATIONS------");
-                    System.out.println(jButton1.getLocation());
-                    System.out.println(jButton2.getLocation());
-                    System.out.println(jButton3.getLocation());
-                    System.out.println(jButton4.getLocation());
-                    System.out.println(jButton5.getLocation());
+                    System.out.println(redButton.getLocation());
+                    System.out.println(yellowButton.getLocation());
+                    System.out.println(greenButton.getLocation());
+                    System.out.println(blueButton.getLocation());
+                    System.out.println(purpleButton.getLocation());
                     System.out.println("---------------------");
                 }
                     
@@ -125,6 +128,16 @@ public class GameScreen1 extends javax.swing.JPanel {
         initializePossibleLocations();
     }
 
+    private void checkIfCorrectButton(String color)
+    {
+        attempts++;
+        
+        if(attempts >= 5)
+        {
+            GameOverScreen.setLabelScore(ScoreManager.getScore());
+            w.switchPanes("gameover");
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -134,167 +147,172 @@ public class GameScreen1 extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        redButton = new javax.swing.JButton();
+        yellowButton = new javax.swing.JButton();
+        greenButton = new javax.swing.JButton();
+        blueButton = new javax.swing.JButton();
+        purpleButton = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(600, 400));
         setLayout(null);
 
-        jButton1.setText("jButton1");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        redButton.setText("red");
+        redButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jButton1MouseEntered(evt);
+                redButtonMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jButton1MouseExited(evt);
+                redButtonMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jButton1MousePressed(evt);
+                redButtonMousePressed(evt);
             }
         });
-        add(jButton1);
-        jButton1.setBounds(64, 124, 75, 23);
+        add(redButton);
+        redButton.setBounds(64, 124, 72, 23);
 
-        jButton2.setText("jButton2");
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+        yellowButton.setText("yellow");
+        yellowButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jButton2MouseEntered(evt);
+                yellowButtonMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jButton2MouseExited(evt);
+                yellowButtonMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jButton2MousePressed(evt);
+                yellowButtonMousePressed(evt);
             }
         });
-        add(jButton2);
-        jButton2.setBounds(217, 124, 75, 23);
+        add(yellowButton);
+        yellowButton.setBounds(217, 124, 72, 23);
 
-        jButton3.setText("jButton3");
-        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+        greenButton.setText("green");
+        greenButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jButton3MouseEntered(evt);
+                greenButtonMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jButton3MouseExited(evt);
+                greenButtonMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jButton3MousePressed(evt);
+                greenButtonMousePressed(evt);
             }
         });
-        add(jButton3);
-        jButton3.setBounds(359, 124, 75, 23);
+        add(greenButton);
+        greenButton.setBounds(359, 124, 72, 23);
 
-        jButton4.setText("jButton4");
-        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+        blueButton.setText("blue");
+        blueButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jButton4MouseEntered(evt);
+                blueButtonMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jButton4MouseExited(evt);
+                blueButtonMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jButton4MousePressed(evt);
+                blueButtonMousePressed(evt);
             }
         });
-        add(jButton4);
-        jButton4.setBounds(146, 225, 75, 23);
+        add(blueButton);
+        blueButton.setBounds(146, 225, 72, 23);
 
-        jButton5.setText("jButton5");
-        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+        purpleButton.setText("purple");
+        purpleButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jButton5MouseEntered(evt);
+                purpleButtonMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jButton5MouseExited(evt);
+                purpleButtonMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jButton5MousePressed(evt);
+                purpleButtonMousePressed(evt);
             }
         });
-        add(jButton5);
-        jButton5.setBounds(302, 225, 75, 23);
+        add(purpleButton);
+        purpleButton.setBounds(302, 225, 72, 23);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseEntered
-        jButton1.setBackground(red1);
+    private void redButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_redButtonMouseEntered
+        redButton.setBackground(red1);
 //        System.out.println(jButton1.getLocation());
-    }//GEN-LAST:event_jButton1MouseEntered
+    }//GEN-LAST:event_redButtonMouseEntered
 
-    private void jButton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseExited
-        jButton1.setBackground(red);
-    }//GEN-LAST:event_jButton1MouseExited
+    private void redButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_redButtonMouseExited
+        redButton.setBackground(red);
+    }//GEN-LAST:event_redButtonMouseExited
 
-    private void jButton2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseEntered
-        jButton2.setBackground(yellow1);
+    private void yellowButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_yellowButtonMouseEntered
+        yellowButton.setBackground(yellow1);
 //        System.out.println(jButton2.getLocation());
-    }//GEN-LAST:event_jButton2MouseEntered
+    }//GEN-LAST:event_yellowButtonMouseEntered
 
-    private void jButton2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseExited
-        jButton2.setBackground(yellow);
-    }//GEN-LAST:event_jButton2MouseExited
+    private void yellowButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_yellowButtonMouseExited
+        yellowButton.setBackground(yellow);
+    }//GEN-LAST:event_yellowButtonMouseExited
 
-    private void jButton3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseEntered
-        jButton3.setBackground(green1);
+    private void greenButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_greenButtonMouseEntered
+        greenButton.setBackground(green1);
 //        System.out.println(jButton3.getLocation());
-    }//GEN-LAST:event_jButton3MouseEntered
+    }//GEN-LAST:event_greenButtonMouseEntered
 
-    private void jButton3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseExited
-        jButton3.setBackground(green);
-    }//GEN-LAST:event_jButton3MouseExited
+    private void greenButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_greenButtonMouseExited
+        greenButton.setBackground(green);
+    }//GEN-LAST:event_greenButtonMouseExited
 
-    private void jButton4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseEntered
-        jButton4.setBackground(blue1);
+    private void blueButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_blueButtonMouseEntered
+        blueButton.setBackground(blue1);
 //        System.out.println(jButton4.getLocation());
-    }//GEN-LAST:event_jButton4MouseEntered
+    }//GEN-LAST:event_blueButtonMouseEntered
 
-    private void jButton4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseExited
-        jButton4.setBackground(blue);
-    }//GEN-LAST:event_jButton4MouseExited
+    private void blueButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_blueButtonMouseExited
+        blueButton.setBackground(blue);
+    }//GEN-LAST:event_blueButtonMouseExited
 
-    private void jButton5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseEntered
-        jButton5.setBackground(purple1);
+    private void purpleButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_purpleButtonMouseEntered
+        purpleButton.setBackground(purple1);
 //        System.out.println(jButton5.getLocation());
-    }//GEN-LAST:event_jButton5MouseEntered
+    }//GEN-LAST:event_purpleButtonMouseEntered
 
-    private void jButton5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseExited
-        jButton5.setBackground(purple);
-    }//GEN-LAST:event_jButton5MouseExited
+    private void purpleButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_purpleButtonMouseExited
+        purpleButton.setBackground(purple);
+    }//GEN-LAST:event_purpleButtonMouseExited
 
-    private void jButton1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MousePressed
+    private void redButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_redButtonMousePressed
         // TODO add your handling code here:
         randomizeButtonLocations();
-    }//GEN-LAST:event_jButton1MousePressed
+        checkIfCorrectButton("red");
+    }//GEN-LAST:event_redButtonMousePressed
 
-    private void jButton2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MousePressed
+    private void yellowButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_yellowButtonMousePressed
         // TODO add your handling code here:
         randomizeButtonLocations();
-    }//GEN-LAST:event_jButton2MousePressed
+        checkIfCorrectButton("yellow");
+    }//GEN-LAST:event_yellowButtonMousePressed
 
-    private void jButton3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MousePressed
+    private void greenButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_greenButtonMousePressed
         // TODO add your handling code here:
         randomizeButtonLocations();
-    }//GEN-LAST:event_jButton3MousePressed
+        checkIfCorrectButton("green");
+    }//GEN-LAST:event_greenButtonMousePressed
 
-    private void jButton4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MousePressed
+    private void blueButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_blueButtonMousePressed
         // TODO add your handling code here:
         randomizeButtonLocations();
-    }//GEN-LAST:event_jButton4MousePressed
+        checkIfCorrectButton("blue");
+    }//GEN-LAST:event_blueButtonMousePressed
 
-    private void jButton5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MousePressed
+    private void purpleButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_purpleButtonMousePressed
         // TODO add your handling code here:
         randomizeButtonLocations();
-    }//GEN-LAST:event_jButton5MousePressed
+        checkIfCorrectButton("purple");
+    }//GEN-LAST:event_purpleButtonMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton blueButton;
+    private javax.swing.JButton greenButton;
+    private javax.swing.JButton purpleButton;
+    private javax.swing.JButton redButton;
+    private javax.swing.JButton yellowButton;
     // End of variables declaration//GEN-END:variables
 }

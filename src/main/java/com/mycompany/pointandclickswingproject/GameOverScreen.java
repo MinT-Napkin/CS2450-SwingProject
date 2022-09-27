@@ -96,6 +96,7 @@ public class GameOverScreen extends javax.swing.JPanel {
     private void buttonBackToMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackToMenuActionPerformed
         // TODO add your handling code here:
         w.switchPanes("menu");
+        ScoreManager.setScore(100);
     }//GEN-LAST:event_buttonBackToMenuActionPerformed
 
 

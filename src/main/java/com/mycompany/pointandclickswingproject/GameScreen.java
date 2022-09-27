@@ -28,7 +28,6 @@ import javax.swing.Timer;
 
 public class GameScreen extends javax.swing.JPanel {
 
-    private static int score;
     private int mistakes;
     private int correctGuesses;
     private String hiddenWord;
@@ -53,8 +52,8 @@ public class GameScreen extends javax.swing.JPanel {
         prepareHiddenWordDisplay();
         resetHangman();
         
-        this.score = INITIAL_SCORE;
-        myScore.setText("Score: " + this.score);
+        ScoreManager.setScore(INITIAL_SCORE);
+        myScore.setText("Score: " + ScoreManager.getScore());
         this.mistakes = INITIAL_MISTAKES;
         this.correctGuesses = INITIAL_CORRECT_GUESSES;
         
@@ -87,20 +86,6 @@ public class GameScreen extends javax.swing.JPanel {
             alert.setVisible(false);
         }
     };
-    
-    // method: getScore()
-    // purpose: getter method for score variable
-    public static int getScore()
-    {
-        return score;
-    }
-    
-    // method: setScore()
-    // purpose: setter method for score variable
-    public void setScore(int score)
-    {
-        this.score = score;
-    }
     
     // method: getMistakes()
     // purpose: getter method for misakes variable
@@ -202,8 +187,8 @@ public class GameScreen extends javax.swing.JPanel {
         if(!correctLetter)
         {
             mistakes++;
-            score -= 10;
-            myScore.setText("Score: " + this.score);
+            ScoreManager.subtractScore(10);
+            myScore.setText("Score: " + ScoreManager.getScore());
 //            System.out.println("Mistakes " + mistakes);
             
             alertTimer.setRepeats(false);
@@ -257,9 +242,9 @@ public class GameScreen extends javax.swing.JPanel {
             if(mistakes >= 6)
             {
                 //end the game
-                GameOverScreen.setLabelScore(score);
-               // this.setGameOverLabelScore();
-                w.switchPanes("gameover");
+                //GameOverScreen.setLabelScore(score);
+                //this.setGameOverLabelScore();
+                w.switchPanes("game1");
                 this.resetHangman();
             }
         }
@@ -269,8 +254,7 @@ public class GameScreen extends javax.swing.JPanel {
             if(correctGuesses >= hiddenWord.length())
             {
                // this.setGameOverLabelScore();
-                GameOverScreen.setLabelScore(score);
-                w.switchPanes("gameover");
+                w.switchPanes("game1");
                 this.resetHangman();
             }
         }
@@ -299,10 +283,8 @@ public class GameScreen extends javax.swing.JPanel {
     // after the game is finished for replayability
     private void resetHangman()
     {
-        this.score = INITIAL_SCORE;
         this.mistakes = INITIAL_MISTAKES;
         this.correctGuesses = INITIAL_CORRECT_GUESSES;
-        this.myScore.setText("Score: " + this.score);
         
         head.setVisible(false);
         body.setVisible(false);
@@ -851,10 +833,8 @@ public class GameScreen extends javax.swing.JPanel {
 
     private void button_SkipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_SkipActionPerformed
         // TODO add your handling code here:
-        score = 0;
-        //this.setGameOverLabelScore();
-        GameOverScreen.setLabelScore(score);
-        w.switchPanes("gameover");
+        ScoreManager.setScore(0);
+        w.switchPanes("game1");
         this.resetHangman();
     }//GEN-LAST:event_button_SkipActionPerformed
 
