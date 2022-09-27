@@ -59,21 +59,8 @@ public class GameScreen extends javax.swing.JPanel {
         
         this.alertTimer = new Timer (2000, updateAlert);
         
-        Timer clock = new Timer (100, updateClock);
-        clock.start();
+        Clock clock = new Clock(time);
     }
-    
-    // action listener: updateClock
-    /* purpose: this action listener is meant for a recurring timer that updates
-    * every second to display the current time
-    */
-    ActionListener updateClock = new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            SimpleDateFormat sdf = new SimpleDateFormat( " MMMMMMMMM dd, yyyy hh:mm:ss ");
-            time.setText(sdf.format(new Date())); 
-        }
-    };
     
     // action listener: updateAlert
     /* purpose: this action listener is meant for a timer of the alert

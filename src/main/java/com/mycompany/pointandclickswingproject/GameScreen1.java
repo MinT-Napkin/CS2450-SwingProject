@@ -25,6 +25,9 @@ public class GameScreen1 extends javax.swing.JPanel {
     Color purple1 = new Color(168, 40, 168);
     
     private int attempts = 0;
+    private String wordColor;
+    private String correctColor;
+    private Color textColor;
     
     // x restriction: 20 ~ 500
     // y restriction: 20 ~ 350
@@ -43,10 +46,18 @@ public class GameScreen1 extends javax.swing.JPanel {
         purpleButton.setBackground(purple);
         initializePossibleLocations();
         randomizeButtonLocations();
-//        for(Point l : locations)
-//        {
-//            System.out.println(l);
-//        }
+        
+        wordColor = "red"; // need to randomize text with a new method (1)
+        
+        // these two should be same color / both randmoized in one new method (2)
+        correctColor = "green";
+        textColor = green;
+        
+        colorLabel.setText(wordColor);
+        colorLabel.setForeground(green);
+        scoreLabel.setText("Score: " + ScoreManager.getScore());
+        
+        Clock clock = new Clock(time);
     }
     
     private void initializePossibleLocations()
@@ -113,13 +124,13 @@ public class GameScreen1 extends javax.swing.JPanel {
                 case 5 -> {
                     purpleButton.setLocation(locations.remove(index));
                     
-                    System.out.println("------LOCATIONS------");
-                    System.out.println(redButton.getLocation());
-                    System.out.println(yellowButton.getLocation());
-                    System.out.println(greenButton.getLocation());
-                    System.out.println(blueButton.getLocation());
-                    System.out.println(purpleButton.getLocation());
-                    System.out.println("---------------------");
+//                    System.out.println("------LOCATIONS------");
+//                    System.out.println(redButton.getLocation());
+//                    System.out.println(yellowButton.getLocation());
+//                    System.out.println(greenButton.getLocation());
+//                    System.out.println(blueButton.getLocation());
+//                    System.out.println(purpleButton.getLocation());
+//                    System.out.println("---------------------");
                 }
                     
             }
@@ -130,12 +141,22 @@ public class GameScreen1 extends javax.swing.JPanel {
 
     private void checkIfCorrectButton(String color)
     {
+        // randomize text and color methods here 
+        
+        
+        if(color.equals(correctColor))
+        {
+            ScoreManager.addScore(100);
+            scoreLabel.setText("Score: " + ScoreManager.getScore());
+        }
+        
         attempts++;
         
         if(attempts >= 5)
         {
             GameOverScreen.setLabelScore(ScoreManager.getScore());
             w.switchPanes("gameover");
+            attempts = 0; // resets the color game
         }
     }
     /**
@@ -152,6 +173,9 @@ public class GameScreen1 extends javax.swing.JPanel {
         greenButton = new javax.swing.JButton();
         blueButton = new javax.swing.JButton();
         purpleButton = new javax.swing.JButton();
+        colorLabel = new javax.swing.JLabel();
+        scoreLabel = new javax.swing.JLabel();
+        time = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(600, 400));
         setLayout(null);
@@ -230,6 +254,21 @@ public class GameScreen1 extends javax.swing.JPanel {
         });
         add(purpleButton);
         purpleButton.setBounds(302, 225, 72, 23);
+
+        colorLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        colorLabel.setText("color");
+        add(colorLabel);
+        colorLabel.setBounds(250, 0, 70, 32);
+
+        scoreLabel.setText("score");
+        add(scoreLabel);
+        scoreLabel.setBounds(10, 10, 160, 16);
+
+        time.setBackground(new java.awt.Color(255, 255, 255));
+        time.setText("timer");
+        time.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        add(time);
+        time.setBounds(410, 10, 180, 20);
     }// </editor-fold>//GEN-END:initComponents
 
     private void redButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_redButtonMouseEntered
@@ -310,9 +349,12 @@ public class GameScreen1 extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton blueButton;
+    private javax.swing.JLabel colorLabel;
     private javax.swing.JButton greenButton;
     private javax.swing.JButton purpleButton;
     private javax.swing.JButton redButton;
+    private javax.swing.JLabel scoreLabel;
+    private javax.swing.JLabel time;
     private javax.swing.JButton yellowButton;
     // End of variables declaration//GEN-END:variables
 }
