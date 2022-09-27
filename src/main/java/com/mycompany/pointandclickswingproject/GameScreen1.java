@@ -1,3 +1,16 @@
+/***************************************************************  
+*  file: GameScreen1.java  
+*  author: N. Kowdle / M. Tran
+*  class: CS 2450 – User Interface Design and Programing 
+*  
+*  assignment: Swing Project v1.0 
+*  date last modified: 9/27/2022  
+*  
+*  purpose: This program contains all the functionality of the Color game
+*  in one screen
+*  
+****************************************************************/  
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
@@ -27,7 +40,7 @@ public class GameScreen1 extends javax.swing.JPanel {
     private int attempts = 0;
     private String wordColor;
     private String correctColor;
-    private Color textColor;
+    private Color foregroundColor;
     
     // x restriction: 20 ~ 500
     // y restriction: 20 ~ 350
@@ -51,7 +64,7 @@ public class GameScreen1 extends javax.swing.JPanel {
         
         // these two should be same color / both randmoized in one new method (2)
         correctColor = "green";
-        textColor = green;
+        foregroundColor = green;
         
         colorLabel.setText(wordColor);
         colorLabel.setForeground(green);
@@ -60,6 +73,10 @@ public class GameScreen1 extends javax.swing.JPanel {
         Clock clock = new Clock(time);
     }
     
+    // method: initializePossibleLocations()
+    /*
+    purpose: randomizes the possible location points the jbuttons can take
+    */
     private void initializePossibleLocations()
     {
         locations.removeAll(locations);
@@ -96,6 +113,11 @@ public class GameScreen1 extends javax.swing.JPanel {
         }
     }
     
+    // method: randomizeButtonLocations()
+    /*
+    purpose: randomizes the locations of the buttons based on the
+    possible locations initialized by the initializePossibleLocations()
+    */
     private void randomizeButtonLocations()
     {   
         
@@ -139,6 +161,11 @@ public class GameScreen1 extends javax.swing.JPanel {
         initializePossibleLocations();
     }
 
+    // method: checkIfCorrectButton()
+    /*
+    purpose: checks if the given button is the correct color to the 
+    correctColor String, then adds score accordingly
+    */
     private void checkIfCorrectButton(String color)
     {
         // randomize text and color methods here 
@@ -258,11 +285,12 @@ public class GameScreen1 extends javax.swing.JPanel {
         colorLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         colorLabel.setText("color");
         add(colorLabel);
-        colorLabel.setBounds(250, 0, 70, 32);
+        colorLabel.setBounds(220, 12, 70, 20);
 
+        scoreLabel.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 24)); // NOI18N
         scoreLabel.setText("score");
         add(scoreLabel);
-        scoreLabel.setBounds(10, 10, 160, 16);
+        scoreLabel.setBounds(10, 10, 190, 28);
 
         time.setBackground(new java.awt.Color(255, 255, 255));
         time.setText("timer");

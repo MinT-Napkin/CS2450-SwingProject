@@ -1,3 +1,16 @@
+/***************************************************************  
+*  file: Clock.java  
+*  author: G. Waughan
+*  class: CS 2450 – User Interface Design and Programing 
+*  
+*  assignment: Swing Project v1.0 
+*  date last modified: 9/27/2022  
+*  
+*  purpose: This program contains all the necessary components to 
+*  display the time in the given JLabel
+*  
+****************************************************************/  
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
