@@ -42,6 +42,9 @@ public class GameScreen1 extends javax.swing.JPanel {
     private String correctColor;
     private Color foregroundColor;
     
+    private final String[] DEFAULT_WORD_COLORS = {"red", "blue", "green", 
+        "yellow", "purple"};
+    
     // x restriction: 20 ~ 500
     // y restriction: 20 ~ 350
     private final int MAX_LOCATIONS = 20;
@@ -59,8 +62,7 @@ public class GameScreen1 extends javax.swing.JPanel {
         purpleButton.setBackground(purple);
         initializePossibleLocations();
         randomizeButtonLocations();
-        
-        wordColor = "red"; // need to randomize text with a new method (1)
+        randomizeWordColor();
         
         // these two should be same color / both randmoized in one new method (2)
         correctColor = "green";
@@ -161,6 +163,17 @@ public class GameScreen1 extends javax.swing.JPanel {
         initializePossibleLocations();
     }
 
+    // method: randomizeWordColor()
+    /*
+    purpose: Sets color label to a random color from DEFAULT_WORD_COLORS
+    */
+    private void randomizeWordColor()
+    {
+        int index = (int)Math.floor(Math.random()*DEFAULT_WORD_COLORS.length);
+        wordColor = DEFAULT_WORD_COLORS[index];
+        colorLabel.setText(wordColor);
+    }
+    
     // method: checkIfCorrectButton()
     /*
     purpose: checks if the given button is the correct color to the 
@@ -168,8 +181,7 @@ public class GameScreen1 extends javax.swing.JPanel {
     */
     private void checkIfCorrectButton(String color)
     {
-        // randomize text and color methods here 
-        
+        // randomize text and color methods here
         
         if(color.equals(correctColor))
         {
@@ -185,6 +197,8 @@ public class GameScreen1 extends javax.swing.JPanel {
             w.switchPanes("gameover");
             attempts = 0; // resets the color game
         }
+        
+        randomizeWordColor();
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -220,7 +234,7 @@ public class GameScreen1 extends javax.swing.JPanel {
             }
         });
         add(redButton);
-        redButton.setBounds(64, 124, 72, 23);
+        redButton.setBounds(64, 124, 72, 21);
 
         yellowButton.setText("yellow");
         yellowButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -235,7 +249,7 @@ public class GameScreen1 extends javax.swing.JPanel {
             }
         });
         add(yellowButton);
-        yellowButton.setBounds(217, 124, 72, 23);
+        yellowButton.setBounds(217, 124, 72, 21);
 
         greenButton.setText("green");
         greenButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -250,7 +264,7 @@ public class GameScreen1 extends javax.swing.JPanel {
             }
         });
         add(greenButton);
-        greenButton.setBounds(359, 124, 72, 23);
+        greenButton.setBounds(359, 124, 72, 21);
 
         blueButton.setText("blue");
         blueButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -265,7 +279,7 @@ public class GameScreen1 extends javax.swing.JPanel {
             }
         });
         add(blueButton);
-        blueButton.setBounds(146, 225, 72, 23);
+        blueButton.setBounds(146, 225, 72, 21);
 
         purpleButton.setText("purple");
         purpleButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -280,23 +294,23 @@ public class GameScreen1 extends javax.swing.JPanel {
             }
         });
         add(purpleButton);
-        purpleButton.setBounds(302, 225, 72, 23);
+        purpleButton.setBounds(302, 225, 72, 21);
 
         colorLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         colorLabel.setText("color");
         add(colorLabel);
-        colorLabel.setBounds(220, 12, 70, 20);
+        colorLabel.setBounds(220, 12, 110, 30);
 
         scoreLabel.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 24)); // NOI18N
         scoreLabel.setText("score");
         add(scoreLabel);
-        scoreLabel.setBounds(10, 10, 190, 28);
+        scoreLabel.setBounds(10, 10, 190, 30);
 
         time.setBackground(new java.awt.Color(255, 255, 255));
         time.setText("timer");
         time.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         add(time);
-        time.setBounds(410, 10, 180, 20);
+        time.setBounds(410, 10, 180, 19);
     }// </editor-fold>//GEN-END:initComponents
 
     private void redButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_redButtonMouseEntered
