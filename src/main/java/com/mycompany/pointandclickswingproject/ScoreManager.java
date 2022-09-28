@@ -17,6 +17,8 @@
  */
 package com.mycompany.pointandclickswingproject;
 
+import javax.swing.JLabel;
+
 /**
  *
  * @author PC
@@ -45,5 +47,10 @@ public class ScoreManager {
     public static void setScore(int s)
     {
         score = s;
+    }
+    
+    public static void setScoreLabel(JLabel label)
+    {
+        label.setText("Score: " + score);
     }
 }

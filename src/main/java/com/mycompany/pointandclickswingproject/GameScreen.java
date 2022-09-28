@@ -175,7 +175,7 @@ public class GameScreen extends javax.swing.JPanel {
         {
             mistakes++;
             ScoreManager.subtractScore(10);
-            myScore.setText("Score: " + ScoreManager.getScore());
+            ScoreManager.setScoreLabel(myScore);
 //            System.out.println("Mistakes " + mistakes);
             
             alertTimer.setRepeats(false);
@@ -231,8 +231,10 @@ public class GameScreen extends javax.swing.JPanel {
                 //end the game
                 //GameOverScreen.setLabelScore(score);
                 //this.setGameOverLabelScore();
+                GameScreen1.updateScoreLabel();
                 w.switchPanes("game1");
                 this.resetHangman();
+                
             }
         }
         else
@@ -241,6 +243,7 @@ public class GameScreen extends javax.swing.JPanel {
             if(correctGuesses >= hiddenWord.length())
             {
                // this.setGameOverLabelScore();
+                GameScreen1.updateScoreLabel();
                 w.switchPanes("game1");
                 this.resetHangman();
             }
@@ -821,6 +824,7 @@ public class GameScreen extends javax.swing.JPanel {
     private void button_SkipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_SkipActionPerformed
         // TODO add your handling code here:
         ScoreManager.setScore(0);
+        GameScreen1.updateScoreLabel();
         w.switchPanes("game1");
         this.resetHangman();
     }//GEN-LAST:event_button_SkipActionPerformed

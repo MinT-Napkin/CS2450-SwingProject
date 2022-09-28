@@ -67,15 +67,20 @@ public class GameScreen1 extends javax.swing.JPanel {
         randomizeCorrectColor();
         randomizeWordColor();
         
-        // these two should be same color / both randmoized in one new method (2)
-        correctColor = "green";
-        foregroundColor = green;
+//        // these two should be same color / both randmoized in one new method (2)
+//        correctColor = "green";
+//        foregroundColor = green;
         
         colorLabel.setText(wordColor);
         colorLabel.setForeground(green);
         scoreLabel.setText("Score: " + ScoreManager.getScore());
         
         Clock clock = new Clock(time);
+    }
+    
+    public static void updateScoreLabel()
+    {
+        scoreLabel.setText("Score: " + ScoreManager.getScore());
     }
     
     // method: initializePossibleLocations()
@@ -185,6 +190,7 @@ public class GameScreen1 extends javax.swing.JPanel {
         int index = (int)Math.floor(DEFAULT_WORD_COLORS.length*Math.random());
         correctColor = DEFAULT_WORD_COLORS[index];
         foregroundColor = foregroundColors[index];
+        colorLabel.setForeground(foregroundColor);
     }        
     
     
@@ -213,6 +219,7 @@ public class GameScreen1 extends javax.swing.JPanel {
         }
         
         randomizeWordColor();
+        randomizeCorrectColor();
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -248,7 +255,7 @@ public class GameScreen1 extends javax.swing.JPanel {
             }
         });
         add(redButton);
-        redButton.setBounds(64, 124, 72, 21);
+        redButton.setBounds(64, 124, 72, 23);
 
         yellowButton.setText("yellow");
         yellowButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -263,7 +270,7 @@ public class GameScreen1 extends javax.swing.JPanel {
             }
         });
         add(yellowButton);
-        yellowButton.setBounds(217, 124, 72, 21);
+        yellowButton.setBounds(217, 124, 72, 23);
 
         greenButton.setText("green");
         greenButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -278,7 +285,7 @@ public class GameScreen1 extends javax.swing.JPanel {
             }
         });
         add(greenButton);
-        greenButton.setBounds(359, 124, 72, 21);
+        greenButton.setBounds(359, 124, 72, 23);
 
         blueButton.setText("blue");
         blueButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -293,7 +300,7 @@ public class GameScreen1 extends javax.swing.JPanel {
             }
         });
         add(blueButton);
-        blueButton.setBounds(146, 225, 72, 21);
+        blueButton.setBounds(146, 225, 72, 23);
 
         purpleButton.setText("purple");
         purpleButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -308,7 +315,7 @@ public class GameScreen1 extends javax.swing.JPanel {
             }
         });
         add(purpleButton);
-        purpleButton.setBounds(302, 225, 72, 21);
+        purpleButton.setBounds(302, 225, 72, 23);
 
         colorLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         colorLabel.setText("color");
@@ -318,13 +325,13 @@ public class GameScreen1 extends javax.swing.JPanel {
         scoreLabel.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 24)); // NOI18N
         scoreLabel.setText("score");
         add(scoreLabel);
-        scoreLabel.setBounds(10, 10, 190, 30);
+        scoreLabel.setBounds(10, 10, 190, 32);
 
         time.setBackground(new java.awt.Color(255, 255, 255));
         time.setText("timer");
         time.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         add(time);
-        time.setBounds(410, 10, 180, 19);
+        time.setBounds(410, 10, 180, 20);
     }// </editor-fold>//GEN-END:initComponents
 
     private void redButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_redButtonMouseEntered
@@ -409,7 +416,7 @@ public class GameScreen1 extends javax.swing.JPanel {
     private javax.swing.JButton greenButton;
     private javax.swing.JButton purpleButton;
     private javax.swing.JButton redButton;
-    private javax.swing.JLabel scoreLabel;
+    private static javax.swing.JLabel scoreLabel;
     private javax.swing.JLabel time;
     private javax.swing.JButton yellowButton;
     // End of variables declaration//GEN-END:variables
