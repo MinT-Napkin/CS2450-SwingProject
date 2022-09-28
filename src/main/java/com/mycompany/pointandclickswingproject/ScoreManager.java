@@ -27,28 +27,38 @@ public class ScoreManager {
     
     private static int score;
     
+    // method: getScore()
+    // purpose: return user's current score
     public static int getScore()
     {
         return score;
     }
     
+    // method: addScore()
+    // purpose: for games that add onto the user's score
     public static int addScore(int s)
     {
         score += s;
         return score;
     }
     
+    // method: subtractScore()
+    // purpose: for games that subtract the user's score
     public static int subtractScore(int s)
     {
         score -= s;
         return score;
     }
     
+    // method: setScore()
+    // purpose: sets the user's score 
     public static void setScore(int s)
     {
         score = s;
     }
     
+    // method: setScoreLabel()
+    // purpose: handles setting the text of a score label
     public static void setScoreLabel(JLabel label)
     {
         label.setText("Score: " + score);

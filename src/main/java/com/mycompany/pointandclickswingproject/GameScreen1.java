@@ -1,6 +1,6 @@
 /***************************************************************  
 *  file: GameScreen1.java  
-*  author: N. Kowdle / M. Tran
+*  author: N. Kowdle / M. Tran / M. Flores / B. Chen
 *  class: CS 2450 – User Interface Design and Programing 
 *  
 *  assignment: Swing Project v1.0 
@@ -73,14 +73,16 @@ public class GameScreen1 extends javax.swing.JPanel {
         
         colorLabel.setText(wordColor);
         colorLabel.setForeground(green);
-        scoreLabel.setText("Score: " + ScoreManager.getScore());
+        ScoreManager.setScoreLabel(scoreLabel);
         
         Clock clock = new Clock(time);
     }
     
+    // method: updateScoreLabel()
+    // purpose: update the score text from other screens
     public static void updateScoreLabel()
     {
-        scoreLabel.setText("Score: " + ScoreManager.getScore());
+        ScoreManager.setScoreLabel(scoreLabel);
     }
     
     // method: initializePossibleLocations()
@@ -183,7 +185,8 @@ public class GameScreen1 extends javax.swing.JPanel {
     }
     
     /*
-    Randomizes correctColor and changes foregroundColor to match correctColor.
+    method: randmizeCorrectColor()
+    purpose: Randomizes correctColor and changes foregroundColor to match correctColor.
     */
     private void randomizeCorrectColor()
     {
