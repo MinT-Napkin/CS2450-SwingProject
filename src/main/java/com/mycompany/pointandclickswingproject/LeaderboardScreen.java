@@ -86,6 +86,7 @@ public class LeaderboardScreen extends javax.swing.JPanel {
         readThyFile();
         writeThyFile();
         readThyFile();
+        
     }
     
     public void writeThyFile()
@@ -93,6 +94,9 @@ public class LeaderboardScreen extends javax.swing.JPanel {
        // int myUserScore = GameScreen.getScore();
         int myUserScore = 600;
         String test = "DIA";
+        inquiryDialog.setVisible(true);
+        initialsDialog.setVisible(true);
+        
      try {
             File myFile = new File("src/main/resources/myLeaderboard.txt");
             myFile.createNewFile();
@@ -202,14 +206,13 @@ public class LeaderboardScreen extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        highScoreLabel1 = new javax.swing.JLabel();
-        highScore6 = new javax.swing.JLabel();
-        highScore7 = new javax.swing.JLabel();
-        highScore8 = new javax.swing.JLabel();
-        highScore9 = new javax.swing.JLabel();
-        highScore10 = new javax.swing.JLabel();
-        backToMenu1 = new javax.swing.JButton();
+        inquiryDialog = new javax.swing.JDialog();
+        HighScoreInquiry = new javax.swing.JLabel();
+        YesButton = new javax.swing.JButton();
+        NoButton = new javax.swing.JButton();
+        initialsDialog = new javax.swing.JDialog();
+        EnterInitialsLabel = new javax.swing.JLabel();
+        initialsTextField = new javax.swing.JTextField();
         highScoreLabel = new javax.swing.JLabel();
         highScore2 = new javax.swing.JLabel();
         highScore5 = new javax.swing.JLabel();
@@ -218,90 +221,89 @@ public class LeaderboardScreen extends javax.swing.JPanel {
         highScore3 = new javax.swing.JLabel();
         backToMenu = new javax.swing.JButton();
 
-        jPanel1.setBackground(new java.awt.Color(1, 66, 106));
+        inquiryDialog.setMinimumSize(new java.awt.Dimension(600, 400));
+        inquiryDialog.setPreferredSize(new java.awt.Dimension(600, 400));
 
-        highScoreLabel1.setFont(new java.awt.Font("Heiti TC", 1, 36)); // NOI18N
-        highScoreLabel1.setForeground(new java.awt.Color(225, 181, 0));
-        highScoreLabel1.setText("Leaderboard");
+        HighScoreInquiry.setFont(new java.awt.Font("Helvetica Neue", 0, 24)); // NOI18N
+        HighScoreInquiry.setText("Would you like to save your high score?");
 
-        highScore6.setFont(new java.awt.Font("Helvetica", 0, 24)); // NOI18N
-        highScore6.setForeground(new java.awt.Color(206, 184, 136));
-        highScore6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        highScore6.setText("ABC.....00000");
-        highScore6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
-        highScore7.setFont(new java.awt.Font("Helvetica", 0, 24)); // NOI18N
-        highScore7.setForeground(new java.awt.Color(206, 184, 136));
-        highScore7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        highScore7.setText("ABC.....00000");
-        highScore7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
-        highScore8.setFont(new java.awt.Font("Helvetica", 0, 24)); // NOI18N
-        highScore8.setForeground(new java.awt.Color(206, 184, 136));
-        highScore8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        highScore8.setText("ABC.....00000");
-        highScore8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
-        highScore9.setFont(new java.awt.Font("Helvetica", 0, 24)); // NOI18N
-        highScore9.setForeground(new java.awt.Color(206, 184, 136));
-        highScore9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        highScore9.setText("ABC.....00000");
-        highScore9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
-        highScore10.setFont(new java.awt.Font("Helvetica", 0, 24)); // NOI18N
-        highScore10.setForeground(new java.awt.Color(206, 184, 136));
-        highScore10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        highScore10.setText("ABC.....00000");
-        highScore10.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
-        backToMenu1.setFont(new java.awt.Font("Helvetica", 0, 13)); // NOI18N
-        backToMenu1.setText("Back");
-        backToMenu1.addActionListener(new java.awt.event.ActionListener() {
+        YesButton.setText("Yes");
+        YesButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backToMenu1ActionPerformed(evt);
+                YesButtonActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(backToMenu1)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(191, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(highScoreLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(highScore6, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(highScore9, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(highScore10, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(highScore8, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(highScore7, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(14, 14, 14)))
-                .addGap(175, 175, 175))
+        NoButton.setText("No");
+        NoButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NoButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout inquiryDialogLayout = new javax.swing.GroupLayout(inquiryDialog.getContentPane());
+        inquiryDialog.getContentPane().setLayout(inquiryDialogLayout);
+        inquiryDialogLayout.setHorizontalGroup(
+            inquiryDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(inquiryDialogLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(YesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(106, 106, 106)
+                .addComponent(NoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(129, 129, 129))
+            .addGroup(inquiryDialogLayout.createSequentialGroup()
+                .addGap(86, 86, 86)
+                .addComponent(HighScoreInquiry)
+                .addContainerGap(86, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(79, 79, 79)
-                .addComponent(highScoreLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(highScore9, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(highScore6, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(highScore10, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(highScore8, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(highScore7, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
-                .addComponent(backToMenu1)
-                .addGap(16, 16, 16))
+        inquiryDialogLayout.setVerticalGroup(
+            inquiryDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(inquiryDialogLayout.createSequentialGroup()
+                .addGap(93, 93, 93)
+                .addComponent(HighScoreInquiry)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 138, Short.MAX_VALUE)
+                .addGroup(inquiryDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(NoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(YesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(72, 72, 72))
+        );
+
+        initialsDialog.setAutoRequestFocus(false);
+        initialsDialog.setMinimumSize(new java.awt.Dimension(600, 400));
+        initialsDialog.setPreferredSize(new java.awt.Dimension(600, 400));
+
+        EnterInitialsLabel.setFont(new java.awt.Font("Helvetica Neue", 0, 24)); // NOI18N
+        EnterInitialsLabel.setText("Please enter your initials (Max 3 Letters please):");
+
+        initialsTextField.setText("AAA");
+        initialsTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                initialsTextFieldActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout initialsDialogLayout = new javax.swing.GroupLayout(initialsDialog.getContentPane());
+        initialsDialog.getContentPane().setLayout(initialsDialogLayout);
+        initialsDialogLayout.setHorizontalGroup(
+            initialsDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(initialsDialogLayout.createSequentialGroup()
+                .addContainerGap(50, Short.MAX_VALUE)
+                .addGroup(initialsDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, initialsDialogLayout.createSequentialGroup()
+                        .addComponent(EnterInitialsLabel)
+                        .addGap(47, 47, 47))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, initialsDialogLayout.createSequentialGroup()
+                        .addComponent(initialsTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(206, 206, 206))))
+        );
+        initialsDialogLayout.setVerticalGroup(
+            initialsDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(initialsDialogLayout.createSequentialGroup()
+                .addContainerGap(119, Short.MAX_VALUE)
+                .addComponent(EnterInitialsLabel)
+                .addGap(92, 92, 92)
+                .addComponent(initialsTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(143, 143, 143))
         );
 
         setBackground(new java.awt.Color(1, 66, 106));
@@ -359,15 +361,15 @@ public class LeaderboardScreen extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(191, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(highScoreLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(highScore2, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(highScore1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(highScore3, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(highScore4, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(highScore5, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(14, 14, 14)))
+                            .addComponent(highScore5, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(highScoreLabel))
                 .addGap(175, 175, 175))
         );
         layout.setVerticalGroup(
@@ -375,7 +377,7 @@ public class LeaderboardScreen extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(79, 79, 79)
                 .addComponent(highScoreLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(highScore1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(highScore2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -385,7 +387,7 @@ public class LeaderboardScreen extends javax.swing.JPanel {
                 .addComponent(highScore4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(highScore5, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
                 .addComponent(backToMenu)
                 .addGap(16, 16, 16))
         );
@@ -395,26 +397,33 @@ public class LeaderboardScreen extends javax.swing.JPanel {
         w.switchPanes("menu"); 
     }//GEN-LAST:event_backToMenuActionPerformed
 
-    private void backToMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backToMenu1ActionPerformed
+    private void YesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_YesButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_backToMenu1ActionPerformed
+    }//GEN-LAST:event_YesButtonActionPerformed
+
+    private void NoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NoButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NoButtonActionPerformed
+
+    private void initialsTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_initialsTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_initialsTextFieldActionPerformed
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel EnterInitialsLabel;
+    private javax.swing.JLabel HighScoreInquiry;
+    private javax.swing.JButton NoButton;
+    private javax.swing.JButton YesButton;
     private javax.swing.JButton backToMenu;
-    private javax.swing.JButton backToMenu1;
     private javax.swing.JLabel highScore1;
-    private javax.swing.JLabel highScore10;
     private javax.swing.JLabel highScore2;
     private javax.swing.JLabel highScore3;
     private javax.swing.JLabel highScore4;
     private javax.swing.JLabel highScore5;
-    private javax.swing.JLabel highScore6;
-    private javax.swing.JLabel highScore7;
-    private javax.swing.JLabel highScore8;
-    private javax.swing.JLabel highScore9;
     private javax.swing.JLabel highScoreLabel;
-    private javax.swing.JLabel highScoreLabel1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JDialog initialsDialog;
+    private javax.swing.JTextField initialsTextField;
+    private javax.swing.JDialog inquiryDialog;
     // End of variables declaration//GEN-END:variables
 }
