@@ -45,6 +45,8 @@ public class GameScreen1 extends javax.swing.JPanel {
     private final String[] DEFAULT_WORD_COLORS = {"red", "blue", "green", 
         "yellow", "purple"};
     
+    private final Color[] foregroundColors = {red, blue, green, yellow, purple};
+    
     // x restriction: 20 ~ 500
     // y restriction: 20 ~ 350
     private final int MAX_LOCATIONS = 20;
@@ -62,6 +64,7 @@ public class GameScreen1 extends javax.swing.JPanel {
         purpleButton.setBackground(purple);
         initializePossibleLocations();
         randomizeButtonLocations();
+        randomizeCorrectColor();
         randomizeWordColor();
         
         // these two should be same color / both randmoized in one new method (2)
@@ -173,6 +176,17 @@ public class GameScreen1 extends javax.swing.JPanel {
         wordColor = DEFAULT_WORD_COLORS[index];
         colorLabel.setText(wordColor);
     }
+    
+    /*
+    Randomizes correctColor and changes foregroundColor to match correctColor.
+    */
+    private void randomizeCorrectColor()
+    {
+        int index = (int)Math.floor(DEFAULT_WORD_COLORS.length*Math.random());
+        correctColor = DEFAULT_WORD_COLORS[index];
+        foregroundColor = foregroundColors[index];
+    }        
+    
     
     // method: checkIfCorrectButton()
     /*
