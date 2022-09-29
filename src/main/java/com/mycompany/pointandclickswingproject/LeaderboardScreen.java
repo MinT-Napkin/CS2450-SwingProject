@@ -109,6 +109,7 @@ public class LeaderboardScreen extends javax.swing.JPanel {
         {
              if(highScores.get(n).getScore() < myUserScore)
              {
+                 inquiryDialog.setLocationRelativeTo(null);
                  inquiryDialog.setVisible(true);
                  inquiryDialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
                  userEnteredScore = myUserScore;
@@ -123,6 +124,7 @@ public class LeaderboardScreen extends javax.swing.JPanel {
     
     public void enterInitialsHere()
     {
+        initialsDialog.setLocationRelativeTo(null);
         initialsDialog.setVisible(true);
         inquiryDialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
         
