@@ -442,8 +442,8 @@ public class LeaderboardScreen extends javax.swing.JPanel {
     }//GEN-LAST:event_backToMenuActionPerformed
 
     private void YesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_YesButtonActionPerformed
-        enterInitialsHere();
         inquiryDialog.setVisible(false);
+        enterInitialsHere();
     }//GEN-LAST:event_YesButtonActionPerformed
 
     private void NoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NoButtonActionPerformed

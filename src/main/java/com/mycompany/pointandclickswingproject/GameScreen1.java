@@ -245,7 +245,7 @@ public class GameScreen1 extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(600, 400));
         setLayout(null);
 
-        redButton.setText("red");
+        redButton.setPreferredSize(new java.awt.Dimension(75, 25));
         redButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 redButtonMouseEntered(evt);
@@ -257,10 +257,15 @@ public class GameScreen1 extends javax.swing.JPanel {
                 redButtonMousePressed(evt);
             }
         });
+        redButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                redButtonActionPerformed(evt);
+            }
+        });
         add(redButton);
-        redButton.setBounds(64, 124, 72, 23);
+        redButton.setBounds(64, 124, 75, 25);
 
-        yellowButton.setText("yellow");
+        yellowButton.setPreferredSize(new java.awt.Dimension(75, 25));
         yellowButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 yellowButtonMouseEntered(evt);
@@ -273,9 +278,9 @@ public class GameScreen1 extends javax.swing.JPanel {
             }
         });
         add(yellowButton);
-        yellowButton.setBounds(217, 124, 72, 23);
+        yellowButton.setBounds(217, 124, 75, 25);
 
-        greenButton.setText("green");
+        greenButton.setPreferredSize(new java.awt.Dimension(75, 25));
         greenButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 greenButtonMouseEntered(evt);
@@ -288,9 +293,9 @@ public class GameScreen1 extends javax.swing.JPanel {
             }
         });
         add(greenButton);
-        greenButton.setBounds(359, 124, 72, 23);
+        greenButton.setBounds(359, 124, 75, 25);
 
-        blueButton.setText("blue");
+        blueButton.setPreferredSize(new java.awt.Dimension(75, 25));
         blueButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 blueButtonMouseEntered(evt);
@@ -303,9 +308,9 @@ public class GameScreen1 extends javax.swing.JPanel {
             }
         });
         add(blueButton);
-        blueButton.setBounds(146, 225, 72, 23);
+        blueButton.setBounds(146, 225, 75, 25);
 
-        purpleButton.setText("purple");
+        purpleButton.setPreferredSize(new java.awt.Dimension(75, 25));
         purpleButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 purpleButtonMouseEntered(evt);
@@ -318,19 +323,21 @@ public class GameScreen1 extends javax.swing.JPanel {
             }
         });
         add(purpleButton);
-        purpleButton.setBounds(302, 225, 72, 23);
+        purpleButton.setBounds(302, 225, 75, 25);
 
         colorLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        colorLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         colorLabel.setText("color");
         add(colorLabel);
-        colorLabel.setBounds(220, 12, 110, 30);
+        colorLabel.setBounds(230, 10, 110, 30);
 
         scoreLabel.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 24)); // NOI18N
         scoreLabel.setText("score");
         add(scoreLabel);
-        scoreLabel.setBounds(10, 10, 190, 32);
+        scoreLabel.setBounds(10, 10, 190, 28);
 
         time.setBackground(new java.awt.Color(255, 255, 255));
+        time.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         time.setText("timer");
         time.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         add(time);
@@ -411,6 +418,10 @@ public class GameScreen1 extends javax.swing.JPanel {
         randomizeButtonLocations();
         checkIfCorrectButton("purple");
     }//GEN-LAST:event_purpleButtonMousePressed
+
+    private void redButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_redButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
