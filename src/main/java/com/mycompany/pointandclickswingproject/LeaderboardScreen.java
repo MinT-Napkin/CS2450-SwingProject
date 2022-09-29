@@ -18,6 +18,7 @@
 package com.mycompany.pointandclickswingproject;
 
 import static com.mycompany.pointandclickswingproject.PointAndClickSwingProject.w;
+import java.awt.Dialog;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -26,39 +27,53 @@ import javax.swing.JLabel;
 import java.io.FileWriter;
 import java.io.IOException;
 
-
+       /** Class: highScore
+       Purpose: Saves information for scores and initials for each entry on 
+       leaderboard. **/
 class highScore{
     
     public String initials;
     public int score;
     
+        /** Constructor: highScore(String, int)
+       Purpose: Creates highScore object, 
+       * setting initials and score for object. **/
     public highScore(String enteredInitials, int enteredScore)
     {
         this.initials = enteredInitials;
         this.score = enteredScore;
     }
-    
-    
+
+       /** Method: getInitials()
+       Purpose: returns initials for highScore object. **/
     public String getInitials()
     {
         return initials;
     }
     
+       /** Method: setInitials(String)
+       Purpose: sets initials for object from input string. **/
     public void setInitials(String enteredInitials)
     {
         this.initials = enteredInitials;
     }
-    
+       /** Method: getScore()
+       Purpose: returns score for highScore object. **/
     public int getScore()
     {
         return score;
     }
     
+       /** Method: setScore(int)
+       Purpose: sets score for object from input int. **/
     public void setScore(int enteredScore)
     {
         this.score = enteredScore;
     }
     
+       /** Method: toString()
+       Purpose: overrides String.toString() function for object, to specifically
+       * format string with initials first and score in specific format. **/
     @Override
     public String toString()
     {
@@ -69,61 +84,84 @@ class highScore{
 }
 
 public class LeaderboardScreen extends javax.swing.JPanel {
-    
-    
-    
-   // JLabel[] myLabels = new JLabel[5];
-   // String[] myInitials = new String[5];
-   // static int[] myScores = new int[5];
-    
-    ArrayList<highScore> highScores = new ArrayList<highScore>();
-    boolean ignition = true;
+
+    static ArrayList<highScore> highScores = new ArrayList<highScore>();
+    static boolean ignition = true;
+    static String userEnteredInitials = "";
+    static int userEnteredScore = 0;
+
     /**
      * Creates new form LeaderBoardScreen
      */
     public LeaderboardScreen() {
         initComponents();
-        readThyFile();
-        writeThyFile();
-        readThyFile();
+        readThyFile();        
+    }
+  
+      /** Method: inquiryForUser(int)
+       Purpose: Makes the inquiryDialog visible, asking user if they would
+       like to save their high score. **/
+    
+    public static void inquiryForUser(int myUserScore)
+    {
         
+        for(int n = 0; n < highScores.size(); n++)
+        {
+             if(highScores.get(n).getScore() < myUserScore)
+             {
+                 inquiryDialog.setVisible(true);
+                 inquiryDialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
+                 userEnteredScore = myUserScore;
+                 break;
+             }
+        }
     }
     
-    public void writeThyFile()
+       /** Method: enterInitialsHere()
+       Purpose: Makes initialsDialog visible, upon clicking yes for saving
+       high score in inquiryDialog. **/
+    
+    public void enterInitialsHere()
     {
-       // int myUserScore = GameScreen.getScore();
-        int myUserScore = 600;
-        String test = "DIA";
-        inquiryDialog.setVisible(true);
         initialsDialog.setVisible(true);
+        inquiryDialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
+        
+        
+    }
+   
+    /** Method: writeThyFile(int, String)
+       Purpose: write to the leaderboard text file 
+       with the user's score and user's initials as input. **/
+    
+    public void writeThyFile(int myUserScore, String myUserInitials)
+    {
         
      try {
             File myFile = new File("src/main/resources/myLeaderboard.txt");
             myFile.createNewFile();
-            FileWriter myWriter = new FileWriter(myFile);
-           // myWriter.write("Files in Java might be tricky, but it is fun enough!");
-            
-    
-       // System.out.println(myUserScore);
+            FileWriter myWriter = new FileWriter(myFile);            
+        
+       //goes through highScore ArrayList (redundancy for inquiryForUser method).
         for(int n = 0; n < highScores.size(); n++)
         {
             if(highScores.get(n).getScore() < myUserScore)
             {
-                //insert setInitials method here.       
-                //meant to push down previous high scores, should list only top 5.
+                    
+                //sets existing highscores lower on the list. 
                 for(int x = highScores.size()-1; x > n; x--)
                 {
+                    System.out.println("Write File: In nested for loop...");
                     highScores.set(x, highScores.get(x-1));
                     System.out.println(highScores.toString());
                 }
-                //should set new highScore. 
-                highScores.set(n, new highScore(test, myUserScore));
+                //should set new highScore at current loop iteration.
+                highScores.set(n, new highScore(myUserInitials, myUserScore));
                 System.out.println(highScores.toString());
                 break;
             }
           
         }
-        
+        //separate loop writes to the text file. 
         for(int n = 0; n < highScores.size(); n++)
         {
             myWriter.write(highScores.get(n).toString() + "\n");
@@ -136,17 +174,23 @@ public class LeaderboardScreen extends javax.swing.JPanel {
       System.out.println("An error occurred.");
       e.printStackTrace();
     }
+     
+     readThyFile();
     }
     
+    /** Method: readThyFile()
+       Purpose: read from the leaderboard text file, 
+       * adding (or setting) initials and scores
+       to an ArrayList comprised of HighScore objects. **/
     
     public void readThyFile()
     {
         int counter = 0;
         
         try {
-            //extracting file contents into JLabel Array.
             File myObj = new File("src/main/resources/myLeaderboard.txt");
              Scanner myReader = new Scanner(myObj);
+             //while loop to run during initial construction of leadershipScreen.
                 while (myReader.hasNextLine() && ignition) 
                   {
                    String data = myReader.nextLine();
@@ -155,15 +199,11 @@ public class LeaderboardScreen extends javax.swing.JPanel {
                    ghost = data.substring(0,3);
                    ghoul = Integer.parseInt(data.substring(4));
                     highScores.add(new highScore(ghost, ghoul));
-                
-                //   System.out.println(data);
-                  // System.out.println(ghost);
-                  // System.out.println(ghoul);
                    System.out.println(highScores.get(counter));
                    ++counter;
                   }
-                
-                   while (myReader.hasNextLine() && !ignition) 
+                //while loop to run while program still runs. 
+                  while (myReader.hasNextLine() && !ignition) 
                   {
                    String data = myReader.nextLine();
                    String ghost = " ";
@@ -180,6 +220,8 @@ public class LeaderboardScreen extends javax.swing.JPanel {
                   }
              myReader.close();
              
+             
+             //sets highScore objects to jLabels from file.
              highScore1.setText(highScores.get(0).toString());
              highScore2.setText(highScores.get(1).toString());
              highScore3.setText(highScores.get(2).toString());
@@ -398,15 +440,27 @@ public class LeaderboardScreen extends javax.swing.JPanel {
     }//GEN-LAST:event_backToMenuActionPerformed
 
     private void YesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_YesButtonActionPerformed
-        // TODO add your handling code here:
+        enterInitialsHere();
+        inquiryDialog.setVisible(false);
     }//GEN-LAST:event_YesButtonActionPerformed
 
     private void NoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NoButtonActionPerformed
-        // TODO add your handling code here:
+        inquiryDialog.setVisible(false);
     }//GEN-LAST:event_NoButtonActionPerformed
 
     private void initialsTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_initialsTextFieldActionPerformed
-        // TODO add your handling code here:
+      
+        //no matter text entry, only first 3 letters/symbols accepted.
+        //future steps: format entry only for letters.
+        try{
+            userEnteredInitials = initialsTextField.getText(0, 3);
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        writeThyFile(userEnteredScore,userEnteredInitials);
+        initialsDialog.setVisible(false);
     }//GEN-LAST:event_initialsTextFieldActionPerformed
 
     
@@ -416,14 +470,14 @@ public class LeaderboardScreen extends javax.swing.JPanel {
     private javax.swing.JButton NoButton;
     private javax.swing.JButton YesButton;
     private javax.swing.JButton backToMenu;
-    private javax.swing.JLabel highScore1;
-    private javax.swing.JLabel highScore2;
-    private javax.swing.JLabel highScore3;
-    private javax.swing.JLabel highScore4;
-    private javax.swing.JLabel highScore5;
+    private static javax.swing.JLabel highScore1;
+    private static javax.swing.JLabel highScore2;
+    private static javax.swing.JLabel highScore3;
+    private static javax.swing.JLabel highScore4;
+    private static javax.swing.JLabel highScore5;
     private javax.swing.JLabel highScoreLabel;
-    private javax.swing.JDialog initialsDialog;
+    private static javax.swing.JDialog initialsDialog;
     private javax.swing.JTextField initialsTextField;
-    private javax.swing.JDialog inquiryDialog;
+    private static javax.swing.JDialog inquiryDialog;
     // End of variables declaration//GEN-END:variables
 }

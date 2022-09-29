@@ -47,19 +47,10 @@ public class GameOverScreen extends javax.swing.JPanel {
         else
             labelScore.setText ("Congratulations!\n You scored " + myScore + " points.");
         
-        
-        //labelScore.setText("Score: " + myScore);
+        LeaderboardScreen.inquiryForUser(myScore);
     }
     
-//    private String getGameOverText() {
-//        if (gameMethods.getScore() == 0) {
-//            return "Game over!\nYour score is 0.";
-//        }
-//        else {
-//            return "Congratulations!\n You scored" + gameMethods.getScore() + "points.";
-//        }
-//           
-//    }
+
     
     /**
      * This method is called from within the constructor to initialize the form.
