@@ -38,8 +38,8 @@ public class SplashScreen extends javax.swing.JPanel {
         
         try {
         //create the font to use. Specify the size!
-        Font customFont = Font.createFont(Font.TRUETYPE_FONT, new File("src/main/resources/fonts/marsneveneksk/MARSNEVENEKSK-Regular.otf")).deriveFont(60f);
-        Font customFont2 = Font.createFont(Font.TRUETYPE_FONT, new File("src/main/resources/fonts/marsneveneksk/MARSNEVENEKSK-Regular.otf")).deriveFont(36f);
+        Font customFont = Font.createFont(Font.TRUETYPE_FONT, new File("src/main/resources/fonts/marsneveneksk/MARSNEVENEKSK-Regular.otf")).deriveFont(36f);
+        Font customFont2 = Font.createFont(Font.TRUETYPE_FONT, new File("src/main/resources/fonts/marsneveneksk/MARSNEVENEKSK-Regular.otf")).deriveFont(60f);
 
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         ge.registerFont(customFont);
@@ -73,14 +73,16 @@ public class SplashScreen extends javax.swing.JPanel {
         setBackground(new java.awt.Color(0, 0, 0));
         setPreferredSize(new java.awt.Dimension(600, 400));
 
-        titleName.setFont(new java.awt.Font("MARSNEVENEKSK", 0, 60)); // NOI18N
+        titleName.setFont(new java.awt.Font("MARSNEVENEKSK", 0, 36)); // NOI18N
         titleName.setForeground(new java.awt.Color(225, 181, 0));
         titleName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        titleName.setText("HANGMAN");
+        titleName.setText("Presents...");
 
-        teamName.setFont(new java.awt.Font("MARSNEVENEKSK", 0, 36)); // NOI18N
+        teamName.setFont(new java.awt.Font("MARSNEVENEKSK", 0, 60)); // NOI18N
         teamName.setForeground(new java.awt.Color(108, 194, 74));
+        teamName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         teamName.setText("The SwingBeans");
+        teamName.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         sussyBaka.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         sussyBaka.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_icon.png"))); // NOI18N
@@ -91,24 +93,28 @@ public class SplashScreen extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(184, 184, 184)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(teamName)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(titleName, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(sussyBaka, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 193, Short.MAX_VALUE))
+                .addGap(197, 197, 197)
+                .addComponent(sussyBaka, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(titleName, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(71, Short.MAX_VALUE)
+                .addComponent(teamName, javax.swing.GroupLayout.PREFERRED_SIZE, 431, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(98, 98, 98))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(titleName, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(sussyBaka)
-                .addGap(33, 33, 33)
+                .addGap(44, 44, 44)
                 .addComponent(teamName)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addComponent(sussyBaka)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(titleName, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
