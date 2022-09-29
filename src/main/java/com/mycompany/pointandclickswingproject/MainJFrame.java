@@ -58,7 +58,7 @@ public class MainJFrame extends javax.swing.JFrame {
             JPanel gameOverScreen1,
             JPanel gameScreen2) throws InterruptedException {
         
-        setTitle("SwingBeans - Swing Project v1.0");
+        setTitle("SwingBeans - Swing Project v1.1");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
