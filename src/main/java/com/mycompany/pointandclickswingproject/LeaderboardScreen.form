@@ -7,9 +7,6 @@
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[600, 400]"/>
         </Property>
-        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[600, 400]"/>
-        </Property>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
@@ -59,6 +56,7 @@
         <Component class="javax.swing.JButton" name="YesButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Yes"/>
+            <Property name="toolTipText" type="java.lang.String" value="Do it!"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="YesButtonActionPerformed"/>
@@ -67,6 +65,7 @@
         <Component class="javax.swing.JButton" name="NoButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="No"/>
+            <Property name="toolTipText" type="java.lang.String" value="Are you sure?"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NoButtonActionPerformed"/>
@@ -78,9 +77,6 @@
       <Properties>
         <Property name="autoRequestFocus" type="boolean" value="false"/>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[600, 400]"/>
-        </Property>
-        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[600, 400]"/>
         </Property>
       </Properties>
@@ -125,11 +121,13 @@
               <Font name="Helvetica Neue" size="24" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Please enter your initials (Max 3 Letters please):"/>
+            <Property name="toolTipText" type="java.lang.String" value="3 Letters max."/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="initialsTextField">
           <Properties>
             <Property name="text" type="java.lang.String" value="AAA"/>
+            <Property name="toolTipText" type="java.lang.String" value="&quot;your name?&quot;"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="initialsTextFieldActionPerformed"/>
@@ -214,6 +212,7 @@
           <Color blue="0" green="b5" red="e1" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Leaderboard"/>
+        <Property name="toolTipText" type="java.lang.String" value="&quot;Who&apos;s winning?&quot;"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="highScore2">
@@ -226,6 +225,7 @@
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="ABC.....00000"/>
+        <Property name="toolTipText" type="java.lang.String" value="2nd place!"/>
         <Property name="horizontalTextPosition" type="int" value="0"/>
       </Properties>
       <AuxValues>
@@ -242,6 +242,7 @@
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="ABC.....00000"/>
+        <Property name="toolTipText" type="java.lang.String" value="5th place!"/>
         <Property name="horizontalTextPosition" type="int" value="0"/>
       </Properties>
       <AuxValues>
@@ -258,6 +259,7 @@
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="ABC.....00000"/>
+        <Property name="toolTipText" type="java.lang.String" value="4th place!"/>
         <Property name="horizontalTextPosition" type="int" value="0"/>
       </Properties>
       <AuxValues>
@@ -274,6 +276,7 @@
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="ABC.....00000"/>
+        <Property name="toolTipText" type="java.lang.String" value="1st place!"/>
         <Property name="horizontalTextPosition" type="int" value="0"/>
       </Properties>
       <AuxValues>
@@ -290,6 +293,7 @@
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="ABC.....00000"/>
+        <Property name="toolTipText" type="java.lang.String" value="3rd place!"/>
         <Property name="horizontalTextPosition" type="int" value="0"/>
       </Properties>
       <AuxValues>
@@ -302,6 +306,7 @@
           <Font name="Helvetica" size="13" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Back"/>
+        <Property name="toolTipText" type="java.lang.String" value="Back to main menu!"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="backToMenuActionPerformed"/>

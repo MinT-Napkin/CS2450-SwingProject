@@ -69,6 +69,7 @@ public class GameOverScreen extends javax.swing.JPanel {
 
         buttonBackToMenu.setFont(new java.awt.Font("Haettenschweiler", 0, 24)); // NOI18N
         buttonBackToMenu.setText("END");
+        buttonBackToMenu.setToolTipText("Head back to main menu.");
         buttonBackToMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonBackToMenuActionPerformed(evt);
@@ -78,9 +79,11 @@ public class GameOverScreen extends javax.swing.JPanel {
 
         labelScore.setFont(new java.awt.Font("Haettenschweiler", 0, 24)); // NOI18N
         labelScore.setText("labelScore");
+        labelScore.setToolTipText("Way to go!");
         add(labelScore, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         bgGameOverScreen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bgGameOver.png"))); // NOI18N
+        bgGameOverScreen.setToolTipText("\"Rest in Peace.\"");
         add(bgGameOverScreen, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 270, 330));
     }// </editor-fold>//GEN-END:initComponents
 

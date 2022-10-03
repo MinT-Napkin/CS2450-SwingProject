@@ -52,9 +52,11 @@ public class CreditsScreen extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Heiti TC", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(225, 181, 0));
         jLabel1.setText("Credits:");
+        jLabel1.setToolTipText("The Stars of our game!");
 
         backButton.setFont(new java.awt.Font("Helvetica", 0, 13)); // NOI18N
         backButton.setText("Back");
+        backButton.setToolTipText("Back to main menu.");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backButtonActionPerformed(evt);
@@ -64,22 +66,27 @@ public class CreditsScreen extends javax.swing.JPanel {
         MinhCredit.setFont(new java.awt.Font("Helvetica", 0, 24)); // NOI18N
         MinhCredit.setForeground(new java.awt.Color(206, 184, 136));
         MinhCredit.setText("Minh Tran, 015051140");
+        MinhCredit.setToolTipText("Codename: MinT");
 
         BenCredit.setFont(new java.awt.Font("Helvetica", 0, 24)); // NOI18N
         BenCredit.setForeground(new java.awt.Color(206, 184, 136));
         BenCredit.setText("Benjamin Chen, 015393066");
+        BenCredit.setToolTipText("Codename: uu");
 
         NikhilCredit.setFont(new java.awt.Font("Helvetica", 0, 24)); // NOI18N
         NikhilCredit.setForeground(new java.awt.Color(206, 184, 136));
         NikhilCredit.setText("Nikhil Kowdle, 013608413");
+        NikhilCredit.setToolTipText("Codename: Stormwolf");
 
         MartinCredit.setFont(new java.awt.Font("Helvetica", 0, 24)); // NOI18N
         MartinCredit.setForeground(new java.awt.Color(206, 184, 136));
         MartinCredit.setText("Martin Flores, 014072422");
+        MartinCredit.setToolTipText("Codename: martin_418");
 
         GarethCredit.setFont(new java.awt.Font("Helvetica", 0, 24)); // NOI18N
         GarethCredit.setForeground(new java.awt.Color(206, 184, 136));
         GarethCredit.setText("Gareth G. Waughan, 013289471");
+        GarethCredit.setToolTipText("Codename: Gary Primey");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

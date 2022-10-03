@@ -266,12 +266,12 @@ public class LeaderboardScreen extends javax.swing.JPanel {
         backToMenu = new javax.swing.JButton();
 
         inquiryDialog.setMinimumSize(new java.awt.Dimension(600, 400));
-        inquiryDialog.setPreferredSize(new java.awt.Dimension(600, 400));
 
         HighScoreInquiry.setFont(new java.awt.Font("Helvetica Neue", 0, 24)); // NOI18N
         HighScoreInquiry.setText("Would you like to save your high score?");
 
         YesButton.setText("Yes");
+        YesButton.setToolTipText("Do it!");
         YesButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 YesButtonActionPerformed(evt);
@@ -279,6 +279,7 @@ public class LeaderboardScreen extends javax.swing.JPanel {
         });
 
         NoButton.setText("No");
+        NoButton.setToolTipText("Are you sure?");
         NoButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NoButtonActionPerformed(evt);
@@ -314,12 +315,13 @@ public class LeaderboardScreen extends javax.swing.JPanel {
 
         initialsDialog.setAutoRequestFocus(false);
         initialsDialog.setMinimumSize(new java.awt.Dimension(600, 400));
-        initialsDialog.setPreferredSize(new java.awt.Dimension(600, 400));
 
         EnterInitialsLabel.setFont(new java.awt.Font("Helvetica Neue", 0, 24)); // NOI18N
         EnterInitialsLabel.setText("Please enter your initials (Max 3 Letters please):");
+        EnterInitialsLabel.setToolTipText("3 Letters max.");
 
         initialsTextField.setText("AAA");
+        initialsTextField.setToolTipText("\"your name?\"");
         initialsTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 initialsTextFieldActionPerformed(evt);
@@ -355,39 +357,46 @@ public class LeaderboardScreen extends javax.swing.JPanel {
         highScoreLabel.setFont(new java.awt.Font("Heiti TC", 1, 36)); // NOI18N
         highScoreLabel.setForeground(new java.awt.Color(225, 181, 0));
         highScoreLabel.setText("Leaderboard");
+        highScoreLabel.setToolTipText("\"Who's winning?\"");
 
         highScore2.setFont(new java.awt.Font("Helvetica", 0, 24)); // NOI18N
         highScore2.setForeground(new java.awt.Color(206, 184, 136));
         highScore2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         highScore2.setText("ABC.....00000");
+        highScore2.setToolTipText("2nd place!");
         highScore2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         highScore5.setFont(new java.awt.Font("Helvetica", 0, 24)); // NOI18N
         highScore5.setForeground(new java.awt.Color(206, 184, 136));
         highScore5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         highScore5.setText("ABC.....00000");
+        highScore5.setToolTipText("5th place!");
         highScore5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         highScore4.setFont(new java.awt.Font("Helvetica", 0, 24)); // NOI18N
         highScore4.setForeground(new java.awt.Color(206, 184, 136));
         highScore4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         highScore4.setText("ABC.....00000");
+        highScore4.setToolTipText("4th place!");
         highScore4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         highScore1.setFont(new java.awt.Font("Helvetica", 0, 24)); // NOI18N
         highScore1.setForeground(new java.awt.Color(206, 184, 136));
         highScore1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         highScore1.setText("ABC.....00000");
+        highScore1.setToolTipText("1st place!");
         highScore1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         highScore3.setFont(new java.awt.Font("Helvetica", 0, 24)); // NOI18N
         highScore3.setForeground(new java.awt.Color(206, 184, 136));
         highScore3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         highScore3.setText("ABC.....00000");
+        highScore3.setToolTipText("3rd place!");
         highScore3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         backToMenu.setFont(new java.awt.Font("Helvetica", 0, 13)); // NOI18N
         backToMenu.setText("Back");
+        backToMenu.setToolTipText("Back to main menu!");
         backToMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backToMenuActionPerformed(evt);

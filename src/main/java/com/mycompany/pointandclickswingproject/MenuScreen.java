@@ -42,41 +42,46 @@ public class MenuScreen extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        PlayButton = new javax.swing.JButton();
+        LeaderboardButton = new javax.swing.JButton();
+        CreditsButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(600, 400));
 
         jLabel1.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 40)); // NOI18N
         jLabel1.setText("SwingBeans");
+        jLabel1.setToolTipText("The Creators' Team Name!");
 
-        jButton1.setFont(new java.awt.Font("Haettenschweiler", 0, 24)); // NOI18N
-        jButton1.setText("Play");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        PlayButton.setFont(new java.awt.Font("Haettenschweiler", 0, 24)); // NOI18N
+        PlayButton.setText("Play");
+        PlayButton.setToolTipText("Play our game!");
+        PlayButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                PlayButtonActionPerformed(evt);
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Haettenschweiler", 0, 24)); // NOI18N
-        jButton2.setText("Leaderboard");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        LeaderboardButton.setFont(new java.awt.Font("Haettenschweiler", 0, 24)); // NOI18N
+        LeaderboardButton.setText("Leaderboard");
+        LeaderboardButton.setToolTipText("See who's winning!");
+        LeaderboardButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                LeaderboardButtonActionPerformed(evt);
             }
         });
 
-        jButton3.setFont(new java.awt.Font("Haettenschweiler", 0, 24)); // NOI18N
-        jButton3.setText("Credits");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        CreditsButton.setFont(new java.awt.Font("Haettenschweiler", 0, 24)); // NOI18N
+        CreditsButton.setText("Credits");
+        CreditsButton.setToolTipText("Meet the creators!");
+        CreditsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                CreditsButtonActionPerformed(evt);
             }
         });
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/primarylogoinsidestacked.png"))); // NOI18N
+        jLabel2.setToolTipText("CPP: Learn by Doing.");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -92,9 +97,9 @@ public class MenuScreen extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(67, 67, 67)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton2)
-                            .addComponent(jButton3)
-                            .addComponent(jButton1))))
+                            .addComponent(LeaderboardButton)
+                            .addComponent(CreditsButton)
+                            .addComponent(PlayButton))))
                 .addGap(40, 40, 40))
         );
         layout.setVerticalGroup(
@@ -106,32 +111,32 @@ public class MenuScreen extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(52, 52, 52)
-                        .addComponent(jButton1)
+                        .addComponent(PlayButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)
+                        .addComponent(LeaderboardButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3)))
+                        .addComponent(CreditsButton)))
                 .addContainerGap(90, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void PlayButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PlayButtonActionPerformed
         w.switchPanes("game");
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_PlayButtonActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void CreditsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreditsButtonActionPerformed
         w.switchPanes("credits");
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_CreditsButtonActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void LeaderboardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LeaderboardButtonActionPerformed
         w.switchPanes("leaderboard");
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_LeaderboardButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton CreditsButton;
+    private javax.swing.JButton LeaderboardButton;
+    private javax.swing.JButton PlayButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables

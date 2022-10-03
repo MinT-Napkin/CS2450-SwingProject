@@ -47,6 +47,7 @@ public class GameScreen2 extends javax.swing.JPanel {
         time.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         Quit.setText("Quit");
+        Quit.setToolTipText("Quit the game.");
         Quit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 QuitActionPerformed(evt);
@@ -54,6 +55,7 @@ public class GameScreen2 extends javax.swing.JPanel {
         });
 
         submitButton.setText("Submit");
+        submitButton.setToolTipText("Submit your Sudoku Puzzle Solution.");
         submitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 submitButtonActionPerformed(evt);

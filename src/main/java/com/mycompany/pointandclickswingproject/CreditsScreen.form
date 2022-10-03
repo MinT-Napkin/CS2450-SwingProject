@@ -92,6 +92,7 @@
           <Color blue="0" green="b5" red="e1" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Credits:"/>
+        <Property name="toolTipText" type="java.lang.String" value="The Stars of our game!"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="backButton">
@@ -100,6 +101,7 @@
           <Font name="Helvetica" size="13" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Back"/>
+        <Property name="toolTipText" type="java.lang.String" value="Back to main menu."/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="backButtonActionPerformed"/>
@@ -114,6 +116,7 @@
           <Color blue="88" green="b8" red="ce" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Minh Tran, 015051140"/>
+        <Property name="toolTipText" type="java.lang.String" value="Codename: MinT"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="BenCredit">
@@ -125,6 +128,7 @@
           <Color blue="88" green="b8" red="ce" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Benjamin Chen, 015393066"/>
+        <Property name="toolTipText" type="java.lang.String" value="Codename: uu"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="NikhilCredit">
@@ -136,6 +140,7 @@
           <Color blue="88" green="b8" red="ce" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Nikhil Kowdle, 013608413"/>
+        <Property name="toolTipText" type="java.lang.String" value="Codename: Stormwolf"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="MartinCredit">
@@ -147,6 +152,7 @@
           <Color blue="88" green="b8" red="ce" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Martin Flores, 014072422"/>
+        <Property name="toolTipText" type="java.lang.String" value="Codename: martin_418"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="GarethCredit">
@@ -158,6 +164,7 @@
           <Color blue="88" green="b8" red="ce" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Gareth G. Waughan, 013289471"/>
+        <Property name="toolTipText" type="java.lang.String" value="Codename: Gary Primey"/>
       </Properties>
     </Component>
   </SubComponents>

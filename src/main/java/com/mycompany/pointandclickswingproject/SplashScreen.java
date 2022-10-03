@@ -77,16 +77,19 @@ public class SplashScreen extends javax.swing.JPanel {
         titleName.setForeground(new java.awt.Color(225, 181, 0));
         titleName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titleName.setText("Presents...");
+        titleName.setToolTipText("A BRAND NEW CAR! Jk.");
 
         teamName.setFont(new java.awt.Font("MARSNEVENEKSK", 0, 60)); // NOI18N
         teamName.setForeground(new java.awt.Color(108, 194, 74));
         teamName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         teamName.setText("The SwingBeans");
+        teamName.setToolTipText("*Jazz hands*");
         teamName.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         sussyBaka.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         sussyBaka.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/team_icon.png"))); // NOI18N
         sussyBaka.setText("jLabel3");
+        sussyBaka.setToolTipText("\"sus.\"");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

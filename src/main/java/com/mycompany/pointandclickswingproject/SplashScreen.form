@@ -66,6 +66,7 @@
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="Presents..."/>
+        <Property name="toolTipText" type="java.lang.String" value="A BRAND NEW CAR! Jk."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="teamName">
@@ -78,6 +79,7 @@
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="The SwingBeans"/>
+        <Property name="toolTipText" type="java.lang.String" value="*Jazz hands*"/>
         <Property name="horizontalTextPosition" type="int" value="0"/>
       </Properties>
     </Component>
@@ -88,6 +90,7 @@
           <Image iconType="3" name="/images/team_icon.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="jLabel3"/>
+        <Property name="toolTipText" type="java.lang.String" value="&quot;sus.&quot;"/>
       </Properties>
     </Component>
   </SubComponents>

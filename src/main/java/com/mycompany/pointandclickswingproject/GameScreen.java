@@ -381,13 +381,16 @@ public class GameScreen extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 24)); // NOI18N
         jLabel1.setText("HANGMAN");
+        jLabel1.setToolTipText("Guess the correct letters to win!");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 11, -1, -1));
 
         myScore.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         myScore.setText("SCORE: 0");
+        myScore.setToolTipText("Your current score!");
         add(myScore, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 45, 100, -1));
 
         button_A.setText("A");
+        button_A.setToolTipText("A");
         button_A.setPreferredSize(new java.awt.Dimension(41, 41));
         button_A.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -397,6 +400,7 @@ public class GameScreen extends javax.swing.JPanel {
         add(button_A, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 288, 40, 40));
 
         button_B.setText("B");
+        button_B.setToolTipText("B");
         button_B.setPreferredSize(new java.awt.Dimension(41, 41));
         button_B.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -406,6 +410,7 @@ public class GameScreen extends javax.swing.JPanel {
         add(button_B, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 288, 40, 40));
 
         button_C.setText("C");
+        button_C.setToolTipText("C");
         button_C.setPreferredSize(new java.awt.Dimension(41, 41));
         button_C.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -415,6 +420,7 @@ public class GameScreen extends javax.swing.JPanel {
         add(button_C, new org.netbeans.lib.awtextra.AbsoluteConstraints(104, 288, 40, 40));
 
         button_D.setText("D");
+        button_D.setToolTipText("D");
         button_D.setPreferredSize(new java.awt.Dimension(41, 41));
         button_D.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -424,6 +430,7 @@ public class GameScreen extends javax.swing.JPanel {
         add(button_D, new org.netbeans.lib.awtextra.AbsoluteConstraints(148, 288, 40, 40));
 
         button_E.setText("E");
+        button_E.setToolTipText("E");
         button_E.setPreferredSize(new java.awt.Dimension(41, 41));
         button_E.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -433,6 +440,7 @@ public class GameScreen extends javax.swing.JPanel {
         add(button_E, new org.netbeans.lib.awtextra.AbsoluteConstraints(192, 288, 40, 40));
 
         button_F.setText("F");
+        button_F.setToolTipText("F");
         button_F.setPreferredSize(new java.awt.Dimension(41, 41));
         button_F.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -442,6 +450,7 @@ public class GameScreen extends javax.swing.JPanel {
         add(button_F, new org.netbeans.lib.awtextra.AbsoluteConstraints(236, 288, 40, 40));
 
         button_G.setText("G");
+        button_G.setToolTipText("G");
         button_G.setPreferredSize(new java.awt.Dimension(41, 41));
         button_G.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -451,6 +460,7 @@ public class GameScreen extends javax.swing.JPanel {
         add(button_G, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 288, 40, 40));
 
         button_H.setText("H");
+        button_H.setToolTipText("H");
         button_H.setPreferredSize(new java.awt.Dimension(41, 41));
         button_H.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -460,6 +470,7 @@ public class GameScreen extends javax.swing.JPanel {
         add(button_H, new org.netbeans.lib.awtextra.AbsoluteConstraints(324, 288, 40, 40));
 
         button_I.setText("I");
+        button_I.setToolTipText("I");
         button_I.setPreferredSize(new java.awt.Dimension(41, 41));
         button_I.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -469,6 +480,7 @@ public class GameScreen extends javax.swing.JPanel {
         add(button_I, new org.netbeans.lib.awtextra.AbsoluteConstraints(368, 288, 40, 40));
 
         button_J.setText("J");
+        button_J.setToolTipText("J");
         button_J.setPreferredSize(new java.awt.Dimension(41, 41));
         button_J.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -478,6 +490,7 @@ public class GameScreen extends javax.swing.JPanel {
         add(button_J, new org.netbeans.lib.awtextra.AbsoluteConstraints(412, 288, 40, 40));
 
         button_K.setText("K");
+        button_K.setToolTipText("K");
         button_K.setPreferredSize(new java.awt.Dimension(41, 41));
         button_K.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -487,6 +500,7 @@ public class GameScreen extends javax.swing.JPanel {
         add(button_K, new org.netbeans.lib.awtextra.AbsoluteConstraints(456, 288, 40, 40));
 
         button_L.setText("L");
+        button_L.setToolTipText("L");
         button_L.setPreferredSize(new java.awt.Dimension(41, 41));
         button_L.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -496,6 +510,7 @@ public class GameScreen extends javax.swing.JPanel {
         add(button_L, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 288, 40, 40));
 
         button_M.setText("M");
+        button_M.setToolTipText("M");
         button_M.setPreferredSize(new java.awt.Dimension(41, 41));
         button_M.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -505,6 +520,7 @@ public class GameScreen extends javax.swing.JPanel {
         add(button_M, new org.netbeans.lib.awtextra.AbsoluteConstraints(544, 288, 40, 40));
 
         button_N.setText("N");
+        button_N.setToolTipText("N");
         button_N.setPreferredSize(new java.awt.Dimension(41, 41));
         button_N.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -514,6 +530,7 @@ public class GameScreen extends javax.swing.JPanel {
         add(button_N, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 336, 40, 40));
 
         button_O.setText("O");
+        button_O.setToolTipText("O");
         button_O.setPreferredSize(new java.awt.Dimension(41, 41));
         button_O.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -523,6 +540,7 @@ public class GameScreen extends javax.swing.JPanel {
         add(button_O, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 336, 40, 40));
 
         button_P.setText("P");
+        button_P.setToolTipText("P");
         button_P.setPreferredSize(new java.awt.Dimension(41, 41));
         button_P.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -532,6 +550,7 @@ public class GameScreen extends javax.swing.JPanel {
         add(button_P, new org.netbeans.lib.awtextra.AbsoluteConstraints(104, 336, 40, 40));
 
         button_R.setText("R");
+        button_R.setToolTipText("R");
         button_R.setPreferredSize(new java.awt.Dimension(41, 41));
         button_R.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -541,6 +560,7 @@ public class GameScreen extends javax.swing.JPanel {
         add(button_R, new org.netbeans.lib.awtextra.AbsoluteConstraints(192, 336, 40, 40));
 
         button_S.setText("S");
+        button_S.setToolTipText("S");
         button_S.setPreferredSize(new java.awt.Dimension(41, 41));
         button_S.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -550,6 +570,7 @@ public class GameScreen extends javax.swing.JPanel {
         add(button_S, new org.netbeans.lib.awtextra.AbsoluteConstraints(236, 336, 40, 40));
 
         button_Q.setText("Q");
+        button_Q.setToolTipText("Q");
         button_Q.setPreferredSize(new java.awt.Dimension(41, 41));
         button_Q.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -559,6 +580,7 @@ public class GameScreen extends javax.swing.JPanel {
         add(button_Q, new org.netbeans.lib.awtextra.AbsoluteConstraints(148, 336, 40, 40));
 
         button_T.setText("T");
+        button_T.setToolTipText("T");
         button_T.setPreferredSize(new java.awt.Dimension(41, 41));
         button_T.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -568,6 +590,7 @@ public class GameScreen extends javax.swing.JPanel {
         add(button_T, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 336, 40, 40));
 
         button_U.setText("U");
+        button_U.setToolTipText("U");
         button_U.setPreferredSize(new java.awt.Dimension(41, 41));
         button_U.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -577,6 +600,7 @@ public class GameScreen extends javax.swing.JPanel {
         add(button_U, new org.netbeans.lib.awtextra.AbsoluteConstraints(324, 336, 40, 40));
 
         button_V.setText("V");
+        button_V.setToolTipText("V");
         button_V.setPreferredSize(new java.awt.Dimension(41, 41));
         button_V.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -586,6 +610,7 @@ public class GameScreen extends javax.swing.JPanel {
         add(button_V, new org.netbeans.lib.awtextra.AbsoluteConstraints(368, 336, 40, 40));
 
         button_W.setText("W");
+        button_W.setToolTipText("W");
         button_W.setPreferredSize(new java.awt.Dimension(41, 41));
         button_W.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -595,6 +620,7 @@ public class GameScreen extends javax.swing.JPanel {
         add(button_W, new org.netbeans.lib.awtextra.AbsoluteConstraints(412, 336, 40, 40));
 
         button_X.setText("X");
+        button_X.setToolTipText("X");
         button_X.setPreferredSize(new java.awt.Dimension(41, 41));
         button_X.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -604,6 +630,7 @@ public class GameScreen extends javax.swing.JPanel {
         add(button_X, new org.netbeans.lib.awtextra.AbsoluteConstraints(456, 336, 40, 40));
 
         button_Y.setText("Y");
+        button_Y.setToolTipText("Y");
         button_Y.setPreferredSize(new java.awt.Dimension(41, 41));
         button_Y.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -613,6 +640,7 @@ public class GameScreen extends javax.swing.JPanel {
         add(button_Y, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 336, 40, 40));
 
         button_Z.setText("Z");
+        button_Z.setToolTipText("Z");
         button_Z.setPreferredSize(new java.awt.Dimension(41, 41));
         button_Z.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -622,6 +650,7 @@ public class GameScreen extends javax.swing.JPanel {
         add(button_Z, new org.netbeans.lib.awtextra.AbsoluteConstraints(544, 336, 40, 40));
 
         button_Skip.setText("SKIP");
+        button_Skip.setToolTipText("Click to skip Hangman.");
         button_Skip.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_SkipActionPerformed(evt);
@@ -630,6 +659,7 @@ public class GameScreen extends javax.swing.JPanel {
         add(button_Skip, new org.netbeans.lib.awtextra.AbsoluteConstraints(502, 45, -1, -1));
 
         platform.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/platform.png"))); // NOI18N
+        platform.setToolTipText("\"Please Help Me!\"");
         add(platform, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 80, 200, 200));
 
         head.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/head.png"))); // NOI18N
@@ -650,17 +680,20 @@ public class GameScreen extends javax.swing.JPanel {
         rightLeg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/rightleg.png"))); // NOI18N
         add(rightLeg, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 200, 200));
 
+        wordArea.setToolTipText("\"Wouldn't you like to know.\"");
         wordArea.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         alert.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 18)); // NOI18N
         alert.setForeground(new java.awt.Color(255, 0, 51));
         alert.setText("INCORRECT LETTER");
+        alert.setToolTipText("\"Oops!\"");
         wordArea.add(alert, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, -1, -1));
 
         add(wordArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 360, 180));
 
         time.setBackground(new java.awt.Color(255, 255, 255));
         time.setText("timer");
+        time.setToolTipText("Tick tock.");
         time.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         add(time, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, -1, -1));
     }// </editor-fold>//GEN-END:initComponents

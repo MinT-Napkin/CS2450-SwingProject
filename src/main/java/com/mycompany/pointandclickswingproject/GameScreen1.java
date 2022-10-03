@@ -244,9 +244,11 @@ public class GameScreen1 extends javax.swing.JPanel {
         scoreLabel = new javax.swing.JLabel();
         time = new javax.swing.JLabel();
 
+        setToolTipText("\"Click me!\"");
         setPreferredSize(new java.awt.Dimension(600, 400));
         setLayout(null);
 
+        redButton.setToolTipText("\"Click me!\"");
         redButton.setPreferredSize(new java.awt.Dimension(75, 25));
         redButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -267,6 +269,7 @@ public class GameScreen1 extends javax.swing.JPanel {
         add(redButton);
         redButton.setBounds(64, 124, 75, 25);
 
+        yellowButton.setToolTipText("\"Click me!\"");
         yellowButton.setPreferredSize(new java.awt.Dimension(75, 25));
         yellowButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -282,6 +285,7 @@ public class GameScreen1 extends javax.swing.JPanel {
         add(yellowButton);
         yellowButton.setBounds(217, 124, 75, 25);
 
+        greenButton.setToolTipText("\"Click me!\"");
         greenButton.setPreferredSize(new java.awt.Dimension(75, 25));
         greenButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -297,6 +301,7 @@ public class GameScreen1 extends javax.swing.JPanel {
         add(greenButton);
         greenButton.setBounds(359, 124, 75, 25);
 
+        blueButton.setToolTipText("\"Click me!\"");
         blueButton.setPreferredSize(new java.awt.Dimension(75, 25));
         blueButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -312,6 +317,7 @@ public class GameScreen1 extends javax.swing.JPanel {
         add(blueButton);
         blueButton.setBounds(146, 225, 75, 25);
 
+        purpleButton.setToolTipText("\"Click me!\"");
         purpleButton.setPreferredSize(new java.awt.Dimension(75, 25));
         purpleButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -330,20 +336,23 @@ public class GameScreen1 extends javax.swing.JPanel {
         colorLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         colorLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         colorLabel.setText("color");
+        colorLabel.setToolTipText("Which is it? ");
         add(colorLabel);
         colorLabel.setBounds(230, 10, 110, 30);
 
         scoreLabel.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 24)); // NOI18N
         scoreLabel.setText("score");
+        scoreLabel.setToolTipText("Your current score!");
         add(scoreLabel);
-        scoreLabel.setBounds(10, 10, 190, 28);
+        scoreLabel.setBounds(10, 10, 190, 30);
 
         time.setBackground(new java.awt.Color(255, 255, 255));
         time.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         time.setText("timer");
+        time.setToolTipText("Tick Tock.");
         time.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         add(time);
-        time.setBounds(410, 10, 180, 20);
+        time.setBounds(410, 10, 180, 21);
     }// </editor-fold>//GEN-END:initComponents
 
     private void redButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_redButtonMouseEntered
