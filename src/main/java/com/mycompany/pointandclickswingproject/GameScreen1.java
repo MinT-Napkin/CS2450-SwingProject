@@ -209,6 +209,7 @@ public class GameScreen1 extends javax.swing.JPanel {
         if(color.equals(correctColor))
         {
             ScoreManager.addScore(100);
+            System.out.println(ScoreManager.getScore());
             scoreLabel.setText("Score: " + ScoreManager.getScore());
         }
         
@@ -216,8 +217,9 @@ public class GameScreen1 extends javax.swing.JPanel {
         
         if(attempts >= 5)
         {
-            GameOverScreen.setLabelScore(ScoreManager.getScore());
-            w.switchPanes("gameover");
+           // GameOverScreen.setLabelScore(ScoreManager.getScore());
+            GameScreen2.updateScoreLabel();
+            w.switchPanes("game2");
             attempts = 0; // resets the color game
         }
         
