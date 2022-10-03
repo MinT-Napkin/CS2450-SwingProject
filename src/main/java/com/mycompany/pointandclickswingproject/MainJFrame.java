@@ -34,6 +34,7 @@ public class MainJFrame extends javax.swing.JFrame {
     public final String LEADERBOARD = "leaderboard";
     public final String GAME = "game";
     public final String GAME1 = "game1";
+    public final String GAME2 = "game2";
     public final String CREDITS = "credits";
     public final String GAMEOVER = "gameover";
     private final CardLayout cLayout;
@@ -56,9 +57,9 @@ public class MainJFrame extends javax.swing.JFrame {
             JPanel gameScreen1, 
             JPanel creditsScreen1,
             JPanel gameOverScreen1,
-            JPanel gameScreen2) throws InterruptedException {
+            JPanel gameScreen2,JPanel gameScreen3) throws InterruptedException {
         
-        setTitle("SwingBeans - Swing Project v1.1");
+        setTitle("SwingBeans - Swing Project v1.2");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
@@ -73,7 +74,8 @@ public class MainJFrame extends javax.swing.JFrame {
         mainPane.add(GAME, gameScreen1);
         mainPane.add(CREDITS, creditsScreen1);
         mainPane.add(GAMEOVER, gameOverScreen1);
-        mainPane.add(GAME1, gameScreen2);
+        mainPane.add(GAME1,gameScreen2);
+        mainPane.add(GAME2, gameScreen3);
         
         cLayout.show(mainPane, SPLASH);
 

@@ -68,7 +68,7 @@ public class PointAndClickSwingProject {
                     GameOverScreen gameOverScreen = new com.mycompany.pointandclickswingproject.GameOverScreen();
                     GameScreen gameScreen = new com.mycompany.pointandclickswingproject.GameScreen();
                     GameScreen1 gameScreen1 = new com.mycompany.pointandclickswingproject.GameScreen1();
-                    
+                    GameScreen2 gameScreen2 = new com.mycompany.pointandclickswingproject.GameScreen2();
                     JPanel creditsScreen = new com.mycompany.pointandclickswingproject.CreditsScreen();
                     w = new MainJFrame(splashScreen, 
                             menuScreen, 
@@ -76,8 +76,9 @@ public class PointAndClickSwingProject {
                             gameScreen,
                             creditsScreen,
                             gameOverScreen,
-                            gameScreen1);
+                            gameScreen1, gameScreen2);
                     w.setLocationRelativeTo(null);
+                    
                 } catch (InterruptedException ex) {
                     Logger.getLogger(PointAndClickSwingProject.class.getName()).log(Level.SEVERE, null, ex);
                 }
