@@ -11,7 +11,7 @@ import static com.mycompany.pointandclickswingproject.PointAndClickSwingProject.
  * @author gardyion
  */
 public class GameScreen2 extends javax.swing.JPanel {
-
+    
     /**
      * Creates new form GameScreen2
      */
@@ -23,6 +23,8 @@ public class GameScreen2 extends javax.swing.JPanel {
     {
         ScoreManager.setScoreLabel(scoreLabel);
     }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -37,6 +39,7 @@ public class GameScreen2 extends javax.swing.JPanel {
         Quit = new javax.swing.JButton();
         submitButton = new javax.swing.JButton();
         Sudoku = new javax.swing.JLabel();
+        sudokuBoard1 = new com.mycompany.pointandclickswingproject.SudokuBoard();
 
         scoreLabel.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 24)); // NOI18N
         scoreLabel.setText("score");
@@ -65,41 +68,64 @@ public class GameScreen2 extends javax.swing.JPanel {
         Sudoku.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 24)); // NOI18N
         Sudoku.setText("SUDOKU!");
 
+        sudokuBoard1.setPreferredSize(new java.awt.Dimension(300, 300));
+
+        javax.swing.GroupLayout sudokuBoard1Layout = new javax.swing.GroupLayout(sudokuBoard1);
+        sudokuBoard1.setLayout(sudokuBoard1Layout);
+        sudokuBoard1Layout.setHorizontalGroup(
+            sudokuBoard1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 303, Short.MAX_VALUE)
+        );
+        sudokuBoard1Layout.setVerticalGroup(
+            sudokuBoard1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 303, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(Sudoku)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 292, Short.MAX_VALUE)
-                .addComponent(time, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(78, 78, 78)
-                .addComponent(submitButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Quit)
-                .addGap(73, 73, 73))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(scoreLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(Sudoku, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(time, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(scoreLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(submitButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(sudokuBoard1, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(Quit)
+                        .addContainerGap(80, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(6, 6, 6)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(time)
-                    .addComponent(Sudoku))
-                .addGap(7, 7, 7)
-                .addComponent(scoreLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 255, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Quit)
-                    .addComponent(submitButton))
-                .addGap(49, 49, 49))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Sudoku)
+                    .addComponent(time))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(scoreLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(sudokuBoard1, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(submitButton)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(104, 104, 104)
+                        .addComponent(Quit)))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -118,6 +144,7 @@ public class GameScreen2 extends javax.swing.JPanel {
     private javax.swing.JLabel Sudoku;
     private static javax.swing.JLabel scoreLabel;
     private javax.swing.JButton submitButton;
+    private com.mycompany.pointandclickswingproject.SudokuBoard sudokuBoard1;
     private javax.swing.JLabel time;
     // End of variables declaration//GEN-END:variables
 }
