@@ -19,9 +19,17 @@ package com.mycompany.pointandclickswingproject;
 import static com.mycompany.pointandclickswingproject.PointAndClickSwingProject.w;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.WindowEvent;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.AbstractAction;
+import javax.swing.Action;
+import javax.swing.ActionMap;
+import javax.swing.InputMap;
+import javax.swing.JComponent;
 import javax.swing.JLabel;
+import javax.swing.KeyStroke;
 import javax.swing.SwingConstants;
 import javax.swing.Timer;
 
@@ -35,6 +43,7 @@ public class GameScreen extends javax.swing.JPanel {
     private final int INITIAL_SCORE = 100;
     private final int INITIAL_MISTAKES = 0;
     private final int INITIAL_CORRECT_GUESSES = 0;
+    private static final int myKeyPress = JComponent.WHEN_IN_FOCUSED_WINDOW;
     
     private final int MAX_LETTERS = 8;
     private final JLabel[] UNDERSCORES = new JLabel[MAX_LETTERS];
@@ -42,7 +51,7 @@ public class GameScreen extends javax.swing.JPanel {
     private final String[] DEFAULT_WORDS = {"Abstract", "Cemetary", "Nurse", "Pharmacy", "Climbing"};
     
     private final Timer alertTimer;
-
+  
     /**
      * Creates new form GameScreen
      */
@@ -59,7 +68,9 @@ public class GameScreen extends javax.swing.JPanel {
         
         this.alertTimer = new Timer (2000, updateAlert);
         
-        Clock clock = new Clock(time);
+        Clock clock = new Clock(time);  
+        
+        
     }
     
     // action listener: updateAlert

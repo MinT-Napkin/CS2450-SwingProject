@@ -20,6 +20,9 @@ import static com.mycompany.pointandclickswingproject.PointAndClickSwingProject.
 import java.awt.Color;
 import java.awt.Point;
 import java.util.ArrayList;
+import javax.swing.ActionMap;
+import javax.swing.InputMap;
+import javax.swing.JComponent;
 
 /**
  *
