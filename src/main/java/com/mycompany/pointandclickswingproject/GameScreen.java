@@ -112,7 +112,7 @@ public class GameScreen extends javax.swing.JPanel {
         };
          Action LetterG = new AbstractAction(){
          public void actionPerformed(ActionEvent e) {
-                button_AActionPerformed(e);
+                button_GActionPerformed(e);
              }
         };
         
@@ -130,6 +130,94 @@ public class GameScreen extends javax.swing.JPanel {
          Action LetterJ = new AbstractAction(){
          public void actionPerformed(ActionEvent e) {
                 button_JActionPerformed(e);
+             }
+        };
+         Action LetterK = new AbstractAction(){
+         public void actionPerformed(ActionEvent e) {
+                button_KActionPerformed(e);
+             }
+        };
+        
+         Action LetterL = new AbstractAction(){
+         public void actionPerformed(ActionEvent e) {
+                button_LActionPerformed(e);
+             }
+        };
+         Action LetterM = new AbstractAction(){
+         public void actionPerformed(ActionEvent e) {
+                button_MActionPerformed(e);
+             }
+        };
+        
+         Action LetterN = new AbstractAction(){
+         public void actionPerformed(ActionEvent e) {
+                button_NActionPerformed(e);
+             }
+        };
+         Action LetterO = new AbstractAction(){
+         public void actionPerformed(ActionEvent e) {
+                button_OActionPerformed(e);
+             }
+        };
+        
+         Action LetterP = new AbstractAction(){
+         public void actionPerformed(ActionEvent e) {
+                button_PActionPerformed(e);
+             }
+        };
+         Action LetterQ = new AbstractAction(){
+         public void actionPerformed(ActionEvent e) {
+                button_QActionPerformed(e);
+             }
+        };
+        
+         Action LetterR = new AbstractAction(){
+         public void actionPerformed(ActionEvent e) {
+                button_RActionPerformed(e);
+             }
+        };
+         Action LetterS = new AbstractAction(){
+         public void actionPerformed(ActionEvent e) {
+                button_SActionPerformed(e);
+             }
+        };
+        
+         Action LetterT = new AbstractAction(){
+         public void actionPerformed(ActionEvent e) {
+                button_TActionPerformed(e);
+             }
+        };
+         Action LetterU = new AbstractAction(){
+         public void actionPerformed(ActionEvent e) {
+                button_UActionPerformed(e);
+             }
+        };
+        
+         Action LetterV = new AbstractAction(){
+         public void actionPerformed(ActionEvent e) {
+                button_VActionPerformed(e);
+             }
+        };
+         Action LetterW = new AbstractAction(){
+         public void actionPerformed(ActionEvent e) {
+                button_WActionPerformed(e);
+             }
+        };
+        
+         Action LetterX = new AbstractAction(){
+         public void actionPerformed(ActionEvent e) {
+                button_XActionPerformed(e);
+             }
+        };
+         Action LetterY = new AbstractAction(){
+         public void actionPerformed(ActionEvent e) {
+                button_YActionPerformed(e);
+             }
+        };
+        
+         Action LetterZ = new AbstractAction(){
+         public void actionPerformed(ActionEvent e) {
+                button_ZActionPerformed(e);
              }
         };
          
@@ -158,6 +246,38 @@ public class GameScreen extends javax.swing.JPanel {
         myActionMap.put("I", LetterI);
         myInputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_J, 0), "J");
         myActionMap.put("J", LetterJ);
+        myInputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_K, 0), "K");
+        myActionMap.put("K", LetterK);
+        myInputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_L, 0), "L");
+        myActionMap.put("L", LetterL);
+        myInputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_M, 0), "M");
+        myActionMap.put("M", LetterM);
+        myInputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_N, 0), "N");
+        myActionMap.put("N", LetterN);
+        myInputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_O, 0), "O");
+        myActionMap.put("O", LetterO);
+        myInputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_P, 0), "P");
+        myActionMap.put("P", LetterP);
+        myInputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_Q, 0), "Q");
+        myActionMap.put("Q", LetterQ);
+        myInputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_R, 0), "R");
+        myActionMap.put("R", LetterR);
+        myInputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_S, 0), "S");
+        myActionMap.put("S", LetterS);
+        myInputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_T, 0), "T");
+        myActionMap.put("T", LetterT);
+        myInputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_U, 0), "U");
+        myActionMap.put("U", LetterU);
+        myInputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_V, 0), "V");
+        myActionMap.put("V", LetterV);
+        myInputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_W, 0), "W");
+        myActionMap.put("W", LetterW);
+        myInputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_X, 0), "X");
+        myActionMap.put("X", LetterX);
+        myInputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_Y, 0), "Y");
+        myActionMap.put("Y", LetterY);
+        myInputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_Z, 0), "Z");
+        myActionMap.put("Z", LetterZ);
         
     }
     
