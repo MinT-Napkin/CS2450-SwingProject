@@ -74,8 +74,8 @@ public class GameScreen1 extends javax.swing.JPanel {
 //        correctColor = "green";
 //        foregroundColor = green;
         
-        colorLabel.setText(wordColor);
-        colorLabel.setForeground(green);
+//        colorLabel.setText(wordColor);
+//        colorLabel.setForeground(green);
         ScoreManager.setScoreLabel(scoreLabel);
         
         Clock clock = new Clock(time);
