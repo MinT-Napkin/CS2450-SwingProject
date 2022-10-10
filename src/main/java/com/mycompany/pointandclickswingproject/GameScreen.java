@@ -43,7 +43,6 @@ public class GameScreen extends javax.swing.JPanel {
     private final int INITIAL_SCORE = 100;
     private final int INITIAL_MISTAKES = 0;
     private final int INITIAL_CORRECT_GUESSES = 0;
-    private static final int myKeyPress = JComponent.WHEN_IN_FOCUSED_WINDOW;
     
     private final int MAX_LETTERS = 8;
     private final JLabel[] UNDERSCORES = new JLabel[MAX_LETTERS];
@@ -70,6 +69,95 @@ public class GameScreen extends javax.swing.JPanel {
         
         Clock clock = new Clock(time);  
         
+        setLetterBindings();
+    }
+    
+        private void setLetterBindings()
+    {
+        InputMap myInputMap;
+        ActionMap myActionMap;
+        
+        Action LetterA = new AbstractAction(){
+         public void actionPerformed(ActionEvent e) {
+                button_AActionPerformed(e);
+             }
+        };
+        
+         Action LetterB = new AbstractAction(){
+         public void actionPerformed(ActionEvent e) {
+                button_BActionPerformed(e);
+             }
+        };
+         Action LetterC = new AbstractAction(){
+         public void actionPerformed(ActionEvent e) {
+                button_CActionPerformed(e);
+             }
+        };
+        
+         Action LetterD = new AbstractAction(){
+         public void actionPerformed(ActionEvent e) {
+                button_DActionPerformed(e);
+             }
+        };
+         Action LetterE = new AbstractAction(){
+         public void actionPerformed(ActionEvent e) {
+                button_EActionPerformed(e);
+             }
+        };
+        
+         Action LetterF = new AbstractAction(){
+         public void actionPerformed(ActionEvent e) {
+                button_FActionPerformed(e);
+             }
+        };
+         Action LetterG = new AbstractAction(){
+         public void actionPerformed(ActionEvent e) {
+                button_AActionPerformed(e);
+             }
+        };
+        
+         Action LetterH = new AbstractAction(){
+         public void actionPerformed(ActionEvent e) {
+                button_HActionPerformed(e);
+             }
+        };
+        Action LetterI = new AbstractAction(){
+         public void actionPerformed(ActionEvent e) {
+                button_IActionPerformed(e);
+             }
+        };
+        
+         Action LetterJ = new AbstractAction(){
+         public void actionPerformed(ActionEvent e) {
+                button_JActionPerformed(e);
+             }
+        };
+         
+       // GameScreen = this.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
+        myInputMap = this.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
+        myActionMap = this.getActionMap();
+        
+        
+        myInputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_A, 0), "A");
+        myActionMap.put("A", LetterA);
+        myInputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_B, 0), "B");
+        myActionMap.put("B", LetterB);
+        myInputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_C, 0), "C");
+        myActionMap.put("C", LetterC);
+        myInputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_D, 0), "D");
+        myActionMap.put("D", LetterD);
+        myInputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_E, 0), "E");
+        myActionMap.put("E", LetterE);
+        myInputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_F, 0), "F");
+        myActionMap.put("F", LetterF);
+        myInputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_G, 0), "G");
+        myActionMap.put("G", LetterG);
+        myInputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_H, 0), "H");
+        myActionMap.put("H", LetterH);
+        myInputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_I, 0), "I");
+        myActionMap.put("I", LetterI);
+        myInputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_J, 0), "J");
+        myActionMap.put("J", LetterJ);
         
     }
     
