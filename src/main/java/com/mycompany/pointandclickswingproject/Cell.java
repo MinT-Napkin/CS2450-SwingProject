@@ -65,4 +65,9 @@ public class Cell extends JTextField {
             super.setEditable(true);
         }
     }
+    
+    public CellStatus getCellStatus()
+    {
+        return status;
+    }
 }

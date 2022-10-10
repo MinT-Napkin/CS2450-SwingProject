@@ -43,7 +43,7 @@ public class GameBoardPanel extends JPanel {
       for (int row = 0; row < GRID_SIZE; ++row) {
          for (int col = 0; col < GRID_SIZE; ++col) {
             if (cells[row][col].isEditable()) {
-               cells[row][col].addActionListener(listener);   // For all editable rows and cols
+               cells[row][col].addKeyListener(listener);   // For all editable rows and cols
             }
          }
       }
@@ -60,10 +60,35 @@ public class GameBoardPanel extends JPanel {
       }
    }
 
-   private class CellInputListener implements ActionListener {
+   private class CellInputListener extends KeyAdapter {
       @Override
-      public void actionPerformed(ActionEvent e) {
+      public void keyPressed(KeyEvent e) {
+        Object obj = e.getSource();
+        Cell c = new Cell(0, 0);
         
+        if(obj instanceof Cell cell)
+        {
+            c = cell;
+        }
+        
+        if(c.getText().length() == 1 && c.getCellStatus() != CellStatus.GIVEN)
+        {
+            c.setText("");
+        }
+      }
+       
+      @Override
+      public void keyReleased(KeyEvent e) {
+        Object obj = e.getSource();
+        Cell c = new Cell(0, 0);
+        
+        if(obj instanceof Cell cell)
+        {
+            c = cell;
+        }
+        
+//        System.out.println(c.getText());
       }
    }
+   
 }
