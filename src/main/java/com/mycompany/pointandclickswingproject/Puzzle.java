@@ -60,4 +60,14 @@ public class Puzzle {
          }
       }
    }
+   
+   public int[][] getSolution()
+   {
+       return numbers;
+   }
+   
+   public boolean[][] getGivenNumbers()
+   {
+       return isGiven;
+   }
 }

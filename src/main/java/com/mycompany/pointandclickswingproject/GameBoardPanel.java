@@ -61,10 +61,20 @@ public class GameBoardPanel extends JPanel {
    }
 
    private class CellInputListener extends KeyAdapter {
-      @Override
-      public void keyPressed(KeyEvent e) {
-        Object obj = e.getSource();
+      
+      public void keyTyped(KeyEvent e){
+          
+                  Object obj = e.getSource();
         Cell c = new Cell(0, 0);
+        char ch = e.getKeyChar();
+        
+        if (!((ch >= '0') && (ch <= '9') ||    
+           (ch == KeyEvent.VK_BACK_SPACE) ||
+           (ch == KeyEvent.VK_DELETE))) {
+
+            e.consume();
+            return;
+          }
         
         if(obj instanceof Cell cell)
         {
@@ -75,19 +85,6 @@ public class GameBoardPanel extends JPanel {
         {
             c.setText("");
         }
-      }
-       
-      @Override
-      public void keyReleased(KeyEvent e) {
-        Object obj = e.getSource();
-        Cell c = new Cell(0, 0);
-        
-        if(obj instanceof Cell cell)
-        {
-            c = cell;
-        }
-        
-//        System.out.println(c.getText());
       }
    }
    
