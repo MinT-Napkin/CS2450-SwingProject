@@ -158,22 +158,14 @@ public class GameScreen2 extends javax.swing.JPanel {
 
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
         // TODO add your handling code here:
-        if(!(GameBoardPanel.checkSudokuSolution() == 0))
+        int subtractedScore = GameBoardPanel.checkSudokuSolution();
+        
+        updateAddScoreLabel(subtractedScore);
+        Quit.setEnabled(true);
+        
+        if(subtractedScore > 0)
         {
-            int subtractedScore = GameBoardPanel.checkSudokuSolution();
-            updateAddScoreLabel(subtractedScore);
-            Quit.setEnabled(true);
-            
             // alert user that their solution is wrong!
-        }
-        else
-        {
-            // user got a perfect solution
-            ScoreManager.addScore(addedScore);
-            GameOverScreen.setLabelScore(ScoreManager.getScore());
-            w.switchPanes("gameover");
-            Quit.setEnabled(false);
-            GameBoardPanel.resetSudokuBoard();
         }
     }//GEN-LAST:event_submitButtonActionPerformed
 

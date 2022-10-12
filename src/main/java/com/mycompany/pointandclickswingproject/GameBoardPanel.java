@@ -26,6 +26,7 @@ public class GameBoardPanel extends JPanel {
    // Define properties
    /** The game board composes of 9x9 Cells (customized JTextFields) */
    private static final Cell[][] cells = new Cell[GRID_SIZE][GRID_SIZE];
+   private static final boolean[][] incorrectCells = new boolean[GRID_SIZE][GRID_SIZE];
    /** It also contains a Puzzle with array numbers and isGiven */
    private static final Puzzle puzzle = new Puzzle();
 
@@ -58,6 +59,19 @@ public class GameBoardPanel extends JPanel {
             cells[row][col].newGame(puzzle.numbers[row][col], puzzle.isGiven[row][col]);
          }
       }
+      
+      initializeIncorrectCells();
+   }
+   
+   private void initializeIncorrectCells()
+   {
+       for(int row = 0; row < GRID_SIZE; row++)
+       {
+           for(int col = 0; col < GRID_SIZE; col++)
+           {
+               incorrectCells[row][col] = false;
+           }
+       }
    }
    
    public static int checkSudokuSolution()
@@ -80,21 +94,18 @@ public class GameBoardPanel extends JPanel {
                     num = -1;
                }
                
+               // if the specific cell is wrong
                if(c.getCellStatus() != CellStatus.GIVEN
                        && 
                        !(num == puzzle.getSolution()[row][col])
                        )
                {
-                   subtractedScore += 10;
+                   if(!incorrectCells[row][col])
+                   {
+                        subtractedScore += 10;
+                        incorrectCells[row][col] = true;
+                   }
                }
-//                       String str = "25";
-//        try{
-//            int number = Integer.parseInt(str);
-//            System.out.println(number); // output = 25
-//        }
-//        catch (NumberFormatException ex){
-//            ex.printStackTrace();
-//        }
            }
        }
        
