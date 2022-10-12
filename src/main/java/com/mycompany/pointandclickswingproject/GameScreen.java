@@ -47,7 +47,7 @@ public class GameScreen extends javax.swing.JPanel {
     private final int MAX_LETTERS = 8;
     private final JLabel[] UNDERSCORES = new JLabel[MAX_LETTERS];
     private final JLabel[] HIDDEN_LETTER_PLACEHOLDER = new JLabel[MAX_LETTERS];
-    private final String[] DEFAULT_WORDS = {"Abstract", "Cemetary", "Nurse", "Pharmacy", "Climbing"};
+    private final String[] DEFAULT_WORDS = {"Abstract", "Cemetery", "Nurse", "Pharmacy", "Climbing"};
     
     private final Timer alertTimer;
   

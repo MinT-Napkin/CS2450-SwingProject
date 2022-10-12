@@ -64,11 +64,11 @@ public class GameBoardPanel extends JPanel {
    {
        int subtractedScore = 0;
        
-       for(int col = 0; col < GRID_SIZE; col++)
+       for(int row = 0; row < GRID_SIZE; row++)
        {
-           for(int row = 0; row < GRID_SIZE; row++)
+           for(int col = 0; col < GRID_SIZE; col++)
            {
-               Cell c = cells[col][row];
+               Cell c = cells[row][col];
                int num;
                
                if(!c.getText().equals(""))
@@ -82,7 +82,7 @@ public class GameBoardPanel extends JPanel {
                
                if(c.getCellStatus() != CellStatus.GIVEN
                        && 
-                       !(num == puzzle.getSolution()[col][row])
+                       !(num == puzzle.getSolution()[row][col])
                        )
                {
                    subtractedScore += 10;
@@ -101,6 +101,20 @@ public class GameBoardPanel extends JPanel {
        System.out.println("Subtracted Score after Submission: " + subtractedScore);
        
        return subtractedScore;
+   }
+   
+   public static void resetSudokuBoard()
+   {
+      for (int row = 0; row < GRID_SIZE; row++) {
+         for (int col = 0; col < GRID_SIZE; col++) {
+            Cell c = cells[row][col];
+            
+            if(c.getCellStatus() != CellStatus.GIVEN)
+            {
+                c.setText("");
+            }
+         }
+      }
    }
 
    private class CellInputListener extends KeyAdapter {

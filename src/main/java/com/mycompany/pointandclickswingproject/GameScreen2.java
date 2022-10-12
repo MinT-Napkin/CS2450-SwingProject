@@ -23,6 +23,7 @@ public class GameScreen2 extends javax.swing.JPanel {
         Clock clock = new Clock(time);
         addedScore = INITIAL_ADDEDSCORE;
         addScoreLabel.setText("+" + addedScore);
+        Quit.setEnabled(false);
     }
     public static void updateScoreLabel()
     {
@@ -146,10 +147,12 @@ public class GameScreen2 extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void QuitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QuitActionPerformed
+        ScoreManager.addScore(addedScore);
         GameOverScreen.setLabelScore(ScoreManager.getScore());
         w.switchPanes("gameover");
         addedScore = 540;
         addScoreLabel.setText("+" + addedScore);
+        Quit.setEnabled(false);
     }//GEN-LAST:event_QuitActionPerformed
 
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
@@ -158,6 +161,8 @@ public class GameScreen2 extends javax.swing.JPanel {
         {
             int subtractedScore = GameBoardPanel.checkSudokuSolution();
             updateAddScoreLabel(subtractedScore);
+            Quit.setEnabled(true);
+            
             // alert user that their solution is wrong!
         }
         else
@@ -166,6 +171,8 @@ public class GameScreen2 extends javax.swing.JPanel {
             ScoreManager.addScore(addedScore);
             GameOverScreen.setLabelScore(ScoreManager.getScore());
             w.switchPanes("gameover");
+            Quit.setEnabled(false);
+            GameBoardPanel.resetSudokuBoard();
         }
     }//GEN-LAST:event_submitButtonActionPerformed
 
