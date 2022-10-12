@@ -25,9 +25,9 @@ public class GameBoardPanel extends JPanel {
 
    // Define properties
    /** The game board composes of 9x9 Cells (customized JTextFields) */
-   private final Cell[][] cells = new Cell[GRID_SIZE][GRID_SIZE];
+   private static final Cell[][] cells = new Cell[GRID_SIZE][GRID_SIZE];
    /** It also contains a Puzzle with array numbers and isGiven */
-   private final Puzzle puzzle = new Puzzle();
+   private static final Puzzle puzzle = new Puzzle();
 
    /** Constructor */
    public GameBoardPanel() {
@@ -58,6 +58,49 @@ public class GameBoardPanel extends JPanel {
             cells[row][col].newGame(puzzle.numbers[row][col], puzzle.isGiven[row][col]);
          }
       }
+   }
+   
+   public static int checkSudokuSolution()
+   {
+       int subtractedScore = 0;
+       
+       for(int col = 0; col < GRID_SIZE; col++)
+       {
+           for(int row = 0; row < GRID_SIZE; row++)
+           {
+               Cell c = cells[col][row];
+               int num;
+               
+               if(!c.getText().equals(""))
+               {
+                    num = (int) Integer.parseInt(c.getText());
+               }
+               else
+               {
+                    num = -1;
+               }
+               
+               if(c.getCellStatus() != CellStatus.GIVEN
+                       && 
+                       !(num == puzzle.getSolution()[col][row])
+                       )
+               {
+                   subtractedScore += 10;
+               }
+//                       String str = "25";
+//        try{
+//            int number = Integer.parseInt(str);
+//            System.out.println(number); // output = 25
+//        }
+//        catch (NumberFormatException ex){
+//            ex.printStackTrace();
+//        }
+           }
+       }
+       
+       System.out.println("Subtracted Score after Submission: " + subtractedScore);
+       
+       return subtractedScore;
    }
 
    private class CellInputListener extends KeyAdapter {
