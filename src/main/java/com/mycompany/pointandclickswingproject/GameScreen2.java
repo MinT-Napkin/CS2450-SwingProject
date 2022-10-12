@@ -153,6 +153,7 @@ public class GameScreen2 extends javax.swing.JPanel {
         addedScore = 540;
         addScoreLabel.setText("+" + addedScore);
         Quit.setEnabled(false);
+        GameBoardPanel.resetSudokuBoard();
     }//GEN-LAST:event_QuitActionPerformed
 
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
