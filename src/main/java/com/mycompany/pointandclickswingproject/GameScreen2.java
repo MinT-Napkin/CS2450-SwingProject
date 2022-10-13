@@ -14,6 +14,7 @@ public class GameScreen2 extends javax.swing.JPanel {
     
     private final int INITIAL_ADDEDSCORE = 540;
     private int addedScore;
+    private boolean isSubmitted;
     
     /**
      * Creates new form GameScreen2
@@ -22,8 +23,8 @@ public class GameScreen2 extends javax.swing.JPanel {
         initComponents();
         Clock clock = new Clock(time);
         addedScore = INITIAL_ADDEDSCORE;
-        addScoreLabel.setText("+" + addedScore);
-        Quit.setEnabled(false);
+        addScoreLabel.setText("+0 (" + addedScore + ")");
+        isSubmitted = false;
     }
     public static void updateScoreLabel()
     {
@@ -43,6 +44,17 @@ public class GameScreen2 extends javax.swing.JPanel {
         {
             addScoreLabel.setText("+" + addedScore);
         }
+    }
+    
+    private void endGame()
+    {
+        ScoreManager.addScore(addedScore);
+        GameOverScreen.setLabelScore(ScoreManager.getScore());
+        w.switchPanes("gameover");
+        addedScore = 540;
+        addScoreLabel.setText("+0 (" + addedScore +")");
+        GameBoardPanel.resetSudokuBoard();
+        isSubmitted = false;
     }
     
     
@@ -147,25 +159,30 @@ public class GameScreen2 extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void QuitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QuitActionPerformed
-        ScoreManager.addScore(addedScore);
-        GameOverScreen.setLabelScore(ScoreManager.getScore());
-        w.switchPanes("gameover");
-        addedScore = 540;
-        addScoreLabel.setText("+" + addedScore);
-        Quit.setEnabled(false);
-        GameBoardPanel.resetSudokuBoard();
+        if(!isSubmitted)
+        {
+            addedScore = 0;
+        }
+        
+        endGame();
     }//GEN-LAST:event_QuitActionPerformed
 
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
         // TODO add your handling code here:
+        
+        isSubmitted = true;
         int subtractedScore = GameBoardPanel.checkSudokuSolution();
         
         updateAddScoreLabel(subtractedScore);
-        Quit.setEnabled(true);
         
-        if(subtractedScore > 0)
+        if(GameBoardPanel.isPerfectSudokuSolution())
         {
-            // alert user that their solution is wrong!
+           // perfect solution
+           endGame();
+        }
+        else
+        {
+           // solution is wrong, alert them that they got it wrong!
         }
     }//GEN-LAST:event_submitButtonActionPerformed
 

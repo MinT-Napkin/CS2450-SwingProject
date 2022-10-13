@@ -63,7 +63,7 @@ public class GameBoardPanel extends JPanel {
       initializeIncorrectCells();
    }
    
-   private void initializeIncorrectCells()
+   private static void initializeIncorrectCells()
    {
        for(int row = 0; row < GRID_SIZE; row++)
        {
@@ -114,6 +114,38 @@ public class GameBoardPanel extends JPanel {
        return subtractedScore;
    }
    
+   public static boolean isPerfectSudokuSolution()
+   {   
+       for(int row = 0; row < GRID_SIZE; row++)
+       {
+           for(int col = 0; col < GRID_SIZE; col++)
+           {
+               Cell c = cells[row][col];
+               int num;
+               
+               if(!c.getText().equals(""))
+               {
+                    num = (int) Integer.parseInt(c.getText());
+               }
+               else
+               {
+                    num = -1;
+               }
+               
+               // if the specific cell is wrong
+               if(c.getCellStatus() != CellStatus.GIVEN
+                       && 
+                       !(num == puzzle.getSolution()[row][col])
+                       )
+               {
+                   return false;
+               }
+           }
+       }
+       
+       return true;
+   }
+   
    public static void resetSudokuBoard()
    {
       for (int row = 0; row < GRID_SIZE; row++) {
@@ -126,6 +158,8 @@ public class GameBoardPanel extends JPanel {
             }
          }
       }
+      
+      initializeIncorrectCells();
    }
 
    private class CellInputListener extends KeyAdapter {

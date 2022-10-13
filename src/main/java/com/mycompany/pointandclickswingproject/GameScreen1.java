@@ -212,7 +212,7 @@ public class GameScreen1 extends javax.swing.JPanel {
         if(color.equals(correctColor))
         {
             ScoreManager.addScore(100);
-            System.out.println(ScoreManager.getScore());
+//            System.out.println(ScoreManager.getScore());
             scoreLabel.setText("Score: " + ScoreManager.getScore());
         }
         
