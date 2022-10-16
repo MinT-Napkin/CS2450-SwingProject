@@ -109,7 +109,7 @@
     <Component class="javax.swing.JButton" name="Quit">
       <Properties>
         <Property name="text" type="java.lang.String" value="Quit"/>
-        <Property name="toolTipText" type="java.lang.String" value="Quit the game."/>
+        <Property name="toolTipText" type="java.lang.String" value="Quit the game. (You will get 0 points from this game)"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="QuitActionPerformed"/>
@@ -118,7 +118,7 @@
     <Component class="javax.swing.JButton" name="submitButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Submit"/>
-        <Property name="toolTipText" type="java.lang.String" value="Submit your Sudoku Puzzle Solution."/>
+        <Property name="toolTipText" type="java.lang.String" value="Submit your Sudoku Puzzle Solution. &#xa;(-10 for each cell the first time you get wrong)&#xa;(Score will be added once you find the perfect solution)"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="submitButtonActionPerformed"/>

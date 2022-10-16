@@ -17,7 +17,6 @@ public class GameScreen2 extends javax.swing.JPanel {
     
     private final int INITIAL_ADDEDSCORE = 540;
     private int addedScore;
-    private boolean isSubmitted;
     
     private final Timer alertTimer;
     
@@ -28,9 +27,7 @@ public class GameScreen2 extends javax.swing.JPanel {
         initComponents();
         Clock clock = new Clock(time);
         addedScore = INITIAL_ADDEDSCORE;
-        addScoreLabel.setText("+0 (" + addedScore + ")");
-        addScoreLabel.setToolTipText("+0 if you quit before submitting once / +[# of cells correct]*10 after submission");
-        isSubmitted = false;
+        addScoreLabel.setText("+" + addedScore);
         
         alert.setVisible(false);
         this.alertTimer = new Timer (2000, updateAlert);
@@ -75,9 +72,8 @@ public class GameScreen2 extends javax.swing.JPanel {
         LeaderboardScreen.updateScoreLabel();
         w.switchPanes("gameover");
         addedScore = 540;
-        addScoreLabel.setText("+0 (" + addedScore +")");
+        addScoreLabel.setText("+" + addedScore);
         GameBoardPanel.resetSudokuBoard();
-        isSubmitted = false;
     }
     
     
@@ -108,7 +104,7 @@ public class GameScreen2 extends javax.swing.JPanel {
         time.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         Quit.setText("Quit");
-        Quit.setToolTipText("Quit the game.");
+        Quit.setToolTipText("Quit the game. (You will get 0 points from this game)");
         Quit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 QuitActionPerformed(evt);
@@ -116,7 +112,7 @@ public class GameScreen2 extends javax.swing.JPanel {
         });
 
         submitButton.setText("Submit");
-        submitButton.setToolTipText("Submit your Sudoku Puzzle Solution.");
+        submitButton.setToolTipText("Submit your Sudoku Puzzle Solution. \n(-10 for each cell the first time you get wrong)\n(Score will be added once you find the perfect solution)");
         submitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 submitButtonActionPerformed(evt);
@@ -192,18 +188,14 @@ public class GameScreen2 extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void QuitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QuitActionPerformed
-        if(!isSubmitted)
-        {
-            addedScore = 0;
-        }
-        
+
+        addedScore = 0;
         endGame();
     }//GEN-LAST:event_QuitActionPerformed
 
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
         // TODO add your handling code here:
         
-        isSubmitted = true;
         int subtractedScore = GameBoardPanel.checkSudokuSolution();
         
         updateAddScoreLabel(subtractedScore);
