@@ -43,7 +43,7 @@ public class Cell extends JTextField {
         this.displayCol = col+1;
         super.setHorizontalAlignment(JTextField.CENTER);
         super.setFont(FONT_NUMBERS);
-        super.setToolTipText("Cell "+displayRow+", "+displayCol);
+        super.setToolTipText("Cell "+displayRow+", "+displayCol +"; Input a #");
     }
 
     /**

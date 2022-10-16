@@ -57,7 +57,7 @@
     <Component class="javax.swing.JButton" name="button_A">
       <Properties>
         <Property name="text" type="java.lang.String" value="A"/>
-        <Property name="toolTipText" type="java.lang.String" value="A"/>
+        <Property name="toolTipText" type="java.lang.String" value="Guess A"/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[41, 41]"/>
         </Property>
@@ -74,7 +74,7 @@
     <Component class="javax.swing.JButton" name="button_B">
       <Properties>
         <Property name="text" type="java.lang.String" value="B"/>
-        <Property name="toolTipText" type="java.lang.String" value="B"/>
+        <Property name="toolTipText" type="java.lang.String" value="Guess B"/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[41, 41]"/>
         </Property>
@@ -91,7 +91,7 @@
     <Component class="javax.swing.JButton" name="button_C">
       <Properties>
         <Property name="text" type="java.lang.String" value="C"/>
-        <Property name="toolTipText" type="java.lang.String" value="C"/>
+        <Property name="toolTipText" type="java.lang.String" value="Guess C"/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[41, 41]"/>
         </Property>
@@ -108,7 +108,7 @@
     <Component class="javax.swing.JButton" name="button_D">
       <Properties>
         <Property name="text" type="java.lang.String" value="D"/>
-        <Property name="toolTipText" type="java.lang.String" value="D"/>
+        <Property name="toolTipText" type="java.lang.String" value="Guess D"/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[41, 41]"/>
         </Property>
@@ -125,7 +125,7 @@
     <Component class="javax.swing.JButton" name="button_E">
       <Properties>
         <Property name="text" type="java.lang.String" value="E"/>
-        <Property name="toolTipText" type="java.lang.String" value="E"/>
+        <Property name="toolTipText" type="java.lang.String" value="Guess E"/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[41, 41]"/>
         </Property>
@@ -142,7 +142,7 @@
     <Component class="javax.swing.JButton" name="button_F">
       <Properties>
         <Property name="text" type="java.lang.String" value="F"/>
-        <Property name="toolTipText" type="java.lang.String" value="F"/>
+        <Property name="toolTipText" type="java.lang.String" value="Guess F"/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[41, 41]"/>
         </Property>
@@ -159,7 +159,7 @@
     <Component class="javax.swing.JButton" name="button_G">
       <Properties>
         <Property name="text" type="java.lang.String" value="G"/>
-        <Property name="toolTipText" type="java.lang.String" value="G"/>
+        <Property name="toolTipText" type="java.lang.String" value="Guess G"/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[41, 41]"/>
         </Property>
@@ -176,7 +176,7 @@
     <Component class="javax.swing.JButton" name="button_H">
       <Properties>
         <Property name="text" type="java.lang.String" value="H"/>
-        <Property name="toolTipText" type="java.lang.String" value="H"/>
+        <Property name="toolTipText" type="java.lang.String" value="Guess H"/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[41, 41]"/>
         </Property>
@@ -193,7 +193,7 @@
     <Component class="javax.swing.JButton" name="button_I">
       <Properties>
         <Property name="text" type="java.lang.String" value="I"/>
-        <Property name="toolTipText" type="java.lang.String" value="I"/>
+        <Property name="toolTipText" type="java.lang.String" value="Guess I"/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[41, 41]"/>
         </Property>
@@ -210,7 +210,7 @@
     <Component class="javax.swing.JButton" name="button_J">
       <Properties>
         <Property name="text" type="java.lang.String" value="J"/>
-        <Property name="toolTipText" type="java.lang.String" value="J"/>
+        <Property name="toolTipText" type="java.lang.String" value="Guess J"/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[41, 41]"/>
         </Property>
@@ -227,7 +227,7 @@
     <Component class="javax.swing.JButton" name="button_K">
       <Properties>
         <Property name="text" type="java.lang.String" value="K"/>
-        <Property name="toolTipText" type="java.lang.String" value="K"/>
+        <Property name="toolTipText" type="java.lang.String" value="Guess K"/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[41, 41]"/>
         </Property>
@@ -244,7 +244,7 @@
     <Component class="javax.swing.JButton" name="button_L">
       <Properties>
         <Property name="text" type="java.lang.String" value="L"/>
-        <Property name="toolTipText" type="java.lang.String" value="L"/>
+        <Property name="toolTipText" type="java.lang.String" value="Guess L"/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[41, 41]"/>
         </Property>
@@ -261,7 +261,7 @@
     <Component class="javax.swing.JButton" name="button_M">
       <Properties>
         <Property name="text" type="java.lang.String" value="M"/>
-        <Property name="toolTipText" type="java.lang.String" value="M"/>
+        <Property name="toolTipText" type="java.lang.String" value="Guess M"/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[41, 41]"/>
         </Property>
@@ -278,7 +278,7 @@
     <Component class="javax.swing.JButton" name="button_N">
       <Properties>
         <Property name="text" type="java.lang.String" value="N"/>
-        <Property name="toolTipText" type="java.lang.String" value="N"/>
+        <Property name="toolTipText" type="java.lang.String" value="Guess N"/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[41, 41]"/>
         </Property>
@@ -295,7 +295,7 @@
     <Component class="javax.swing.JButton" name="button_O">
       <Properties>
         <Property name="text" type="java.lang.String" value="O"/>
-        <Property name="toolTipText" type="java.lang.String" value="O"/>
+        <Property name="toolTipText" type="java.lang.String" value="Guess O"/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[41, 41]"/>
         </Property>
@@ -312,7 +312,7 @@
     <Component class="javax.swing.JButton" name="button_P">
       <Properties>
         <Property name="text" type="java.lang.String" value="P"/>
-        <Property name="toolTipText" type="java.lang.String" value="P"/>
+        <Property name="toolTipText" type="java.lang.String" value="Guess P"/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[41, 41]"/>
         </Property>
@@ -329,7 +329,7 @@
     <Component class="javax.swing.JButton" name="button_R">
       <Properties>
         <Property name="text" type="java.lang.String" value="R"/>
-        <Property name="toolTipText" type="java.lang.String" value="R"/>
+        <Property name="toolTipText" type="java.lang.String" value="Guess R"/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[41, 41]"/>
         </Property>
@@ -346,7 +346,7 @@
     <Component class="javax.swing.JButton" name="button_S">
       <Properties>
         <Property name="text" type="java.lang.String" value="S"/>
-        <Property name="toolTipText" type="java.lang.String" value="S"/>
+        <Property name="toolTipText" type="java.lang.String" value="Guess S"/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[41, 41]"/>
         </Property>
@@ -363,7 +363,7 @@
     <Component class="javax.swing.JButton" name="button_Q">
       <Properties>
         <Property name="text" type="java.lang.String" value="Q"/>
-        <Property name="toolTipText" type="java.lang.String" value="Q"/>
+        <Property name="toolTipText" type="java.lang.String" value="Guess Q"/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[41, 41]"/>
         </Property>
@@ -380,7 +380,7 @@
     <Component class="javax.swing.JButton" name="button_T">
       <Properties>
         <Property name="text" type="java.lang.String" value="T"/>
-        <Property name="toolTipText" type="java.lang.String" value="T"/>
+        <Property name="toolTipText" type="java.lang.String" value="Guess T"/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[41, 41]"/>
         </Property>
@@ -397,7 +397,7 @@
     <Component class="javax.swing.JButton" name="button_U">
       <Properties>
         <Property name="text" type="java.lang.String" value="U"/>
-        <Property name="toolTipText" type="java.lang.String" value="U"/>
+        <Property name="toolTipText" type="java.lang.String" value="Guess U"/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[41, 41]"/>
         </Property>
@@ -414,7 +414,7 @@
     <Component class="javax.swing.JButton" name="button_V">
       <Properties>
         <Property name="text" type="java.lang.String" value="V"/>
-        <Property name="toolTipText" type="java.lang.String" value="V"/>
+        <Property name="toolTipText" type="java.lang.String" value="Guess V"/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[41, 41]"/>
         </Property>
@@ -431,7 +431,7 @@
     <Component class="javax.swing.JButton" name="button_W">
       <Properties>
         <Property name="text" type="java.lang.String" value="W"/>
-        <Property name="toolTipText" type="java.lang.String" value="W"/>
+        <Property name="toolTipText" type="java.lang.String" value="Guess W"/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[41, 41]"/>
         </Property>
@@ -448,7 +448,7 @@
     <Component class="javax.swing.JButton" name="button_X">
       <Properties>
         <Property name="text" type="java.lang.String" value="X"/>
-        <Property name="toolTipText" type="java.lang.String" value="X"/>
+        <Property name="toolTipText" type="java.lang.String" value="Guess X"/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[41, 41]"/>
         </Property>
@@ -465,7 +465,7 @@
     <Component class="javax.swing.JButton" name="button_Y">
       <Properties>
         <Property name="text" type="java.lang.String" value="Y"/>
-        <Property name="toolTipText" type="java.lang.String" value="Y"/>
+        <Property name="toolTipText" type="java.lang.String" value="Guess Y"/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[41, 41]"/>
         </Property>
@@ -482,7 +482,7 @@
     <Component class="javax.swing.JButton" name="button_Z">
       <Properties>
         <Property name="text" type="java.lang.String" value="Z"/>
-        <Property name="toolTipText" type="java.lang.String" value="Z"/>
+        <Property name="toolTipText" type="java.lang.String" value="Guess Z"/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[41, 41]"/>
         </Property>

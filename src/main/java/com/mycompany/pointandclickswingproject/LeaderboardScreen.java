@@ -130,10 +130,17 @@ public class LeaderboardScreen extends javax.swing.JPanel {
         
         
     }
+    
+    public static void updateScoreLabel()
+    {
+        ScoreManager.setScoreLabel(scoreLabel);
+    }
    
     /** Method: writeThyFile(int, String)
        Purpose: write to the leaderboard text file 
-       with the user's score and user's initials as input. **/
+       with the user's score and user's initials as input.
+     * @param myUserScore
+     * @param myUserInitials **/
     
     public void writeThyFile(int myUserScore, String myUserInitials)
     {
@@ -254,6 +261,7 @@ public class LeaderboardScreen extends javax.swing.JPanel {
         HighScoreInquiry = new javax.swing.JLabel();
         YesButton = new javax.swing.JButton();
         NoButton = new javax.swing.JButton();
+        scoreLabel = new javax.swing.JLabel();
         initialsDialog = new javax.swing.JDialog();
         EnterInitialsLabel = new javax.swing.JLabel();
         initialsTextField = new javax.swing.JTextField();
@@ -286,6 +294,9 @@ public class LeaderboardScreen extends javax.swing.JPanel {
             }
         });
 
+        scoreLabel.setFont(new java.awt.Font("Helvetica Neue", 0, 24)); // NOI18N
+        scoreLabel.setText("Score:");
+
         javax.swing.GroupLayout inquiryDialogLayout = new javax.swing.GroupLayout(inquiryDialog.getContentPane());
         inquiryDialog.getContentPane().setLayout(inquiryDialogLayout);
         inquiryDialogLayout.setHorizontalGroup(
@@ -297,8 +308,13 @@ public class LeaderboardScreen extends javax.swing.JPanel {
                 .addComponent(NoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(129, 129, 129))
             .addGroup(inquiryDialogLayout.createSequentialGroup()
-                .addGap(86, 86, 86)
-                .addComponent(HighScoreInquiry)
+                .addGroup(inquiryDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(inquiryDialogLayout.createSequentialGroup()
+                        .addGap(86, 86, 86)
+                        .addComponent(HighScoreInquiry))
+                    .addGroup(inquiryDialogLayout.createSequentialGroup()
+                        .addGap(215, 215, 215)
+                        .addComponent(scoreLabel)))
                 .addContainerGap(86, Short.MAX_VALUE))
         );
         inquiryDialogLayout.setVerticalGroup(
@@ -306,7 +322,9 @@ public class LeaderboardScreen extends javax.swing.JPanel {
             .addGroup(inquiryDialogLayout.createSequentialGroup()
                 .addGap(93, 93, 93)
                 .addComponent(HighScoreInquiry)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 138, Short.MAX_VALUE)
+                .addGap(27, 27, 27)
+                .addComponent(scoreLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
                 .addGroup(inquiryDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(NoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(YesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -490,5 +508,6 @@ public class LeaderboardScreen extends javax.swing.JPanel {
     private static javax.swing.JDialog initialsDialog;
     private javax.swing.JTextField initialsTextField;
     private static javax.swing.JDialog inquiryDialog;
+    private static javax.swing.JLabel scoreLabel;
     // End of variables declaration//GEN-END:variables
 }

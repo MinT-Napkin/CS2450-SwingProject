@@ -5,6 +5,9 @@
 package com.mycompany.pointandclickswingproject;
 
 import static com.mycompany.pointandclickswingproject.PointAndClickSwingProject.w;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.Timer;
 
 /**
  *
@@ -16,6 +19,8 @@ public class GameScreen2 extends javax.swing.JPanel {
     private int addedScore;
     private boolean isSubmitted;
     
+    private final Timer alertTimer;
+    
     /**
      * Creates new form GameScreen2
      */
@@ -24,8 +29,25 @@ public class GameScreen2 extends javax.swing.JPanel {
         Clock clock = new Clock(time);
         addedScore = INITIAL_ADDEDSCORE;
         addScoreLabel.setText("+0 (" + addedScore + ")");
+        addScoreLabel.setToolTipText("+0 if you quit before submitting once / +[# of cells correct]*10 after submission");
         isSubmitted = false;
+        
+        alert.setVisible(false);
+        this.alertTimer = new Timer (2000, updateAlert);
     }
+    
+    // action listener: updateAlert
+    /* purpose: this action listener is meant for a timer of the alert
+    * after the incorrect letter was picked, which makes the alert disappear
+    * after a certain amount of time
+    */
+    ActionListener updateAlert = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            alert.setVisible(false);
+        }
+    };
+    
     public static void updateScoreLabel()
     {
         ScoreManager.setScoreLabel(scoreLabel);
@@ -50,6 +72,7 @@ public class GameScreen2 extends javax.swing.JPanel {
     {
         ScoreManager.addScore(addedScore);
         GameOverScreen.setLabelScore(ScoreManager.getScore());
+        LeaderboardScreen.updateScoreLabel();
         w.switchPanes("gameover");
         addedScore = 540;
         addScoreLabel.setText("+0 (" + addedScore +")");
@@ -74,6 +97,7 @@ public class GameScreen2 extends javax.swing.JPanel {
         Sudoku = new javax.swing.JLabel();
         gameBoardPanel1 = new com.mycompany.pointandclickswingproject.GameBoardPanel();
         addScoreLabel = new javax.swing.JLabel();
+        alert = new javax.swing.JLabel();
 
         scoreLabel.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 24)); // NOI18N
         scoreLabel.setText("score");
@@ -108,6 +132,11 @@ public class GameScreen2 extends javax.swing.JPanel {
         addScoreLabel.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 18)); // NOI18N
         addScoreLabel.setText("jLabel1");
 
+        alert.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 18)); // NOI18N
+        alert.setForeground(new java.awt.Color(255, 0, 51));
+        alert.setText("INCORRECT SOLUTION");
+        alert.setToolTipText("\"Oops!\"");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -118,43 +147,47 @@ public class GameScreen2 extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(Sudoku, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(time, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(time, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 30, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(submitButton)
+                            .addComponent(addScoreLabel))
+                        .addGap(34, 34, 34)
+                        .addComponent(gameBoardPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(Quit)
+                        .addGap(47, 47, 47))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(scoreLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 438, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(submitButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(addScoreLabel)
-                        .addGap(28, 28, 28)))
-                .addComponent(gameBoardPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(Quit)
-                .addGap(59, 59, 59))
+                        .addGap(33, 33, 33)
+                        .addComponent(alert)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(6, 6, 6)
+                .addGap(5, 5, 5)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Sudoku)
-                    .addComponent(time))
-                .addGap(1, 1, 1)
-                .addComponent(scoreLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(addScoreLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(submitButton))
-                    .addComponent(Quit)
-                    .addComponent(gameBoardPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(31, Short.MAX_VALUE))
+                        .addComponent(Sudoku)
+                        .addGap(1, 1, 1)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(scoreLabel)
+                            .addComponent(alert)))
+                    .addComponent(time))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(2, 2, 2)
+                            .addComponent(addScoreLabel)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(submitButton))
+                        .addComponent(gameBoardPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Quit, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(17, 17, 17))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -182,7 +215,19 @@ public class GameScreen2 extends javax.swing.JPanel {
         }
         else
         {
-           // solution is wrong, alert them that they got it wrong!
+            // solution is wrong, alert them that they got it wrong!
+            alertTimer.setRepeats(false);
+
+            if(!alert.isVisible())
+            {
+                alert.setVisible(true);
+                alertTimer.start();
+            }
+            else
+            {
+                alert.setVisible(true);
+                alertTimer.restart();
+            }
         }
     }//GEN-LAST:event_submitButtonActionPerformed
 
@@ -191,6 +236,7 @@ public class GameScreen2 extends javax.swing.JPanel {
     private javax.swing.JButton Quit;
     private javax.swing.JLabel Sudoku;
     private javax.swing.JLabel addScoreLabel;
+    private javax.swing.JLabel alert;
     private com.mycompany.pointandclickswingproject.GameBoardPanel gameBoardPanel1;
     private static javax.swing.JLabel scoreLabel;
     private javax.swing.JButton submitButton;

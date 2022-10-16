@@ -247,7 +247,7 @@ public class GameScreen1 extends javax.swing.JPanel {
         scoreLabel = new javax.swing.JLabel();
         time = new javax.swing.JLabel();
 
-        setToolTipText("\"Click me!\"");
+        setToolTipText("");
         setPreferredSize(new java.awt.Dimension(600, 400));
         setLayout(null);
 
@@ -339,7 +339,7 @@ public class GameScreen1 extends javax.swing.JPanel {
         colorLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         colorLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         colorLabel.setText("color");
-        colorLabel.setToolTipText("Which is it? ");
+        colorLabel.setToolTipText("Which is it? (+100 Points for each button clicked matching the color of this word!)");
         add(colorLabel);
         colorLabel.setBounds(230, 10, 110, 30);
 
@@ -347,7 +347,7 @@ public class GameScreen1 extends javax.swing.JPanel {
         scoreLabel.setText("score");
         scoreLabel.setToolTipText("Your current score!");
         add(scoreLabel);
-        scoreLabel.setBounds(10, 10, 190, 30);
+        scoreLabel.setBounds(10, 10, 190, 28);
 
         time.setBackground(new java.awt.Color(255, 255, 255));
         time.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -355,7 +355,7 @@ public class GameScreen1 extends javax.swing.JPanel {
         time.setToolTipText("Tick Tock.");
         time.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         add(time);
-        time.setBounds(410, 10, 180, 21);
+        time.setBounds(410, 10, 180, 20);
     }// </editor-fold>//GEN-END:initComponents
 
     private void redButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_redButtonMouseEntered
