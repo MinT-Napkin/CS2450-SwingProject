@@ -22,6 +22,9 @@ public class Cell extends JTextField {
     // The row and column number [0-8] of this cell
     int row;
     int col;
+    // The display row and column number [1-9] of this cell
+    int displayRow;
+    int displayCol;
     // The puzzle number [1-9] for this cell
     int number;
     // The status of this cell defined in enum CellStatus
@@ -36,8 +39,11 @@ public class Cell extends JTextField {
         super();   // JTextField
         this.row = row;
         this.col = col;
+        this.displayRow = row+1;
+        this.displayCol = col+1;
         super.setHorizontalAlignment(JTextField.CENTER);
         super.setFont(FONT_NUMBERS);
+        super.setToolTipText("Cell "+displayRow+", "+displayCol);
     }
 
     /**
