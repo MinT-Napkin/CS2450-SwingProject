@@ -29,6 +29,8 @@ public class GameBoardPanel extends JPanel {
    private static final boolean[][] incorrectCells = new boolean[GRID_SIZE][GRID_SIZE];
    /** It also contains a Puzzle with array numbers and isGiven */
    private static final Puzzle puzzle = new Puzzle();
+   
+   private final Color blue = new Color(40, 104, 168);
 
    /** Constructor */
    public GameBoardPanel() {
@@ -57,6 +59,11 @@ public class GameBoardPanel extends JPanel {
       for (int row = 0; row < GRID_SIZE; ++row) {
          for (int col = 0; col < GRID_SIZE; ++col) {
             cells[row][col].newGame(puzzle.numbers[row][col], puzzle.isGiven[row][col]);
+            
+            if(cells[row][col].getCellStatus() == CellStatus.TO_GUESS)
+            {
+                cells[row][col].setForeground(blue);
+            }
          }
       }
       

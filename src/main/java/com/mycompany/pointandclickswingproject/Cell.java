@@ -28,7 +28,7 @@ public class Cell extends JTextField {
     // The puzzle number [1-9] for this cell
     int number;
     // The status of this cell defined in enum CellStatus
-    CellStatus status;
+    CellStatus status;    
 
     /**
      * Constructor
