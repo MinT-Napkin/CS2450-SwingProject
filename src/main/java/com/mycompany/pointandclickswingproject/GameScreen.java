@@ -72,6 +72,11 @@ public class GameScreen extends javax.swing.JPanel {
         setLetterBindings();
     }
     
+    public static void updateScoreLabel()
+    {
+        ScoreManager.setScoreLabel(myScore);
+    }
+    
     private void setLetterBindings()
     {
         InputMap myInputMap;
@@ -1116,7 +1121,7 @@ public class GameScreen extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel leftArm;
     private javax.swing.JLabel leftLeg;
-    public javax.swing.JLabel myScore;
+    public static javax.swing.JLabel myScore;
     private javax.swing.JLabel platform;
     private javax.swing.JLabel rightArm;
     private javax.swing.JLabel rightLeg;

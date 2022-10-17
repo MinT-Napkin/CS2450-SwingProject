@@ -1,3 +1,15 @@
+/***************************************************************  
+*  file: PointAndClickSwingProject.java  
+*  author: N. Kowdle / M. Tran
+*  class: CS 2450 – User Interface Design and Programing 
+*  
+*  assignment: Swing Project v1.0 
+*  date last modified: 10/17/2022  
+*  
+*  purpose: This file is a class file to define the panel for the
+*  sudoku game board which includes 81 cells and a hard coded puzzle
+****************************************************************/  
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -70,6 +82,10 @@ public class GameBoardPanel extends JPanel {
       initializeIncorrectCells();
    }
    
+   /*
+   * method: initializeIncorrectCells()
+   * purpose: to reset the sudoku board of what the user got wrong
+   */
    private static void initializeIncorrectCells()
    {
        for(int row = 0; row < GRID_SIZE; row++)
@@ -81,6 +97,11 @@ public class GameBoardPanel extends JPanel {
        }
    }
    
+   /*
+   * method: checkSudokuSoltuion()
+   * purpose: checks the user's solution to the the intended solution
+   * and subtracts the added score if necessary
+   */
    public static int checkSudokuSolution()
    {
        int subtractedScore = 0;
@@ -121,6 +142,10 @@ public class GameBoardPanel extends JPanel {
        return subtractedScore;
    }
    
+   /*
+   * method: isPerfectSudokuSolution()
+   * purpose: checks the user's solution if it's perfect
+   */
    public static boolean isPerfectSudokuSolution()
    {   
        for(int row = 0; row < GRID_SIZE; row++)
@@ -153,6 +178,10 @@ public class GameBoardPanel extends JPanel {
        return true;
    }
    
+   /*
+   * method: resetSudokuBoard()
+   * purpose: resets the sudoku board text in cells
+   */
    public static void resetSudokuBoard()
    {
       for (int row = 0; row < GRID_SIZE; row++) {
@@ -169,6 +198,10 @@ public class GameBoardPanel extends JPanel {
       initializeIncorrectCells();
    }
 
+   /*
+   * class: CellInputListener
+   * purpose: handles the input of each specific cell to only accept integers
+   */
    private class CellInputListener extends KeyAdapter {
       
       public void keyTyped(KeyEvent e){

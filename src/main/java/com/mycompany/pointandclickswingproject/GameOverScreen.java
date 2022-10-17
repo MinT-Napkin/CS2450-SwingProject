@@ -91,6 +91,7 @@ public class GameOverScreen extends javax.swing.JPanel {
         // TODO add your handling code here:
         w.switchPanes("menu");
         ScoreManager.setScore(100);
+        GameScreen.updateScoreLabel();
     }//GEN-LAST:event_buttonBackToMenuActionPerformed
 
 

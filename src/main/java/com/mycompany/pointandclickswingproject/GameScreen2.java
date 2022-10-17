@@ -1,3 +1,16 @@
+/***************************************************************  
+*  file: PointAndClickSwingProject.java  
+*  author: G. Waughan / N. Kowdle / M. Tran / B. Chen
+*  class: CS 2450 – User Interface Design and Programing 
+*  
+*  assignment: Swing Project v1.0 
+*  date last modified: 10/17/2022  
+*  
+*  purpose: This file is a class file to define the panel for the
+*  sudoku game board which includes 81 cells and a hard coded puzzle
+****************************************************************/  
+
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
@@ -45,6 +58,10 @@ public class GameScreen2 extends javax.swing.JPanel {
         }
     };
     
+    /*
+    * method: updateScoreLabel()
+    * purpose: updates scoreLabel
+    */
     public static void updateScoreLabel()
     {
         ScoreManager.setScoreLabel(scoreLabel);
@@ -65,11 +82,16 @@ public class GameScreen2 extends javax.swing.JPanel {
         }
     }
     
+    /*
+    * method: endGame()
+    * purpose: goes to the Game Over screen and resets any necessary variables
+    */
     private void endGame()
     {
         ScoreManager.addScore(addedScore);
+        System.out.println(ScoreManager.getScore());
         GameOverScreen.setLabelScore(ScoreManager.getScore());
-        LeaderboardScreen.updateScoreLabel();
+//        LeaderboardScreen.updateScoreLabel();
         w.switchPanes("gameover");
         addedScore = 540;
         addScoreLabel.setText("+" + addedScore);

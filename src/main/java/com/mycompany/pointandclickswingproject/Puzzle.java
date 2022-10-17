@@ -1,3 +1,16 @@
+/***************************************************************  
+*  file: PointAndClickSwingProject.java  
+*  author: N. Kowdle
+*  class: CS 2450 – User Interface Design and Programing 
+*  
+*  assignment: Swing Project v1.0 
+*  date last modified: 10/17/2022  
+*  
+*  purpose: This file is to define the numbers and what is given to the user
+*  in the sudoku puzzle
+*  
+****************************************************************/  
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -61,11 +74,19 @@ public class Puzzle {
       }
    }
    
+   /*
+   * method: getSolution
+   * purpose: returns the 2D array of ints involved in the puzzle
+   */
    public int[][] getSolution()
    {
        return numbers;
    }
    
+   /*
+   * method: getGivenNumbers
+   * purpose: getter for the GIVEN numbers booleans
+   */
    public boolean[][] getGivenNumbers()
    {
        return isGiven;

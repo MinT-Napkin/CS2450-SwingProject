@@ -1,3 +1,16 @@
+/***************************************************************  
+*  file: PointAndClickSwingProject.java  
+*  author: N. Kowdle
+*  class: CS 2450 – User Interface Design and Programing 
+*  
+*  assignment: Swing Project v1.0 
+*  date last modified: 10/17/2022  
+*  
+*  purpose: This file is a class for obj type Cell for the 
+*  Sudoku game to input numbers
+*  
+****************************************************************/  
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -16,19 +29,19 @@ public class Cell extends JTextField {
 
     // Define named constants for JTextField's colors and fonts
     //  to be chosen based on CellStatus
-    public static final Font FONT_NUMBERS = new Font("OCR A Extended", Font.PLAIN, 28);
+    private static final Font FONT_NUMBERS = new Font("OCR A Extended", Font.PLAIN, 28);
 
     // Define properties (package-visible)
     // The row and column number [0-8] of this cell
-    int row;
-    int col;
+    private int row;
+    private int col;
     // The display row and column number [1-9] of this cell
-    int displayRow;
-    int displayCol;
+    private int displayRow;
+    private int displayCol;
     // The puzzle number [1-9] for this cell
-    int number;
+    private int number;
     // The status of this cell defined in enum CellStatus
-    CellStatus status;    
+    private CellStatus status;    
 
     /**
      * Constructor
@@ -72,6 +85,10 @@ public class Cell extends JTextField {
         }
     }
     
+    /*
+    * method: getCellStatus()
+    * purpose: returns CellStatus variable of the cell obj
+    */
     public CellStatus getCellStatus()
     {
         return status;

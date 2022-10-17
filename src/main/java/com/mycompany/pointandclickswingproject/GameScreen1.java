@@ -247,7 +247,6 @@ public class GameScreen1 extends javax.swing.JPanel {
         scoreLabel = new javax.swing.JLabel();
         time = new javax.swing.JLabel();
 
-        setToolTipText("");
         setPreferredSize(new java.awt.Dimension(600, 400));
         setLayout(null);
 
@@ -347,7 +346,7 @@ public class GameScreen1 extends javax.swing.JPanel {
         scoreLabel.setText("score");
         scoreLabel.setToolTipText("Your current score!");
         add(scoreLabel);
-        scoreLabel.setBounds(10, 10, 190, 28);
+        scoreLabel.setBounds(10, 10, 190, 32);
 
         time.setBackground(new java.awt.Color(255, 255, 255));
         time.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
