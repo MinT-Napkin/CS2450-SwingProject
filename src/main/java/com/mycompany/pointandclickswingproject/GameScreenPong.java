@@ -17,7 +17,9 @@ import javax.swing.JComponent;
 import javax.swing.KeyStroke;
 import java.awt.Graphics;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
+import java.awt.event.*;
+import java.util.Random;
+import javax.swing.Timer;
 
 
 /**
@@ -264,13 +266,14 @@ class myPongPanel extends javax.swing.JPanel{
     int p2velocity = 7;
     
     private int ballSize = 10;
-    private int bx = screenW/2;
-    private int by = screenH/2;
+    private double bx = screenW/2;
+    private double by = screenH/2;
     
     
     private JLabel spaceLabel;
     
     private boolean paused;
+    private Direction bd;
     
     myPongPanel() {
         // set a preferred size for the custom panel.
@@ -290,17 +293,58 @@ class myPongPanel extends javax.swing.JPanel{
        // g.drawLine(300, 50, 300, 100);
         g.fillRect(paddle1X, paddle1Y, paddle1W, paddle1H);
         g.fillRect(paddle2X, paddle2Y, paddle2W, paddle2H);
-        g.fillOval(bx, by, ballSize, ballSize);
+        g.fillOval((int)bx, (int)by, ballSize, ballSize);
         
         if(!paused)
         {
             moveBall();
         }
     }
+    
+    public enum Direction {
+        UP_RIGHT,         
+        UP_LEFT,
+        DOWN_RIGHT,
+        DOWN_LEFT
+    }
    
     private void moveBall()
     {
+        int offset = 2;
+        repaint((int)bx, (int)by, ballSize + offset, ballSize + offset);
         
+        switch (bd) {
+            case DOWN_RIGHT -> {
+                bx +=  0.1;
+                by +=  0.1;
+            }
+            case UP_RIGHT -> {
+                bx +=  0.1;
+                by -=  0.1;
+            }
+            case DOWN_LEFT -> {
+                bx -=  0.1;
+                by +=  0.1;
+            }
+            case UP_LEFT -> {
+                bx -=  0.1;
+                by -=  0.1;
+            }
+        }
+
+        repaint((int)bx, (int)by, ballSize + offset, ballSize + offset);
+        
+        // upper bound
+//        if(by <= 0)
+//        {
+//            paddle1Y = 0;
+//        }
+//
+//        // lower bound
+//        if(paddle1Y + paddle1H >= screenH)
+//        {
+//            paddle1Y = screenH - paddle1H;
+//        }
     }
         
     private void movePaddle1(int y)
@@ -331,7 +375,6 @@ class myPongPanel extends javax.swing.JPanel{
     
     private void movePaddle2(int y)
     {
-        System.out.println(paused);
         if(!paused)
         {
             int offset = 2;
@@ -408,12 +451,32 @@ class myPongPanel extends javax.swing.JPanel{
                 // TODO add your handling code here:
                 if(spaceLabel.isVisible())
                 {
+                    Random rand = new Random();
+                    int num = rand.nextInt(4);
+                    switch(num)
+                    {
+                        case 0 -> bd = Direction.DOWN_RIGHT;
+                        case 1 -> bd = Direction.UP_RIGHT;
+                        case 2 -> bd = Direction.DOWN_LEFT;
+                        case 3 -> bd = Direction.UP_LEFT;
+                        
+                        default -> bd = Direction.DOWN_RIGHT;
+                    }
                     paused = false;
                     System.out.println("Start Game!");
                     //start game
                     spaceLabel.setVisible(false);
+                    Timer b = new Timer(1000, updateBall);
+                    b.start();
                 }
             }
+            
+            ActionListener updateBall = new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    moveBall();
+            }
+        };
         };
          
                 // GameScreen = this.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
