@@ -33,20 +33,22 @@ public class PongPanel extends javax.swing.JPanel {
     private int paddle1W;
     private int paddle1H;
     
-    private int newY;
-    
     private int paddle2X;
     private int paddle2Y;
     private int paddle2W;
     private int paddle2H;
     
-    private int p1velocity;
-    private int p2velocity;
+    private int newY;
+    
+    private int paddleVelocity;
     
     private int ballSize;
     private double bx;
     private double by;
     private double ballSpeed;
+    
+    private final double MAX_BALLSPEED = 0.2;
+    private final double INCREASING_BALLSPEED = 0.005;
     
     private boolean paused;
     private Direction bd;
@@ -66,6 +68,8 @@ public class PongPanel extends javax.swing.JPanel {
     // used to initalize and reset the game
     public final void initVariables()
     {
+        paused = true;
+        
         paddle1X = 15;
         paddle1Y = 75;
         paddle1W = 8;
@@ -78,15 +82,13 @@ public class PongPanel extends javax.swing.JPanel {
         paddle2W = 8;
         paddle2H = 60;
         
-        p1velocity = 7;
-        p2velocity = 7;
-        
+        paddleVelocity = 14;
+                
         ballSize = 10;
         bx = screenW/2;
         by = screenH/2;
         
         ballSpeed = 0.05;
-        paused = true;
         
         spaceLabel.setVisible(true);
     }
@@ -105,6 +107,7 @@ public class PongPanel extends javax.swing.JPanel {
         if(!paused)
         {
             moveBall();
+            repaint();
         }
     }
     
@@ -118,40 +121,123 @@ public class PongPanel extends javax.swing.JPanel {
     private void moveBall()
     {
         int offset = 2;
-        repaint((int)bx, (int)by, ballSize + offset, ballSize + offset);
         
-        switch (bd) {
-            case DOWN_RIGHT -> {
-                bx +=  ballSpeed;
-                by +=  ballSpeed;
+        if(!paused)
+        {
+            repaint((int)bx, (int)by, ballSize + offset, ballSize + offset);
+                switch (bd) {
+                    case DOWN_RIGHT -> {
+                        bx +=  ballSpeed;
+                        by +=  ballSpeed;
+                    }
+                    case UP_RIGHT -> {
+                        bx +=  ballSpeed;
+                        by -=  ballSpeed;
+                    }
+                    case DOWN_LEFT -> {
+                        bx -=  ballSpeed;
+                        by +=  ballSpeed;
+                    }
+                    case UP_LEFT -> {
+                        bx -=  ballSpeed;
+                        by -=  ballSpeed;
+                    }
+                }
+
+            repaint((int)bx, (int)by, ballSize + offset, ballSize + offset);
+        }
+
+        
+        // upper bound
+        if(by <= 0)
+        {
+            if(bd == Direction.UP_RIGHT)
+            {
+                bd = Direction.DOWN_RIGHT;
             }
-            case UP_RIGHT -> {
-                bx +=  ballSpeed;
-                by -=  ballSpeed;
-            }
-            case DOWN_LEFT -> {
-                bx -=  ballSpeed;
-                by +=  ballSpeed;
-            }
-            case UP_LEFT -> {
-                bx -=  ballSpeed;
-                by -=  ballSpeed;
+            else // Directino is UP_LEFT
+            {
+                bd = Direction.DOWN_LEFT;
             }
         }
 
-        repaint((int)bx, (int)by, ballSize + offset, ballSize + offset);
+        // lower bound
+        if(by + ballSize >= screenH)
+        {
+            if(bd == Direction.DOWN_RIGHT)
+            {
+                bd = Direction.UP_RIGHT;
+            }
+            else // Directino is DOWN_LEFT
+            {
+                bd = Direction.UP_LEFT;
+            } 
+        }
         
-        // upper bound
-//        if(by <= 0)
-//        {
-//            paddle1Y = 0;
-//        }
-//
-//        // lower bound
-//        if(paddle1Y + paddle1H >= screenH)
-//        {
-//            paddle1Y = screenH - paddle1H;
-//        }
+        // hits paddle 1
+        if(bx <= paddle1X + paddle1W && 
+                ((by >= paddle1Y-5) &&
+                (by <= paddle1Y+paddle1H-5))
+                )
+        {
+            if(bd == Direction.UP_LEFT)
+            {
+                bd = Direction.UP_RIGHT;
+                checkBallSpeed();
+            }
+            else // Directino is DOWN_LEFT
+            {
+                bd = Direction.DOWN_RIGHT;
+                checkBallSpeed();
+            } 
+        }
+        
+        // hits paddle 3
+        if(bx >= paddle2X - paddle2W && 
+                ((by >= paddle2Y-paddle2H-5) &&
+                (by <= paddle2Y+paddle2H-5))
+                )
+        {
+            if(bd == Direction.UP_RIGHT)
+            {
+                bd = Direction.UP_LEFT;
+                checkBallSpeed();
+            }
+            else // Directino is DOWN_RIGHT
+            {
+                bd = Direction.DOWN_LEFT;
+                checkBallSpeed();
+            } 
+        }
+        
+        // Paddle 1 Loses / Paddle 2 Wins
+        if(bx <= -10)
+        {
+            System.out.println("Player 2 Scored!");
+            initVariables();
+        }
+        
+        // Paddle 1 Wins / Paddle 2 Loses
+        if(bx >= screenW)
+        {
+            System.out.println("Player 1 Scored!");
+            initVariables();
+        }
+        
+        System.out.println(ballSpeed);
+    }
+    
+    public void checkBallSpeed()
+    {
+        System.out.println(ballSpeed);
+        if(ballSpeed >= MAX_BALLSPEED)
+        {
+            ballSpeed = MAX_BALLSPEED;
+        }
+        else
+        {
+            ballSpeed += INCREASING_BALLSPEED;
+        }
     }
         
     private void movePaddle1(int y)
@@ -163,6 +249,7 @@ public class PongPanel extends javax.swing.JPanel {
             {
                 repaint(paddle1X, paddle1Y, paddle1W, paddle1H + offset);
                 paddle1Y = y;
+                repaint(paddle1X, paddle1Y, paddle1W, paddle1H + offset);
                 repaint(paddle1X, paddle1Y, paddle1W, paddle1H + offset);
             }
 
@@ -214,9 +301,9 @@ public class PongPanel extends javax.swing.JPanel {
         
         Action Player1Up = new AbstractAction(){
              public void actionPerformed(ActionEvent e) {
-             System.out.println("W pressed!");
+//             System.out.println("W pressed!");
             // p1velocity = -1;
-             newY = paddle1Y - p1velocity;
+             newY = paddle1Y - paddleVelocity;
              movePaddle1(newY);
              }
         };
@@ -224,9 +311,9 @@ public class PongPanel extends javax.swing.JPanel {
         Action Player1Down = new AbstractAction(){
         public void actionPerformed(ActionEvent e) 
         {
-            System.out.println("S pressed!");
+//            System.out.println("S pressed!");
            // p1velocity = -1;
-            newY = paddle1Y + p1velocity;
+            newY = paddle1Y + paddleVelocity;
             movePaddle1(newY);
 
            }
@@ -235,9 +322,9 @@ public class PongPanel extends javax.swing.JPanel {
         Action Player2Up = new AbstractAction(){
         public void actionPerformed(ActionEvent e) 
         {
-            System.out.println("Up Arrow pressed!");
+//            System.out.println("Up Arrow pressed!");
            // p1velocity = -1;
-            newY = paddle2Y - p2velocity;
+            newY = paddle2Y - paddleVelocity;
             movePaddle2(newY);
         }
         };
@@ -245,9 +332,9 @@ public class PongPanel extends javax.swing.JPanel {
         Action Player2Down = new AbstractAction(){
         public void actionPerformed(ActionEvent e) 
         {
-           System.out.println("Down Arrow pressed!");
+//           System.out.println("Down Arrow pressed!");
            // p1velocity = -1;
-            newY = paddle2Y + p2velocity;
+            newY = paddle2Y + paddleVelocity;
             movePaddle2(newY);
             }
         };
