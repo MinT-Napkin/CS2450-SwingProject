@@ -44,6 +44,7 @@ public class MainJFrame extends javax.swing.JFrame {
     public final String GAME = "game";
     public final String GAME1 = "game1";
     public final String GAME2 = "game2";
+    public final String PONG = "pong";
     public final String CREDITS = "credits";
     public final String GAMEOVER = "gameover";
     private final CardLayout cLayout;
@@ -66,7 +67,9 @@ public class MainJFrame extends javax.swing.JFrame {
             JPanel gameScreen1, 
             JPanel creditsScreen1,
             JPanel gameOverScreen1,
-            JPanel gameScreen2,JPanel gameScreen3) throws InterruptedException {
+            JPanel gameScreen2,
+            JPanel gameScreen3,
+            JPanel gameScreenPong) throws InterruptedException {
         
         initComponents();
         
@@ -87,6 +90,7 @@ public class MainJFrame extends javax.swing.JFrame {
         mainPane.add(GAMEOVER, gameOverScreen1);
         mainPane.add(GAME1,gameScreen2);
         mainPane.add(GAME2, gameScreen3);
+        mainPane.add(PONG, gameScreenPong);
         
         cLayout.show(mainPane, SPLASH);
 

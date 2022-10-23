@@ -46,6 +46,7 @@ public class MenuScreen extends javax.swing.JPanel {
         LeaderboardButton = new javax.swing.JButton();
         CreditsButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        PlayPongButton = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(600, 400));
 
@@ -83,6 +84,15 @@ public class MenuScreen extends javax.swing.JPanel {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/primarylogoinsidestacked.png"))); // NOI18N
         jLabel2.setToolTipText("CPP: Learn by Doing.");
 
+        PlayPongButton.setFont(new java.awt.Font("Haettenschweiler", 0, 24)); // NOI18N
+        PlayPongButton.setText("Play PONG");
+        PlayPongButton.setToolTipText("Play our game!");
+        PlayPongButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PlayPongButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -95,28 +105,31 @@ public class MenuScreen extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(67, 67, 67)
+                        .addGap(57, 57, 57)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(LeaderboardButton)
                             .addComponent(CreditsButton)
-                            .addComponent(PlayButton))))
+                            .addComponent(PlayButton)
+                            .addComponent(PlayPongButton))))
                 .addGap(40, 40, 40))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(83, 83, 83)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(52, 52, 52)
+                        .addGap(45, 45, 45)
+                        .addComponent(PlayPongButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(PlayButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(LeaderboardButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(CreditsButton)))
-                .addContainerGap(90, Short.MAX_VALUE))
+                .addContainerGap(72, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -132,11 +145,17 @@ public class MenuScreen extends javax.swing.JPanel {
         w.switchPanes("leaderboard");
     }//GEN-LAST:event_LeaderboardButtonActionPerformed
 
+    private void PlayPongButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PlayPongButtonActionPerformed
+        // TODO add your handling code here:
+        w.switchPanes("pong");
+    }//GEN-LAST:event_PlayPongButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CreditsButton;
     private javax.swing.JButton LeaderboardButton;
     private javax.swing.JButton PlayButton;
+    private javax.swing.JButton PlayPongButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
