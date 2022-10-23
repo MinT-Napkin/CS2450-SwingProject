@@ -175,7 +175,9 @@ public class PongPanel extends javax.swing.JPanel {
         }
         
         // hits paddle 1
-        if(bx <= paddle1X + paddle1W && 
+        if(((bx <= paddle1X + paddle1W)&&
+                (bx >= paddle1X))
+                && 
                 ((by >= paddle1Y-5) &&
                 (by <= paddle1Y+paddle1H-5))
                 )
@@ -185,7 +187,7 @@ public class PongPanel extends javax.swing.JPanel {
                 bd = Direction.UP_RIGHT;
                 checkBallSpeed();
             }
-            else // Directino is DOWN_LEFT
+            else if(bd == Direction.DOWN_LEFT)
             {
                 bd = Direction.DOWN_RIGHT;
                 checkBallSpeed();
@@ -193,7 +195,9 @@ public class PongPanel extends javax.swing.JPanel {
         }
         
         // hits paddle 3
-        if(bx >= paddle2X - paddle2W && 
+        if((bx >= paddle2X - paddle2W && 
+                (bx <= paddle2X))
+                &&
                 ((by >= paddle2Y-paddle2H-5) &&
                 (by <= paddle2Y+paddle2H-5))
                 )
@@ -203,7 +207,7 @@ public class PongPanel extends javax.swing.JPanel {
                 bd = Direction.UP_LEFT;
                 checkBallSpeed();
             }
-            else // Directino is DOWN_RIGHT
+            else if(bd == Direction.DOWN_RIGHT)
             {
                 bd = Direction.DOWN_LEFT;
                 checkBallSpeed();
@@ -223,13 +227,11 @@ public class PongPanel extends javax.swing.JPanel {
             System.out.println("Player 1 Scored!");
             initVariables();
         }
-        
-        System.out.println(ballSpeed);
     }
     
     public void checkBallSpeed()
     {
-        System.out.println(ballSpeed);
+//        System.out.println(ballSpeed);
         if(ballSpeed >= MAX_BALLSPEED)
         {
             ballSpeed = MAX_BALLSPEED;
