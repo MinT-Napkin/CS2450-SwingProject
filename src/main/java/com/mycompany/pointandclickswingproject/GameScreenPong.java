@@ -16,6 +16,7 @@ import javax.swing.InputMap;
 import javax.swing.JComponent;
 import javax.swing.KeyStroke;
 import java.awt.Graphics;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 
@@ -79,6 +80,12 @@ public class GameScreenPong extends javax.swing.JPanel {
 //        myActionMap.put("D", LetterD);
 //         
 //    }
+    
+    public static JLabel getSpaceLabel()
+    {
+        return spaceLabel;
+    }
+    
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -90,6 +97,7 @@ public class GameScreenPong extends javax.swing.JPanel {
 
         jButton1 = new javax.swing.JButton();
         pongPanel = new myPongPanel();
+        spaceLabel = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         time = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -107,15 +115,30 @@ public class GameScreenPong extends javax.swing.JPanel {
         pongPanel.setBackground(new java.awt.Color(0, 0, 0));
         pongPanel.setPreferredSize(new java.awt.Dimension(350, 250));
 
+        spaceLabel.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 24)); // NOI18N
+        spaceLabel.setForeground(new java.awt.Color(255, 255, 255));
+        spaceLabel.setText("PRESS SPACE TO BEGIN!");
+        spaceLabel.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                spaceLabelKeyPressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pongPanelLayout = new javax.swing.GroupLayout(pongPanel);
         pongPanel.setLayout(pongPanelLayout);
         pongPanelLayout.setHorizontalGroup(
             pongPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 350, Short.MAX_VALUE)
+            .addGroup(pongPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(spaceLabel)
+                .addContainerGap(11, Short.MAX_VALUE))
         );
         pongPanelLayout.setVerticalGroup(
             pongPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 250, Short.MAX_VALUE)
+            .addGroup(pongPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(spaceLabel)
+                .addContainerGap(216, Short.MAX_VALUE))
         );
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -197,6 +220,15 @@ public class GameScreenPong extends javax.swing.JPanel {
         w.switchPanes("menu");
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void spaceLabelKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_spaceLabelKeyPressed
+        // TODO add your handling code here:
+        if(spaceLabel.isVisible())
+        {
+            //start game
+            spaceLabel.setVisible(false);
+        }
+    }//GEN-LAST:event_spaceLabelKeyPressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -206,6 +238,7 @@ public class GameScreenPong extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel pongPanel;
+    private static javax.swing.JLabel spaceLabel;
     private javax.swing.JLabel time;
     // End of variables declaration//GEN-END:variables
 
@@ -233,24 +266,28 @@ class myPongPanel extends javax.swing.JPanel{
     private final int screenW = 350;
     private final int screenH = 250;
     
+    private JLabel spaceLabel;
+    
     myPongPanel() {
-     // set a preferred size for the custom panel.
-     setPreferredSize(new Dimension(screenH,screenW)); 
-     setKeyBindings();
+        // set a preferred size for the custom panel.
+        setPreferredSize(new Dimension(screenH,screenW)); 
+        setKeyBindings();
     }
     
-     @Override
-        public void paintComponent(Graphics g) {
-            super.paintComponent(g);
-            
-            g.setColor(Color.white);
-           // g.drawLine(100, 50, 100, 100);
-           // g.drawLine(300, 50, 300, 100);
-            g.fillRect(paddle1X, paddle1Y, paddle1W, paddle1H);
-            g.fillRect(paddle2X, paddle2Y, paddle2W, paddle2H);
-            g.fillOval(screenW/2, screenH/2, ballSize, ballSize);
-            
-        }
+    @Override
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        
+        spaceLabel = GameScreenPong.getSpaceLabel();
+
+        g.setColor(Color.white);
+       // g.drawLine(100, 50, 100, 100);
+       // g.drawLine(300, 50, 300, 100);
+        g.fillRect(paddle1X, paddle1Y, paddle1W, paddle1H);
+        g.fillRect(paddle2X, paddle2Y, paddle2W, paddle2H);
+        g.fillOval(screenW/2, screenH/2, ballSize, ballSize);
+
+    }
    
         
     private void movePaddle1(int y)
@@ -300,7 +337,7 @@ class myPongPanel extends javax.swing.JPanel{
         }
     }
     
-     private void setKeyBindings()
+    private void setKeyBindings()
     {
         
         InputMap myInputMap;
@@ -314,33 +351,49 @@ class myPongPanel extends javax.swing.JPanel{
              movePaddle1(newY);
              }
         };
+
+        Action Player1Down = new AbstractAction(){
+        public void actionPerformed(ActionEvent e) 
+        {
+            System.out.println("S pressed!");
+           // p1velocity = -1;
+            newY = paddle1Y + p1velocity;
+            movePaddle1(newY);
+
+           }
+        };
         
-         Action Player1Down = new AbstractAction(){
-             
-         public void actionPerformed(ActionEvent e) {
-             System.out.println("S pressed!");
-            // p1velocity = -1;
-             newY = paddle1Y + p1velocity;
-             movePaddle1(newY);
-             
+        Action Player2Up = new AbstractAction(){
+        public void actionPerformed(ActionEvent e) 
+        {
+            System.out.println("Up Arrow pressed!");
+           // p1velocity = -1;
+            newY = paddle2Y - p2velocity;
+            movePaddle2(newY);
+        }
+        };
+
+        Action Player2Down = new AbstractAction(){
+        public void actionPerformed(ActionEvent e) 
+        {
+           System.out.println("Down Arrow pressed!");
+           // p1velocity = -1;
+            newY = paddle2Y + p2velocity;
+            movePaddle2(newY);
             }
         };
-         Action Player2Up = new AbstractAction(){
-         public void actionPerformed(ActionEvent e) {
-             System.out.println("Up Arrow pressed!");
-            // p1velocity = -1;
-             newY = paddle2Y - p2velocity;
-             movePaddle2(newY);
-         }
-        };
-        
-         Action Player2Down = new AbstractAction(){
-         public void actionPerformed(ActionEvent e) {
-            System.out.println("Down Arrow pressed!");
-            // p1velocity = -1;
-             newY = paddle2Y + p2velocity;
-             movePaddle2(newY);
-             }
+
+        Action startGame = new AbstractAction(){
+            public void actionPerformed(ActionEvent e) 
+            {
+                // TODO add your handling code here:
+                if(spaceLabel.isVisible())
+                {
+                    System.out.println("Start Game!");
+                    //start game
+                    spaceLabel.setVisible(false);
+                }
+            }
         };
          
                 // GameScreen = this.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
@@ -356,6 +409,9 @@ class myPongPanel extends javax.swing.JPanel{
         myActionMap.put("Up", Player2Up);
         myInputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_DOWN, 0), "Down");
         myActionMap.put("Down", Player2Down);
+        
+        myInputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_SPACE, 0), "Space");
+        myActionMap.put("Space", startGame);
          
     }
     
