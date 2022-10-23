@@ -246,7 +246,9 @@ public class GameScreenPong extends javax.swing.JPanel {
 
 
 class myPongPanel extends javax.swing.JPanel{
-    
+ 
+    private final int screenW = 350;
+    private final int screenH = 250;
     
     private int paddle1X = 20;
     private int paddle1Y = 75;
@@ -262,16 +264,19 @@ class myPongPanel extends javax.swing.JPanel{
     int p2velocity = 7;
     
     private int ballSize = 10;
+    private int bx = screenW/2;
+    private int by = screenH/2;
     
-    private final int screenW = 350;
-    private final int screenH = 250;
     
     private JLabel spaceLabel;
+    
+    private boolean paused;
     
     myPongPanel() {
         // set a preferred size for the custom panel.
         setPreferredSize(new Dimension(screenH,screenW)); 
         setKeyBindings();
+        paused = true;
     }
     
     @Override
@@ -285,55 +290,69 @@ class myPongPanel extends javax.swing.JPanel{
        // g.drawLine(300, 50, 300, 100);
         g.fillRect(paddle1X, paddle1Y, paddle1W, paddle1H);
         g.fillRect(paddle2X, paddle2Y, paddle2W, paddle2H);
-        g.fillOval(screenW/2, screenH/2, ballSize, ballSize);
-
+        g.fillOval(bx, by, ballSize, ballSize);
+        
+        if(!paused)
+        {
+            moveBall();
+        }
     }
    
+    private void moveBall()
+    {
+        
+    }
         
     private void movePaddle1(int y)
     {
-        int offset = 2;
-        if (paddle1Y != y)
+        if(!paused)
         {
-            repaint(paddle1X, paddle1Y, paddle1W, paddle1H + offset);
-            paddle1Y = y;
-            repaint(paddle1X, paddle1Y, paddle1W, paddle1H + offset);
+            int offset = 2;
+            if (paddle1Y != y)
+            {
+                repaint(paddle1X, paddle1Y, paddle1W, paddle1H + offset);
+                paddle1Y = y;
+                repaint(paddle1X, paddle1Y, paddle1W, paddle1H + offset);
+            }
+
+            // upper bound
+            if(paddle1Y <= 0)
+            {
+                paddle1Y = 0;
+            }
+
+            // lower bound
+            if(paddle1Y + paddle1H >= screenH)
+            {
+                paddle1Y = screenH - paddle1H;
+            }
         }
-        
-        // upper bound
-        if(paddle1Y <= 0)
-        {
-            paddle1Y = 0;
-        }
-        
-        // lower bound
-        if(paddle1Y + paddle1H >= screenH)
-        {
-            paddle1Y = screenH - paddle1H;
-        }
-        
     }
     
     private void movePaddle2(int y)
     {
-        int offset = 2;
-        if (paddle2Y != y)
+        System.out.println(paused);
+        if(!paused)
         {
-            repaint(paddle2X, paddle2Y, paddle2W, paddle2H + offset);
-            paddle2Y = y;
-            repaint(paddle2X, paddle2Y, paddle2W, paddle2H + offset);
-        }
-        
-        // upper bound
-        if(paddle2Y <= 0)
-        {
-            paddle2Y = 0;
-        }
-        
-        // lower bound
-        if(paddle2Y + paddle2H >= screenH)
-        {
-            paddle2Y = screenH - paddle2H;
+            int offset = 2;
+            if (paddle2Y != y)
+            {
+                repaint(paddle2X, paddle2Y, paddle2W, paddle2H + offset);
+                paddle2Y = y;
+                repaint(paddle2X, paddle2Y, paddle2W, paddle2H + offset);
+            }
+
+            // upper bound
+            if(paddle2Y <= 0)
+            {
+                paddle2Y = 0;
+            }
+
+            // lower bound
+            if(paddle2Y + paddle2H >= screenH)
+            {
+                paddle2Y = screenH - paddle2H;
+            }
         }
     }
     
@@ -389,6 +408,7 @@ class myPongPanel extends javax.swing.JPanel{
                 // TODO add your handling code here:
                 if(spaceLabel.isVisible())
                 {
+                    paused = false;
                     System.out.println("Start Game!");
                     //start game
                     spaceLabel.setVisible(false);
