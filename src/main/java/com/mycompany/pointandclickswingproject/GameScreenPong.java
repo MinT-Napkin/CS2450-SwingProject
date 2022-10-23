@@ -5,22 +5,6 @@
 
 package com.mycompany.pointandclickswingproject;
 import static com.mycompany.pointandclickswingproject.PointAndClickSwingProject.w;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.KeyEvent;
-import javax.swing.AbstractAction;
-import javax.swing.Action;
-import javax.swing.ActionMap;
-import javax.swing.InputMap;
-import javax.swing.JComponent;
-import javax.swing.KeyStroke;
-import java.awt.Graphics;
-import javax.swing.JLabel;
-import java.awt.event.*;
-import java.util.Random;
-import javax.swing.Timer;
-
 
 /**
  *
@@ -83,11 +67,6 @@ public class GameScreenPong extends javax.swing.JPanel {
 //         
 //    }
     
-    public static JLabel getSpaceLabel()
-    {
-        return spaceLabel;
-    }
-    
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -98,14 +77,13 @@ public class GameScreenPong extends javax.swing.JPanel {
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
-        pongPanel = new myPongPanel();
-        spaceLabel = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         time = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        pongPanel1 = new com.mycompany.pointandclickswingproject.PongPanel();
 
         jButton1.setText("Quit");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -113,35 +91,6 @@ public class GameScreenPong extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-
-        pongPanel.setBackground(new java.awt.Color(0, 0, 0));
-        pongPanel.setPreferredSize(new java.awt.Dimension(350, 250));
-
-        spaceLabel.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 24)); // NOI18N
-        spaceLabel.setForeground(new java.awt.Color(255, 255, 255));
-        spaceLabel.setText("PRESS SPACE TO BEGIN!");
-        spaceLabel.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                spaceLabelKeyPressed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout pongPanelLayout = new javax.swing.GroupLayout(pongPanel);
-        pongPanel.setLayout(pongPanelLayout);
-        pongPanelLayout.setHorizontalGroup(
-            pongPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pongPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(spaceLabel)
-                .addContainerGap(11, Short.MAX_VALUE))
-        );
-        pongPanelLayout.setVerticalGroup(
-            pongPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pongPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(spaceLabel)
-                .addContainerGap(216, Short.MAX_VALUE))
-        );
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setText("PONG");
@@ -173,15 +122,16 @@ public class GameScreenPong extends javax.swing.JPanel {
                         .addGap(13, 13, 13)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel2)
-                            .addComponent(jLabel1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 303, Short.MAX_VALUE)
-                        .addComponent(time, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel1)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(44, 44, 44)
-                        .addComponent(jLabel4)
-                        .addGap(59, 59, 59)
-                        .addComponent(pongPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel4)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(time, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(pongPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -201,9 +151,6 @@ public class GameScreenPong extends javax.swing.JPanel {
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(pongPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(61, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
                             .addComponent(jLabel2))
@@ -213,23 +160,19 @@ public class GameScreenPong extends javax.swing.JPanel {
                             .addComponent(jLabel5))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton1)
-                        .addGap(41, 41, 41))))
+                        .addGap(41, 41, 41))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(pongPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(61, Short.MAX_VALUE))))
         );
+
+        pongPanel1.getAccessibleContext().setAccessibleName("");
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         w.switchPanes("menu");
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void spaceLabelKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_spaceLabelKeyPressed
-        // TODO add your handling code here:
-        if(spaceLabel.isVisible())
-        {
-            //start game
-            spaceLabel.setVisible(false);
-        }
-    }//GEN-LAST:event_spaceLabelKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -239,267 +182,8 @@ public class GameScreenPong extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel pongPanel;
-    private static javax.swing.JLabel spaceLabel;
+    private com.mycompany.pointandclickswingproject.PongPanel pongPanel1;
     private javax.swing.JLabel time;
     // End of variables declaration//GEN-END:variables
 
-}
-
-
-class myPongPanel extends javax.swing.JPanel{
- 
-    private final int screenW = 350;
-    private final int screenH = 250;
-    
-    private int paddle1X = 20;
-    private int paddle1Y = 75;
-    private int paddle1W = 8;
-    private int paddle1H = 60;
-   int newY = 0;
-    private int paddle2X = 330;
-    private int paddle2Y = 75;
-    private int paddle2W = 8;
-    private int paddle2H = 60;
-    
-    int p1velocity = 7;
-    int p2velocity = 7;
-    
-    private int ballSize = 10;
-    private double bx = screenW/2;
-    private double by = screenH/2;
-    
-    
-    private JLabel spaceLabel;
-    
-    private boolean paused;
-    private Direction bd;
-    
-    myPongPanel() {
-        // set a preferred size for the custom panel.
-        setPreferredSize(new Dimension(screenH,screenW)); 
-        setKeyBindings();
-        paused = true;
-    }
-    
-    @Override
-    public void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        
-        spaceLabel = GameScreenPong.getSpaceLabel();
-
-        g.setColor(Color.white);
-       // g.drawLine(100, 50, 100, 100);
-       // g.drawLine(300, 50, 300, 100);
-        g.fillRect(paddle1X, paddle1Y, paddle1W, paddle1H);
-        g.fillRect(paddle2X, paddle2Y, paddle2W, paddle2H);
-        g.fillOval((int)bx, (int)by, ballSize, ballSize);
-        
-        if(!paused)
-        {
-            moveBall();
-        }
-    }
-    
-    public enum Direction {
-        UP_RIGHT,         
-        UP_LEFT,
-        DOWN_RIGHT,
-        DOWN_LEFT
-    }
-   
-    private void moveBall()
-    {
-        int offset = 2;
-        repaint((int)bx, (int)by, ballSize + offset, ballSize + offset);
-        
-        switch (bd) {
-            case DOWN_RIGHT -> {
-                bx +=  0.1;
-                by +=  0.1;
-            }
-            case UP_RIGHT -> {
-                bx +=  0.1;
-                by -=  0.1;
-            }
-            case DOWN_LEFT -> {
-                bx -=  0.1;
-                by +=  0.1;
-            }
-            case UP_LEFT -> {
-                bx -=  0.1;
-                by -=  0.1;
-            }
-        }
-
-        repaint((int)bx, (int)by, ballSize + offset, ballSize + offset);
-        
-        // upper bound
-//        if(by <= 0)
-//        {
-//            paddle1Y = 0;
-//        }
-//
-//        // lower bound
-//        if(paddle1Y + paddle1H >= screenH)
-//        {
-//            paddle1Y = screenH - paddle1H;
-//        }
-    }
-        
-    private void movePaddle1(int y)
-    {
-        if(!paused)
-        {
-            int offset = 2;
-            if (paddle1Y != y)
-            {
-                repaint(paddle1X, paddle1Y, paddle1W, paddle1H + offset);
-                paddle1Y = y;
-                repaint(paddle1X, paddle1Y, paddle1W, paddle1H + offset);
-            }
-
-            // upper bound
-            if(paddle1Y <= 0)
-            {
-                paddle1Y = 0;
-            }
-
-            // lower bound
-            if(paddle1Y + paddle1H >= screenH)
-            {
-                paddle1Y = screenH - paddle1H;
-            }
-        }
-    }
-    
-    private void movePaddle2(int y)
-    {
-        if(!paused)
-        {
-            int offset = 2;
-            if (paddle2Y != y)
-            {
-                repaint(paddle2X, paddle2Y, paddle2W, paddle2H + offset);
-                paddle2Y = y;
-                repaint(paddle2X, paddle2Y, paddle2W, paddle2H + offset);
-            }
-
-            // upper bound
-            if(paddle2Y <= 0)
-            {
-                paddle2Y = 0;
-            }
-
-            // lower bound
-            if(paddle2Y + paddle2H >= screenH)
-            {
-                paddle2Y = screenH - paddle2H;
-            }
-        }
-    }
-    
-    private void setKeyBindings()
-    {
-        
-        InputMap myInputMap;
-        ActionMap myActionMap;
-        
-        Action Player1Up = new AbstractAction(){
-             public void actionPerformed(ActionEvent e) {
-             System.out.println("W pressed!");
-            // p1velocity = -1;
-             newY = paddle1Y - p1velocity;
-             movePaddle1(newY);
-             }
-        };
-
-        Action Player1Down = new AbstractAction(){
-        public void actionPerformed(ActionEvent e) 
-        {
-            System.out.println("S pressed!");
-           // p1velocity = -1;
-            newY = paddle1Y + p1velocity;
-            movePaddle1(newY);
-
-           }
-        };
-        
-        Action Player2Up = new AbstractAction(){
-        public void actionPerformed(ActionEvent e) 
-        {
-            System.out.println("Up Arrow pressed!");
-           // p1velocity = -1;
-            newY = paddle2Y - p2velocity;
-            movePaddle2(newY);
-        }
-        };
-
-        Action Player2Down = new AbstractAction(){
-        public void actionPerformed(ActionEvent e) 
-        {
-           System.out.println("Down Arrow pressed!");
-           // p1velocity = -1;
-            newY = paddle2Y + p2velocity;
-            movePaddle2(newY);
-            }
-        };
-
-        Action startGame = new AbstractAction(){
-            public void actionPerformed(ActionEvent e) 
-            {
-                // TODO add your handling code here:
-                if(spaceLabel.isVisible())
-                {
-                    Random rand = new Random();
-                    int num = rand.nextInt(4);
-                    switch(num)
-                    {
-                        case 0 -> bd = Direction.DOWN_RIGHT;
-                        case 1 -> bd = Direction.UP_RIGHT;
-                        case 2 -> bd = Direction.DOWN_LEFT;
-                        case 3 -> bd = Direction.UP_LEFT;
-                        
-                        default -> bd = Direction.DOWN_RIGHT;
-                    }
-                    paused = false;
-                    System.out.println("Start Game!");
-                    //start game
-                    spaceLabel.setVisible(false);
-                    Timer b = new Timer(1000, updateBall);
-                    b.start();
-                }
-            }
-            
-            ActionListener updateBall = new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    moveBall();
-            }
-        };
-        };
-         
-                // GameScreen = this.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
-        myInputMap = this.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
-        myActionMap = this.getActionMap();
-        
-        
-        myInputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_W, 0), "W");
-        myActionMap.put("W", Player1Up);
-        myInputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_S, 0), "S");
-        myActionMap.put("S", Player1Down);
-        myInputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_UP, 0), "Up");
-        myActionMap.put("Up", Player2Up);
-        myInputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_DOWN, 0), "Down");
-        myActionMap.put("Down", Player2Down);
-        
-        myInputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_SPACE, 0), "Space");
-        myActionMap.put("Space", startGame);
-         
-    }
-    
-        
-        
-        
-        
 }
