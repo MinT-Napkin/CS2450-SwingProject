@@ -16,7 +16,6 @@ import javax.swing.Action;
 import javax.swing.ActionMap;
 import javax.swing.InputMap;
 import javax.swing.JComponent;
-import javax.swing.JLabel;
 import javax.swing.KeyStroke;
 import javax.swing.Timer;
 
@@ -29,22 +28,25 @@ public class PongPanel extends javax.swing.JPanel {
     private final int screenW = 350;
     private final int screenH = 250;
     
-    private int paddle1X = 20;
-    private int paddle1Y = 75;
-    private int paddle1W = 8;
-    private int paddle1H = 60;
-   int newY = 0;
-    private int paddle2X = 330;
-    private int paddle2Y = 75;
-    private int paddle2W = 8;
-    private int paddle2H = 60;
+    private int paddle1X;
+    private int paddle1Y;
+    private int paddle1W;
+    private int paddle1H;
     
-    int p1velocity = 7;
-    int p2velocity = 7;
+    private int newY;
     
-    private int ballSize = 10;
-    private double bx = screenW/2;
-    private double by = screenH/2;
+    private int paddle2X;
+    private int paddle2Y;
+    private int paddle2W;
+    private int paddle2H;
+    
+    private int p1velocity;
+    private int p2velocity;
+    
+    private int ballSize;
+    private double bx;
+    private double by;
+    private double ballSpeed;
     
     private boolean paused;
     private Direction bd;
@@ -57,7 +59,36 @@ public class PongPanel extends javax.swing.JPanel {
         // set a preferred size for the custom panel.
         setPreferredSize(new Dimension(screenH,screenW)); 
         setKeyBindings();
+        
+        initVariables();
+    }
+    
+    // used to initalize and reset the game
+    public final void initVariables()
+    {
+        paddle1X = 15;
+        paddle1Y = 75;
+        paddle1W = 8;
+        paddle1H = 60;
+        
+        newY = 0;
+        
+        paddle2X = 330;
+        paddle2Y = 75;
+        paddle2W = 8;
+        paddle2H = 60;
+        
+        p1velocity = 7;
+        p2velocity = 7;
+        
+        ballSize = 10;
+        bx = screenW/2;
+        by = screenH/2;
+        
+        ballSpeed = 0.05;
         paused = true;
+        
+        spaceLabel.setVisible(true);
     }
     
     @Override
@@ -91,20 +122,20 @@ public class PongPanel extends javax.swing.JPanel {
         
         switch (bd) {
             case DOWN_RIGHT -> {
-                bx +=  0.1;
-                by +=  0.1;
+                bx +=  ballSpeed;
+                by +=  ballSpeed;
             }
             case UP_RIGHT -> {
-                bx +=  0.1;
-                by -=  0.1;
+                bx +=  ballSpeed;
+                by -=  ballSpeed;
             }
             case DOWN_LEFT -> {
-                bx -=  0.1;
-                by +=  0.1;
+                bx -=  ballSpeed;
+                by +=  ballSpeed;
             }
             case UP_LEFT -> {
-                bx -=  0.1;
-                by -=  0.1;
+                bx -=  ballSpeed;
+                by -=  ballSpeed;
             }
         }
 
@@ -273,6 +304,7 @@ public class PongPanel extends javax.swing.JPanel {
         myActionMap.put("Space", startGame);
     
     }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

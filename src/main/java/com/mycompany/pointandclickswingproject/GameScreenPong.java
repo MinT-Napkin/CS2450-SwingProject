@@ -76,7 +76,7 @@ public class GameScreenPong extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        quitBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         time = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -85,10 +85,10 @@ public class GameScreenPong extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         pongPanel1 = new com.mycompany.pointandclickswingproject.PongPanel();
 
-        jButton1.setText("Quit");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        quitBtn.setText("Quit");
+        quitBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                quitBtnActionPerformed(evt);
             }
         });
 
@@ -134,7 +134,7 @@ public class GameScreenPong extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(quitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel3))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel5)
@@ -159,7 +159,7 @@ public class GameScreenPong extends javax.swing.JPanel {
                             .addComponent(jLabel4)
                             .addComponent(jLabel5))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1)
+                        .addComponent(quitBtn)
                         .addGap(41, 41, 41))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(pongPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -169,20 +169,21 @@ public class GameScreenPong extends javax.swing.JPanel {
         pongPanel1.getAccessibleContext().setAccessibleName("");
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void quitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitBtnActionPerformed
         // TODO add your handling code here:
         w.switchPanes("menu");
-    }//GEN-LAST:event_jButton1ActionPerformed
+        pongPanel1.initVariables();
+    }//GEN-LAST:event_quitBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private com.mycompany.pointandclickswingproject.PongPanel pongPanel1;
+    private javax.swing.JButton quitBtn;
     private javax.swing.JLabel time;
     // End of variables declaration//GEN-END:variables
 
