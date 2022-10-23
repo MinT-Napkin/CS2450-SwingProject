@@ -5,20 +5,81 @@
 
 package com.mycompany.pointandclickswingproject;
 import static com.mycompany.pointandclickswingproject.PointAndClickSwingProject.w;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
+import javax.swing.AbstractAction;
+import javax.swing.Action;
+import javax.swing.ActionMap;
+import javax.swing.InputMap;
+import javax.swing.JComponent;
+import javax.swing.KeyStroke;
+import java.awt.Graphics;
+import javax.swing.JPanel;
 
 
 /**
  *
  * @author sirmu
  */
+
 public class GameScreenPong extends javax.swing.JPanel {
+
+  //  Graphics myGraphics;
 
     /** Creates new form PongGameScreen */
     public GameScreenPong() {
         initComponents();
+       // myGraphics = jPanel1.getGraphics();
         Clock clock = new Clock(time);
+       // paintComponent(myGraphics);
     }
 
+    
+//       private void setLetterBindings()
+//    {
+//        InputMap myInputMap;
+//        ActionMap myActionMap;
+//        
+//        Action LetterA = new AbstractAction(){
+//         public void actionPerformed(ActionEvent e) {
+//                button_AActionPerformed(e);
+//             }
+//        };
+//        
+//         Action LetterB = new AbstractAction(){
+//         public void actionPerformed(ActionEvent e) {
+//                button_BActionPerformed(e);
+//             }
+//        };
+//         Action LetterC = new AbstractAction(){
+//         public void actionPerformed(ActionEvent e) {
+//                button_CActionPerformed(e);
+//             }
+//        };
+//        
+//         Action LetterD = new AbstractAction(){
+//         public void actionPerformed(ActionEvent e) {
+//                button_DActionPerformed(e);
+//             }
+//        };
+//         
+//                // GameScreen = this.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
+//        myInputMap = this.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
+//        myActionMap = this.getActionMap();
+//        
+//        
+//        myInputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_A, 0), "A");
+//        myActionMap.put("A", LetterA);
+//        myInputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_B, 0), "B");
+//        myActionMap.put("B", LetterB);
+//        myInputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_C, 0), "C");
+//        myActionMap.put("C", LetterC);
+//        myInputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_D, 0), "D");
+//        myActionMap.put("D", LetterD);
+//         
+//    }
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -28,8 +89,8 @@ public class GameScreenPong extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
+        jPanel1 = new myPongPanel();
         jLabel1 = new javax.swing.JLabel();
         time = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -37,25 +98,26 @@ public class GameScreenPong extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 359, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 256, Short.MAX_VALUE)
-        );
-
         jButton1.setText("Quit");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel1.setPreferredSize(new java.awt.Dimension(350, 250));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 350, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 250, Short.MAX_VALUE)
+        );
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setText("PONG");
@@ -88,14 +150,14 @@ public class GameScreenPong extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel2)
                             .addComponent(jLabel1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 303, Short.MAX_VALUE)
                         .addComponent(time, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(44, 44, 44)
                         .addComponent(jLabel4)
-                        .addGap(53, 53, 53)
+                        .addGap(59, 59, 59)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -116,7 +178,7 @@ public class GameScreenPong extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(55, Short.MAX_VALUE))
+                        .addContainerGap(61, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
@@ -148,4 +210,128 @@ public class GameScreenPong extends javax.swing.JPanel {
     private javax.swing.JLabel time;
     // End of variables declaration//GEN-END:variables
 
+}
+
+
+class myPongPanel extends javax.swing.JPanel{
+    
+    
+    private int paddle1X = 100;
+    private int paddle1Y = 50;
+    private int paddle1W = 4;
+    private int paddle1H = 40;
+   int newY = 0;
+    private int paddle2X = 250;
+    private int paddle2Y = 50;
+    private int paddle2W = 4;
+    private int paddle2H = 40;
+    
+    int p1velocity = 0;
+    int p2velocity = 0;
+    
+    myPongPanel() {
+     // set a preferred size for the custom panel.
+     setPreferredSize(new Dimension(350,250)); 
+     setKeyBindings();
+    }
+    
+     @Override
+        public void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            g.setColor(Color.white);
+           // g.drawLine(100, 50, 100, 100);
+           // g.drawLine(300, 50, 300, 100);
+            g.fillRect(paddle1X, paddle1Y, paddle1W, paddle1H);
+            g.fillRect(paddle2X, paddle2Y, paddle2W, paddle2H);
+        }
+    
+   
+        
+    private void movePaddle1(int y)
+    {
+        int offset = 2;
+        if (paddle1Y != y)
+        {
+            repaint(paddle1X, paddle1Y, paddle1W, paddle1H + offset);
+            paddle1Y = y;
+            repaint(paddle1X, paddle1Y, paddle1W, paddle1H + offset);
+        }
+        
+    }
+    
+    private void movePaddle2(int y)
+    {
+        int offset = 2;
+        if (paddle2Y != y)
+        {
+            repaint(paddle2X, paddle2Y, paddle2W, paddle2H + offset);
+            paddle2Y = y;
+            repaint(paddle2X, paddle2Y, paddle2W, paddle2H + offset);
+        }
+        
+    }
+    
+     private void setKeyBindings()
+    {
+        
+        InputMap myInputMap;
+        ActionMap myActionMap;
+        
+        Action Player1Up = new AbstractAction(){
+             public void actionPerformed(ActionEvent e) {
+             System.out.println("W pressed!");
+            // p1velocity = -1;
+             newY = paddle1Y - 2;
+             movePaddle1(newY);
+             }
+        };
+        
+         Action Player1Down = new AbstractAction(){
+             
+         public void actionPerformed(ActionEvent e) {
+             System.out.println("S pressed!");
+            // p1velocity = -1;
+             newY = paddle1Y + 2;
+             movePaddle1(newY);
+             
+            }
+        };
+         Action Player2Up = new AbstractAction(){
+         public void actionPerformed(ActionEvent e) {
+             System.out.println("Up Arrow pressed!");
+            // p1velocity = -1;
+             newY = paddle2Y - 2;
+             movePaddle2(newY);
+         }
+        };
+        
+         Action Player2Down = new AbstractAction(){
+         public void actionPerformed(ActionEvent e) {
+            System.out.println("Down Arrow pressed!");
+            // p1velocity = -1;
+             newY = paddle2Y + 2;
+             movePaddle2(newY);
+             }
+        };
+         
+                // GameScreen = this.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
+        myInputMap = this.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
+        myActionMap = this.getActionMap();
+        
+        
+        myInputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_W, 0), "W");
+        myActionMap.put("W", Player1Up);
+        myInputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_S, 0), "S");
+        myActionMap.put("S", Player1Down);
+        myInputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_UP, 0), "Up");
+        myActionMap.put("Up", Player2Up);
+        myInputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_DOWN, 0), "Down");
+        myActionMap.put("Down", Player2Down);
+         
+    }
+    
+        
+        
+        
+        
 }
