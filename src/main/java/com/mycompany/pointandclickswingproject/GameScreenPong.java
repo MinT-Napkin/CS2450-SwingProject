@@ -35,7 +35,6 @@ public class GameScreenPong extends javax.swing.JPanel {
         Clock clock = new Clock(time);
        // paintComponent(myGraphics);
     }
-
     
 //       private void setLetterBindings()
 //    {
@@ -90,7 +89,7 @@ public class GameScreenPong extends javax.swing.JPanel {
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
-        jPanel1 = new myPongPanel();
+        pongPanel = new myPongPanel();
         jLabel1 = new javax.swing.JLabel();
         time = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -105,17 +104,17 @@ public class GameScreenPong extends javax.swing.JPanel {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
-        jPanel1.setPreferredSize(new java.awt.Dimension(350, 250));
+        pongPanel.setBackground(new java.awt.Color(0, 0, 0));
+        pongPanel.setPreferredSize(new java.awt.Dimension(350, 250));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout pongPanelLayout = new javax.swing.GroupLayout(pongPanel);
+        pongPanel.setLayout(pongPanelLayout);
+        pongPanelLayout.setHorizontalGroup(
+            pongPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 350, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        pongPanelLayout.setVerticalGroup(
+            pongPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 250, Short.MAX_VALUE)
         );
 
@@ -156,7 +155,7 @@ public class GameScreenPong extends javax.swing.JPanel {
                         .addGap(44, 44, 44)
                         .addComponent(jLabel4)
                         .addGap(59, 59, 59)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(pongPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,7 +176,7 @@ public class GameScreenPong extends javax.swing.JPanel {
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(pongPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(61, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -206,7 +205,7 @@ public class GameScreenPong extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel pongPanel;
     private javax.swing.JLabel time;
     // End of variables declaration//GEN-END:variables
 
@@ -216,35 +215,42 @@ public class GameScreenPong extends javax.swing.JPanel {
 class myPongPanel extends javax.swing.JPanel{
     
     
-    private int paddle1X = 100;
-    private int paddle1Y = 50;
-    private int paddle1W = 4;
-    private int paddle1H = 40;
+    private int paddle1X = 20;
+    private int paddle1Y = 75;
+    private int paddle1W = 8;
+    private int paddle1H = 60;
    int newY = 0;
-    private int paddle2X = 250;
-    private int paddle2Y = 50;
-    private int paddle2W = 4;
-    private int paddle2H = 40;
+    private int paddle2X = 330;
+    private int paddle2Y = 75;
+    private int paddle2W = 8;
+    private int paddle2H = 60;
     
-    int p1velocity = 0;
-    int p2velocity = 0;
+    int p1velocity = 7;
+    int p2velocity = 7;
+    
+    private int ballSize = 10;
+    
+    private final int screenW = 350;
+    private final int screenH = 250;
     
     myPongPanel() {
      // set a preferred size for the custom panel.
-     setPreferredSize(new Dimension(350,250)); 
+     setPreferredSize(new Dimension(screenH,screenW)); 
      setKeyBindings();
     }
     
      @Override
         public void paintComponent(Graphics g) {
             super.paintComponent(g);
+            
             g.setColor(Color.white);
            // g.drawLine(100, 50, 100, 100);
            // g.drawLine(300, 50, 300, 100);
             g.fillRect(paddle1X, paddle1Y, paddle1W, paddle1H);
             g.fillRect(paddle2X, paddle2Y, paddle2W, paddle2H);
+            g.fillOval(screenW/2, screenH/2, ballSize, ballSize);
+            
         }
-    
    
         
     private void movePaddle1(int y)
@@ -255,6 +261,18 @@ class myPongPanel extends javax.swing.JPanel{
             repaint(paddle1X, paddle1Y, paddle1W, paddle1H + offset);
             paddle1Y = y;
             repaint(paddle1X, paddle1Y, paddle1W, paddle1H + offset);
+        }
+        
+        // upper bound
+        if(paddle1Y <= 0)
+        {
+            paddle1Y = 0;
+        }
+        
+        // lower bound
+        if(paddle1Y + paddle1H >= screenH)
+        {
+            paddle1Y = screenH - paddle1H;
         }
         
     }
@@ -269,6 +287,17 @@ class myPongPanel extends javax.swing.JPanel{
             repaint(paddle2X, paddle2Y, paddle2W, paddle2H + offset);
         }
         
+        // upper bound
+        if(paddle2Y <= 0)
+        {
+            paddle2Y = 0;
+        }
+        
+        // lower bound
+        if(paddle2Y + paddle2H >= screenH)
+        {
+            paddle2Y = screenH - paddle2H;
+        }
     }
     
      private void setKeyBindings()
@@ -281,7 +310,7 @@ class myPongPanel extends javax.swing.JPanel{
              public void actionPerformed(ActionEvent e) {
              System.out.println("W pressed!");
             // p1velocity = -1;
-             newY = paddle1Y - 2;
+             newY = paddle1Y - p1velocity;
              movePaddle1(newY);
              }
         };
@@ -291,7 +320,7 @@ class myPongPanel extends javax.swing.JPanel{
          public void actionPerformed(ActionEvent e) {
              System.out.println("S pressed!");
             // p1velocity = -1;
-             newY = paddle1Y + 2;
+             newY = paddle1Y + p1velocity;
              movePaddle1(newY);
              
             }
@@ -300,7 +329,7 @@ class myPongPanel extends javax.swing.JPanel{
          public void actionPerformed(ActionEvent e) {
              System.out.println("Up Arrow pressed!");
             // p1velocity = -1;
-             newY = paddle2Y - 2;
+             newY = paddle2Y - p2velocity;
              movePaddle2(newY);
          }
         };
@@ -309,7 +338,7 @@ class myPongPanel extends javax.swing.JPanel{
          public void actionPerformed(ActionEvent e) {
             System.out.println("Down Arrow pressed!");
             // p1velocity = -1;
-             newY = paddle2Y + 2;
+             newY = paddle2Y + p2velocity;
              movePaddle2(newY);
              }
         };
