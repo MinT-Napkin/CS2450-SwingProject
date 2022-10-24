@@ -1,5 +1,5 @@
 /***************************************************************  
-*  file: PointAndClickSwingProject.java  
+*  file: CellStatus.java  
 *  author: N. Kowdle
 *  class: CS 2450 – User Interface Design and Programing 
 *  

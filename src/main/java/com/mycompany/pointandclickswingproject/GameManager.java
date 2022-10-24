@@ -1,10 +1,10 @@
 /***************************************************************  
-*  file: ScoreManager.java  
-*  author: M. Tran
+*  file: GameManager.java  
+*  author: N. Kowdle
 *  class: CS 2450 – User Interface Design and Programing 
 *  
-*  assignment: Swing Project v1.0 
-*  date last modified: 9/27/2022  
+*  assignment: Swing Project v1.3
+*  date last modified: 10/24/2022  
 *  
 *  purpose: This class contains the score and static methods meant to
 *  be manipulated by all game screens

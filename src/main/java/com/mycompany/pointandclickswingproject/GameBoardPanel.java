@@ -1,5 +1,5 @@
 /***************************************************************  
-*  file: PointAndClickSwingProject.java  
+*  file: GameBoardPanel.java  
 *  author: N. Kowdle / M. Tran
 *  class: CS 2450 – User Interface Design and Programing 
 *  

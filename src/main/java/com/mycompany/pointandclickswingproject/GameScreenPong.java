@@ -1,7 +1,15 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
+/***************************************************************  
+*  file: PongPanel.java  
+*  author: N. Kowdle, M. Tran, G. Waughan
+*  class: CS 2450 – User Interface Design and Programing 
+*  
+*  assignment: Swing Project v1.3
+*  date last modified: 10/24/2022  
+*  
+*  purpose: Screen containing the Pong game
+*  
+****************************************************************/ 
+
 package com.mycompany.pointandclickswingproject;
 
 import static com.mycompany.pointandclickswingproject.PointAndClickSwingProject.w;

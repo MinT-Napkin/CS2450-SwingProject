@@ -1,5 +1,5 @@
 /***************************************************************  
-*  file: PointAndClickSwingProject.java  
+*  file: GameScreen2.java  
 *  author: G. Waughan / N. Kowdle / M. Tran / B. Chen
 *  class: CS 2450 – User Interface Design and Programing 
 *  
