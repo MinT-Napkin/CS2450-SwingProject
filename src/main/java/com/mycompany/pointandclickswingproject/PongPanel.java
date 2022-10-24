@@ -1,12 +1,13 @@
 /***************************************************************  
-*  file: GameManager.java  
+*  file: PongPanel.java  
 *  author: N. Kowdle, M. Tran, G. Waughan
 *  class: CS 2450 – User Interface Design and Programing 
 *  
 *  assignment: Swing Project v1.3
 *  date last modified: 10/24/2022  
 *  
-*  purpose: Keep track if the Pong Game is still going
+*  purpose: All the necessary components and features to have a playable Pong
+*  game
 *  
 ****************************************************************/  
 package com.mycompany.pointandclickswingproject;
@@ -81,7 +82,8 @@ public class PongPanel extends javax.swing.JPanel {
         initVariables();
     }
 
-    // used to initalize and reset the game
+    // method: initVariables()
+    // purpose: reset variables to default
     public final void initVariables() {
         paused = true;
 
@@ -133,6 +135,8 @@ public class PongPanel extends javax.swing.JPanel {
         }
     }
 
+    // enum: Direction
+    // purpose: Define directions for the ball and paddles
     public enum Direction {
         UP_RIGHT,
         UP_LEFT,
@@ -142,6 +146,8 @@ public class PongPanel extends javax.swing.JPanel {
         DOWN
     }
 
+    // method: moveBall()
+    // purpose: draws the ball according to the specified direction
     private void moveBall() {
         int offset = 2;
             
@@ -232,6 +238,8 @@ public class PongPanel extends javax.swing.JPanel {
         }
     }
 
+    // method: checkBallSpeed()
+    // purpose: makes sure the ball doesn't go too fast
     public void checkBallSpeed() {
 //        System.out.println(ballSpeed);
         if (ballSpeed >= MAX_BALLSPEED) {
@@ -241,6 +249,8 @@ public class PongPanel extends javax.swing.JPanel {
         }
     }
 
+    // method: movePaddle1()
+    // purpose: moves player1's paddles based on their input
     private void movePaddle1() {
         if (!paused) {
             int y = 0;
@@ -269,6 +279,8 @@ public class PongPanel extends javax.swing.JPanel {
         }
     }
 
+    // method: movePaddle2()
+    // purpose: moves player 2 paddle based on their input
     private void movePaddle2() {
         if (!paused) {
             int y = 0;
@@ -298,6 +310,8 @@ public class PongPanel extends javax.swing.JPanel {
         }
     }
 
+    // method: setKeyBindings()
+    // purpose: initializes keybindings
     private void setKeyBindings() {
 
         InputMap myInputMap;

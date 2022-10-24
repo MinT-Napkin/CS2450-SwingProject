@@ -1,5 +1,5 @@
 /***************************************************************  
-*  file: PongPanel.java  
+*  file: GameScreenPong.java  
 *  author: N. Kowdle, M. Tran, G. Waughan
 *  class: CS 2450 – User Interface Design and Programing 
 *  
@@ -29,6 +29,7 @@ public class GameScreenPong extends javax.swing.JPanel {
         // myGraphics = jPanel1.getGraphics();
         Clock clock = new Clock(time);
         // paintComponent(myGraphics);
+        quitBtn.setToolTipText("Return to Main Menu");
     }
 
     public static void updateScoreLabels() {

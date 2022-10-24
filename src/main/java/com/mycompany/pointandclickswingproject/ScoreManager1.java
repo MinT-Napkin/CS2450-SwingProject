@@ -3,7 +3,7 @@
 *  author: M. Tran & N. Kowdle
 *  class: CS 2450 – User Interface Design and Programing 
 *  
-*  assignment: Swing Project v1.0 
+*  assignment: Swing Project v1.4 
 *  date last modified: 9/27/2022  
 *  
 *  purpose: This class contains the pong score1 and manipulated by all pong screens
