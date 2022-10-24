@@ -50,8 +50,10 @@ public class PongPanel extends javax.swing.JPanel {
 
     private final double MAX_BALLSPEED = 0.2;
     private final double INCREASING_BALLSPEED = 0.005;
+    private final double INITIAL_BALLSPEED = 0.05;
 
     private boolean paused;
+    
     private Direction bd;
     private Direction pd_p1;
     private Direction pd_p2;
@@ -94,7 +96,7 @@ public class PongPanel extends javax.swing.JPanel {
         bx = screenW / 2;
         by = screenH / 2;
 
-        ballSpeed = 0.05;
+        ballSpeed = INITIAL_BALLSPEED;
 
         GameScreenPong.updateScoreLabels();
 
@@ -135,7 +137,7 @@ public class PongPanel extends javax.swing.JPanel {
 
     private void moveBall() {
         int offset = 2;
-
+            
         if (!paused) {
             repaint((int) bx, (int) by, ballSize + offset, ballSize + offset);
             switch (bd) {
@@ -197,7 +199,7 @@ public class PongPanel extends javax.swing.JPanel {
         // hits paddle 3
         if ((bx >= paddle2X - paddle2W
                 && (bx <= paddle2X))
-                && ((by >= paddle2Y - paddle2H - 5)
+                && ((by >= paddle2Y - 5)
                 && (by <= paddle2Y + paddle2H - 5))) {
             if (bd == Direction.UP_RIGHT) {
                 bd = Direction.UP_LEFT;
@@ -361,7 +363,7 @@ public class PongPanel extends javax.swing.JPanel {
         Action startGame = new AbstractAction() {
             public void actionPerformed(ActionEvent e) {
                 // TODO add your handling code here:
-                if (spaceLabel.isVisible()) {
+                if (spaceLabel.isVisible() && GameManager.getStatus()) {
                     Random rand = new Random();
                     int num = rand.nextInt(4);
                     switch (num) {
