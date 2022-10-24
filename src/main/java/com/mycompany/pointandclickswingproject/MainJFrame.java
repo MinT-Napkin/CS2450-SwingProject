@@ -73,7 +73,7 @@ public class MainJFrame extends javax.swing.JFrame {
         
         initComponents();
         
-        setTitle("SwingBeans - Swing Project v1.2");
+        setTitle("SwingBeans - Swing Project v1.3");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
