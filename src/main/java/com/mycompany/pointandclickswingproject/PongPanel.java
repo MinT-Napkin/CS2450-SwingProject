@@ -52,7 +52,9 @@ public class PongPanel extends javax.swing.JPanel {
     
     private boolean paused;
     private Direction bd;
-    private Direction pd;
+    private Direction pd_p1;
+    private Direction pd_p2;
+    
     
     /**
      * Creates new form PongPanel
@@ -250,9 +252,9 @@ public class PongPanel extends javax.swing.JPanel {
        if(!paused)
        {
             int y = 0;
-            if (pd == Direction.UP)
+            if (pd_p1 == Direction.UP)
                 y = paddle1Y - paddleVelocity;
-            else if(pd == Direction.DOWN)
+            else if(pd_p1 == Direction.DOWN)
                 y = paddle1Y + paddleVelocity;
         
             int offset = 2;
@@ -282,9 +284,9 @@ public class PongPanel extends javax.swing.JPanel {
        if(!paused)
        {
             int y = 0;
-            if (pd == Direction.UP)
+            if (pd_p2 == Direction.UP)
                 y = paddle2Y - paddleVelocity;
-            else if(pd == Direction.DOWN)
+            else if(pd_p2 == Direction.DOWN)
                 y = paddle2Y + paddleVelocity;
         
             int offset = 2;
@@ -335,7 +337,7 @@ public class PongPanel extends javax.swing.JPanel {
              public void actionPerformed(ActionEvent e) {
 //             System.out.println("W pressed!");
             // p1velocity = -1;
-             pd = Direction.UP;
+             pd_p1 = Direction.UP;
              movement_P1.start();
              }
         };
@@ -345,7 +347,7 @@ public class PongPanel extends javax.swing.JPanel {
         {
 //            System.out.println("S pressed!");
            // p1velocity = -1;
-            pd = Direction.DOWN;
+            pd_p1 = Direction.DOWN;
             movement_P1.start();
 
            }
@@ -354,7 +356,7 @@ public class PongPanel extends javax.swing.JPanel {
         Action Player2Up = new AbstractAction(){
         public void actionPerformed(ActionEvent e) 
         {
-            pd = Direction.UP;
+            pd_p2 = Direction.UP;
             movement_P2.start();
         }
         };
@@ -362,7 +364,7 @@ public class PongPanel extends javax.swing.JPanel {
         Action Player2Down = new AbstractAction(){
         public void actionPerformed(ActionEvent e) 
         {
-            pd = Direction.DOWN;
+            pd_p2 = Direction.DOWN;
             movement_P2.start();
         }
 
