@@ -29,7 +29,8 @@ public class GameScreenPong extends javax.swing.JPanel {
         // myGraphics = jPanel1.getGraphics();
         Clock clock = new Clock(time);
         // paintComponent(myGraphics);
-        quitBtn.setToolTipText("Return to Main Menu");
+        quitBtn.setToolTipText("Return to Main Menu (You can also press the Enter key to quit)");
+        pongPanel1.setToolTipText("Get the ball to the other side to earn 10 pts! First to 100 wins!");
     }
 
     public static void updateScoreLabels() {
