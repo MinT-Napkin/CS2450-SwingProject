@@ -52,6 +52,7 @@ public class PongPanel extends javax.swing.JPanel {
     
     private boolean paused;
     private Direction bd;
+    private Direction pd;
     
     /**
      * Creates new form PongPanel
@@ -88,7 +89,7 @@ public class PongPanel extends javax.swing.JPanel {
         bx = screenW/2;
         by = screenH/2;
         
-        ballSpeed = 0.05;
+        ballSpeed = 0.02;
         
         spaceLabel.setVisible(true);
     }
@@ -115,7 +116,9 @@ public class PongPanel extends javax.swing.JPanel {
         UP_RIGHT,         
         UP_LEFT,
         DOWN_RIGHT,
-        DOWN_LEFT
+        DOWN_LEFT,
+        UP,
+        DOWN
     }
    
     private void moveBall()
@@ -242,16 +245,21 @@ public class PongPanel extends javax.swing.JPanel {
         }
     }
         
-    private void movePaddle1(int y)
+    private void movePaddle1()
     {
-        if(!paused)
-        {
+       if(!paused)
+       {
+            int y = 0;
+            if (pd == Direction.UP)
+                y = paddle1Y - paddleVelocity;
+            else if(pd == Direction.DOWN)
+                y = paddle1Y + paddleVelocity;
+        
             int offset = 2;
             if (paddle1Y != y)
             {
                 repaint(paddle1X, paddle1Y, paddle1W, paddle1H + offset);
                 paddle1Y = y;
-                repaint(paddle1X, paddle1Y, paddle1W, paddle1H + offset);
                 repaint(paddle1X, paddle1Y, paddle1W, paddle1H + offset);
             }
 
@@ -266,20 +274,28 @@ public class PongPanel extends javax.swing.JPanel {
             {
                 paddle1Y = screenH - paddle1H;
             }
-        }
+       }
     }
     
-    private void movePaddle2(int y)
+    private void movePaddle2()
     {
-        if(!paused)
-        {
+       if(!paused)
+       {
+            int y = 0;
+            if (pd == Direction.UP)
+                y = paddle2Y - paddleVelocity;
+            else if(pd == Direction.DOWN)
+                y = paddle2Y + paddleVelocity;
+        
             int offset = 2;
+            
             if (paddle2Y != y)
             {
                 repaint(paddle2X, paddle2Y, paddle2W, paddle2H + offset);
                 paddle2Y = y;
                 repaint(paddle2X, paddle2Y, paddle2W, paddle2H + offset);
             }
+         
 
             // upper bound
             if(paddle2Y <= 0)
@@ -292,7 +308,7 @@ public class PongPanel extends javax.swing.JPanel {
             {
                 paddle2Y = screenH - paddle2H;
             }
-        }
+       }
     }
     
     private void setKeyBindings()
@@ -301,12 +317,26 @@ public class PongPanel extends javax.swing.JPanel {
         InputMap myInputMap;
         ActionMap myActionMap;
         
+        Timer movement_P1 = new Timer(25, new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    movePaddle1();
+             } 
+        });
+        
+        Timer movement_P2 = new Timer(25, new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    movePaddle2();
+             } 
+        });
+        
         Action Player1Up = new AbstractAction(){
              public void actionPerformed(ActionEvent e) {
 //             System.out.println("W pressed!");
             // p1velocity = -1;
-             newY = paddle1Y - paddleVelocity;
-             movePaddle1(newY);
+             pd = Direction.UP;
+             movement_P1.start();
              }
         };
 
@@ -315,8 +345,8 @@ public class PongPanel extends javax.swing.JPanel {
         {
 //            System.out.println("S pressed!");
            // p1velocity = -1;
-            newY = paddle1Y + paddleVelocity;
-            movePaddle1(newY);
+            pd = Direction.DOWN;
+            movement_P1.start();
 
            }
         };
@@ -324,22 +354,38 @@ public class PongPanel extends javax.swing.JPanel {
         Action Player2Up = new AbstractAction(){
         public void actionPerformed(ActionEvent e) 
         {
-//            System.out.println("Up Arrow pressed!");
-           // p1velocity = -1;
-            newY = paddle2Y - paddleVelocity;
-            movePaddle2(newY);
+            pd = Direction.UP;
+            movement_P2.start();
         }
         };
 
         Action Player2Down = new AbstractAction(){
         public void actionPerformed(ActionEvent e) 
         {
-//           System.out.println("Down Arrow pressed!");
-           // p1velocity = -1;
-            newY = paddle2Y + paddleVelocity;
-            movePaddle2(newY);
-            }
+            pd = Direction.DOWN;
+            movement_P2.start();
+        }
+
         };
+         
+        Action stopMovement_P1 = new AbstractAction(){
+            
+            public void actionPerformed(ActionEvent e)
+            {
+                movement_P1.stop();
+            }
+            
+        };
+        
+        Action stopMovement_P2 = new AbstractAction(){
+            
+            public void actionPerformed(ActionEvent e)
+            {
+                movement_P2.stop();
+            }
+            
+        };
+        
 
         Action startGame = new AbstractAction(){
             public void actionPerformed(ActionEvent e) 
@@ -380,14 +426,25 @@ public class PongPanel extends javax.swing.JPanel {
         myActionMap = this.getActionMap();
         
         
-        myInputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_W, 0), "W");
+        myInputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_W, 0, false), "W");
         myActionMap.put("W", Player1Up);
-        myInputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_S, 0), "S");
+        myInputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_W, 0, true), "W Released");
+        myActionMap.put("W Released", stopMovement_P1);
+        
+        myInputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_S, 0, false), "S");
         myActionMap.put("S", Player1Down);
-        myInputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_UP, 0), "Up");
+        myInputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_S, 0, true), "S Released");
+        myActionMap.put("S Released", stopMovement_P1);
+        
+        myInputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_UP, 0, false), "Up");
         myActionMap.put("Up", Player2Up);
-        myInputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_DOWN, 0), "Down");
+        myInputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_UP, 0, true), "Up Released");
+        myActionMap.put("Up Released", stopMovement_P2);
+        
+        myInputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_DOWN, 0, false), "Down");
         myActionMap.put("Down", Player2Down);
+        myInputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_DOWN, 0, true), "Down Released");
+        myActionMap.put("Down Released", stopMovement_P2);
         
         myInputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_SPACE, 0), "Space");
         myActionMap.put("Space", startGame);
